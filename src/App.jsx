@@ -3,6 +3,12 @@ import { useRef, useState } from "react"
 export default function App(){
 
   const [items, setItems] = useState([])
+  const [query, setQuery] = useState("")
+
+  const filteredItems = items.filter(item => {
+    return item.toLowerCase().includes(query.toLowerCase())
+  })
+
   const inputRef = useRef()
 
   function onSubmit(e){
@@ -21,7 +27,7 @@ export default function App(){
 
   return (
     <>
-      Search: <input></input>
+      Search: <input value={query} onChange={e => setQuery(e.target.value)} type="search"></input>
       <br/>
       <br/>
       <form onSubmit={onSubmit}>
@@ -30,8 +36,13 @@ export default function App(){
       </form>
       <br/>
       Items: 
-      {items.map(item => {
-        return <div>{item}</div>
+      {filteredItems.map(item => {
+        return (
+        <>
+          <div>{item}</div>
+        </>
+        )
+        
       })}
     </>
   )
