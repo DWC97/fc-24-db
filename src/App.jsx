@@ -1,13 +1,15 @@
-import { useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 
 export default function App(){
 
   const [items, setItems] = useState([])
   const [query, setQuery] = useState("")
 
-  const filteredItems = items.filter(item => {
-    return item.toLowerCase().includes(query.toLowerCase())
-  })
+  const filteredItems = useMemo(() => {
+    return items.filter(item => {
+      return item.toLowerCase().includes(query.toLowerCase())
+    })
+  }, [items, query]) 
 
   const inputRef = useRef()
 
