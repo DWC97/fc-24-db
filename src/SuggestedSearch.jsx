@@ -20,7 +20,7 @@ export function SuggestedSearch(){
             }}/>
             {list.filter(item => {
                 return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
-            })
+            }).slice(0,10)
             .map(item => {
                 return <div key={item.player_id} onClick={() => {
                     onSearch(item.short_name)
