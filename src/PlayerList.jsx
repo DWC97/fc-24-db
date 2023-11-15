@@ -10,7 +10,7 @@ export function PlayerList(){
             {list.map(item => {
                 return (
                 <div key={item.player_id}>
-                    <Link to={`/${item.short_name}`}>
+                    <Link to={`/player/${item.short_name}`}>
                         {`${item.short_name} - ${item.overall}`}
                     </Link>   
                 </div>)
