@@ -11,7 +11,7 @@ export function SuggestedSearch(){
     }
 
     return (
-        <div>
+        <div className="search">
             <h1>Search</h1>
             <br/>
             <br/>
