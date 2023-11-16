@@ -3,8 +3,10 @@ import { PlayerList } from "./PlayerList";
 import { SuggestedSearch } from "./SuggestedSearch";
 import WdsSearch from "./WdsSearch";
 import { PlayerPage } from "./PlayerPage";
+import { useFetchData } from "./useFetchData";
 
 export default function App(){
+  useFetchData()
   return (
     <>
       <div>
