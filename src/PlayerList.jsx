@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import data from "./final.json"
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function PlayerList(){
 
@@ -8,12 +8,22 @@ export function PlayerList(){
 
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
+    const [playerList, setPlayerList] = useState([])
     // const [hasMore, setHasMore] = useState(true)
 
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
-    const currentRecords = list.slice(indexOfFirstRecord,indexOfLastRecord);
+    // const currentRecords = list.slice(indexOfFirstRecord,indexOfLastRecord);
+    
+
+    useEffect(() => {
+        // setPlayerList(prev => {
+        //     return [...prev, list.slice(indexOfFirstRecord,indexOfLastRecord)]
+        // })
+
+        setPlayerList(list.slice(0,indexOfLastRecord))
+    }, [currentPage])
     
     const observer = useRef()
     const lastPlayerElementRef = useCallback(node => {
@@ -30,8 +40,8 @@ export function PlayerList(){
 
     return (
         <div className="player-list">
-            {currentRecords.map((item, index) => {
-                if (currentRecords.length === index + 1){
+            {playerList.map((item, index) => {
+                if (playerList.length === index + 1){
                     return (
                         <div key={item.player_id} ref={lastPlayerElementRef}>
                             <Link to={`/player/${item.short_name}`}>
