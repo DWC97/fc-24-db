@@ -8,7 +8,7 @@ export function PlayerList(){
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
-    // const [hasMore, setHasMore] = useState(true)
+    const [filterCount, setFilterCount] = useState(0)
 
     
     useEffect(() => {
@@ -16,7 +16,7 @@ export function PlayerList(){
         const indexOfLastRecord = currentPage * recordsPerPage;
         setPlayerList(list.slice(0,indexOfLastRecord))
 
-    }, [currentPage, list])
+    }, [currentPage, filterCount])
     
     const observer = useRef()
     const lastPlayerElementRef = useCallback(node => {
@@ -36,6 +36,7 @@ export function PlayerList(){
         setList(prev => {
             return prev.sort((a, b) => (a[stat] < b[stat]) ? 1 : -1)
         })
+        setFilterCount(prev => prev + 1)
     }
 
     return (
@@ -43,6 +44,7 @@ export function PlayerList(){
             <div className="filters">
                 <div className="stats">
                     <div className="pace" onClick={() => sortByStat("pace")}>PAC</div>
+                    <div className="overall" onClick={() => sortByStat("overall")}>OVE</div>
                 </div>
             </div>
             {playerList.map((item, index) => {
