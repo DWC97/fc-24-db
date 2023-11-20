@@ -4,8 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export function PlayerList(){
 
-    const list = data.results
-
+    const [list, setList] = useState(data.results)
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
@@ -17,7 +16,7 @@ export function PlayerList(){
         const indexOfLastRecord = currentPage * recordsPerPage;
         setPlayerList(list.slice(0,indexOfLastRecord))
 
-    }, [currentPage])
+    }, [currentPage, list])
     
     const observer = useRef()
     const lastPlayerElementRef = useCallback(node => {
@@ -32,11 +31,18 @@ export function PlayerList(){
         if (node) observer.current.observe(node)
     }, [])
 
+    function sortByStat(){
+        setCurrentPage(1)
+        setList(prev => {
+            return prev.sort((a, b) => (a.pace < b.pace) ? 1 : -1)
+        })
+    }
+
     return (
         <div className="player-list">
             <div className="filters">
-                <div className="position">
-                    Position
+                <div className="stats">
+                    <div className="pace" onClick={() => sortByStat()}>PAC</div>
                 </div>
             </div>
             {playerList.map((item, index) => {
