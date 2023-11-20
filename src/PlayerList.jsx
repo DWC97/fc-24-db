@@ -31,10 +31,10 @@ export function PlayerList(){
         if (node) observer.current.observe(node)
     }, [])
 
-    function sortByStat(){
+    function sortByStat(stat){
         setCurrentPage(1)
         setList(prev => {
-            return prev.sort((a, b) => (a.pace < b.pace) ? 1 : -1)
+            return prev.sort((a, b) => (a[stat] < b[stat]) ? 1 : -1)
         })
     }
 
@@ -42,7 +42,7 @@ export function PlayerList(){
         <div className="player-list">
             <div className="filters">
                 <div className="stats">
-                    <div className="pace" onClick={() => sortByStat()}>PAC</div>
+                    <div className="pace" onClick={() => sortByStat("pace")}>PAC</div>
                 </div>
             </div>
             {playerList.map((item, index) => {
