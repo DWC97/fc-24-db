@@ -11,18 +11,12 @@ export function PlayerList(){
     const [playerList, setPlayerList] = useState([])
     // const [hasMore, setHasMore] = useState(true)
 
-    const indexOfLastRecord = currentPage * recordsPerPage;
-    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-
-    // const currentRecords = list.slice(indexOfFirstRecord,indexOfLastRecord);
     
-
     useEffect(() => {
-        // setPlayerList(prev => {
-        //     return [...prev, list.slice(indexOfFirstRecord,indexOfLastRecord)]
-        // })
 
+        const indexOfLastRecord = currentPage * recordsPerPage;
         setPlayerList(list.slice(0,indexOfLastRecord))
+
     }, [currentPage])
     
     const observer = useRef()
@@ -40,6 +34,11 @@ export function PlayerList(){
 
     return (
         <div className="player-list">
+            <div className="filters">
+                <div className="position">
+                    Position
+                </div>
+            </div>
             {playerList.map((item, index) => {
                 if (playerList.length === index + 1){
                     return (
