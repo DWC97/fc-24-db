@@ -8,6 +8,26 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         {
             "name": "pace",
             "abbreviation": "PAC"
+        },
+        {
+            "name": "shooting",
+            "abbreviation": "SHO"
+        },
+        {
+            "name": "passing",
+            "abbreviation": "PAS"
+        },
+        {
+            "name": "dribbling",
+            "abbreviation": "DRI"
+        },
+        {
+            "name": "defending",
+            "abbreviation": "DEF"
+        },
+        {
+            "name": "physic",
+            "abbreviation": "PHY"
         }
     ]
 
@@ -23,7 +43,12 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         <div>
             {playerStats.map(stat => {
                 return (
-                    <div key={stat.abbreviation} className={stat.name}>{stat.abbreviation}</div>
+                    <div 
+                    key={stat.abbreviation} 
+                    className={stat.name}
+                    onClick={() => sortByStat(stat.name)}>
+                        {stat.abbreviation}
+                    </div>
                 )
             })}
         </div>
