@@ -6,37 +6,44 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         {
             "name": "overall",
             "abbreviation": "OVE",
-            "clicked": false
+            "clicked": false,
+            "flipped": false
         },
         {
             "name": "pace",
             "abbreviation": "PAC",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         },
         {
             "name": "shooting",
             "abbreviation": "SHO",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         },
         {
             "name": "passing",
             "abbreviation": "PAS",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         },
         {
             "name": "dribbling",
             "abbreviation": "DRI",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         },
         {
             "name": "defending",
             "abbreviation": "DEF",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         },
         {
             "name": "physic",
             "abbreviation": "PHY",
-            "clicked": false
+            "clicked": false,
+            "flipped": true
         }
     ]
 
@@ -44,26 +51,26 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
     
     function sortByStat(stat){
         
-        console.log(stats)
         setStats((prev) => {
             return prev.map(s => {
-                if (s.name === stat){
-                    return {...s, clicked: true}
+                if (s === stat){
+                    return {...s, clicked: true, flipped: !s.flipped}
                 }
                 else {
-                    return {...s, clicked: false}
+                    return {...s, clicked: false, flipped: true}
                 }
             })
         })
-
-        // const statObj = stats.find(s => {
-        //     return s.name === stat
-        // })
-        // console.log(statObj)
-
+  
         setCurrentPage(1)
         setList(prev => {
-            return prev.sort((a, b) => (a[stat] < b[stat]) ? 1 : -1)
+            if (stat.flipped === true){
+                return prev.sort((a, b) => (a[stat.name] < b[stat.name]) ? 1 : -1)
+            }
+            else {
+                return prev.sort((a, b) => (a[stat.name] > b[stat.name]) ? 1 : -1)
+            }
+            
         })
         setFilterCount(prev => prev + 1)
     }
@@ -73,10 +80,10 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
             {stats.map(stat => {
                 return (
                     <div 
-                    style={{ color: stat.clicked? 'blue' : "black" }}
+                    style={{ color: stat.clicked? 'red' : "black" }}
                     key={stat.abbreviation} 
                     className={stat.name}
-                    onClick={() => sortByStat(stat.name)}>
+                    onClick={() => sortByStat(stat)}>
                         {stat.abbreviation}
                     </div>
                 )
