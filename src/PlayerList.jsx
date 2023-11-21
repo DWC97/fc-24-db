@@ -10,17 +10,6 @@ export function PlayerList(){
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
-
-    const playerStats = [
-        {
-            "name": "overall",
-            "abbreviation": "OVE"
-        },
-        {
-            "name": "pace",
-            "abbreviation": "PAC"
-        }
-    ]
     
     useEffect(() => {
 
@@ -42,7 +31,6 @@ export function PlayerList(){
         if (node) observer.current.observe(node)
     }, [])
 
-
     return (
         <div className="player-list">
             <div className="filters">
@@ -52,9 +40,6 @@ export function PlayerList(){
                         setList={setList}
                         setFilterCount={setFilterCount}
                     />
-
-                    {/* <div className="pace" onClick={() => sortByStat("pace")}>PAC</div>
-                    <div className="overall" onClick={() => sortByStat("overall")}>OVE</div> */}
                 </div>
             </div>
             {playerList.map((item, index) => {

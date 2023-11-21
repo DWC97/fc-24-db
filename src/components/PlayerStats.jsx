@@ -1,5 +1,16 @@
 export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
 
+    const playerStats = [
+        {
+            "name": "overall",
+            "abbreviation": "OVE"
+        },
+        {
+            "name": "pace",
+            "abbreviation": "PAC"
+        }
+    ]
+
     function sortByStat(stat){
         setCurrentPage(1)
         setList(prev => {
@@ -8,9 +19,13 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         setFilterCount(prev => prev + 1)
     }
 
-    console.log(stat, abbreviation)
-
     return (
-        <div id={id} className={stat} onClick={() => sortByStat({stat})}>{abbreviation}</div>
+        <div>
+            {playerStats.map(stat => {
+                return (
+                    <div key={stat.abbreviation} className={stat.name}>{stat.abbreviation}</div>
+                )
+            })}
+        </div>
     )
 }
