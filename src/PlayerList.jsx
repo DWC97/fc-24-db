@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import data from "./final.json"
 import { useCallback, useEffect, useRef, useState } from "react";
+import { PlayerStats } from "./components/PlayerStats";
 
 export function PlayerList(){
 
@@ -10,6 +11,16 @@ export function PlayerList(){
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
 
+    const playerStats = [
+        {
+            "name": "overall",
+            "abbreviation": "OVE"
+        },
+        {
+            "name": "pace",
+            "abbreviation": "PAC"
+        }
+    ]
     
     useEffect(() => {
 
@@ -31,20 +42,19 @@ export function PlayerList(){
         if (node) observer.current.observe(node)
     }, [])
 
-    function sortByStat(stat){
-        setCurrentPage(1)
-        setList(prev => {
-            return prev.sort((a, b) => (a[stat] < b[stat]) ? 1 : -1)
-        })
-        setFilterCount(prev => prev + 1)
-    }
 
     return (
         <div className="player-list">
             <div className="filters">
                 <div className="stats">
-                    <div className="pace" onClick={() => sortByStat("pace")}>PAC</div>
-                    <div className="overall" onClick={() => sortByStat("overall")}>OVE</div>
+                    <PlayerStats 
+                        setCurrentPage={setCurrentPage} 
+                        setList={setList}
+                        setFilterCount={setFilterCount}
+                    />
+
+                    {/* <div className="pace" onClick={() => sortByStat("pace")}>PAC</div>
+                    <div className="overall" onClick={() => sortByStat("overall")}>OVE</div> */}
                 </div>
             </div>
             {playerList.map((item, index) => {
