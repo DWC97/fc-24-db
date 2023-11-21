@@ -1,37 +1,66 @@
+import { useState } from "react"
+
 export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
 
     const playerStats = [
         {
             "name": "overall",
-            "abbreviation": "OVE"
+            "abbreviation": "OVE",
+            "clicked": false
         },
         {
             "name": "pace",
-            "abbreviation": "PAC"
+            "abbreviation": "PAC",
+            "clicked": false
         },
         {
             "name": "shooting",
-            "abbreviation": "SHO"
+            "abbreviation": "SHO",
+            "clicked": false
         },
         {
             "name": "passing",
-            "abbreviation": "PAS"
+            "abbreviation": "PAS",
+            "clicked": false
         },
         {
             "name": "dribbling",
-            "abbreviation": "DRI"
+            "abbreviation": "DRI",
+            "clicked": false
         },
         {
             "name": "defending",
-            "abbreviation": "DEF"
+            "abbreviation": "DEF",
+            "clicked": false
         },
         {
             "name": "physic",
-            "abbreviation": "PHY"
+            "abbreviation": "PHY",
+            "clicked": false
         }
     ]
 
+    const [stats, setStats] = useState(playerStats)
+    
     function sortByStat(stat){
+        
+        console.log(stats)
+        setStats((prev) => {
+            return prev.map(s => {
+                if (s.name === stat){
+                    return {...s, clicked: true}
+                }
+                else {
+                    return {...s, clicked: false}
+                }
+            })
+        })
+
+        // const statObj = stats.find(s => {
+        //     return s.name === stat
+        // })
+        // console.log(statObj)
+
         setCurrentPage(1)
         setList(prev => {
             return prev.sort((a, b) => (a[stat] < b[stat]) ? 1 : -1)
@@ -41,9 +70,10 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
 
     return (
         <div>
-            {playerStats.map(stat => {
+            {stats.map(stat => {
                 return (
                     <div 
+                    style={{ color: stat.clicked? 'blue' : "black" }}
                     key={stat.abbreviation} 
                     className={stat.name}
                     onClick={() => sortByStat(stat.name)}>
