@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import data from "./final.json"
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PlayerStats } from "./components/PlayerStats";
+import { PlayerPositions } from "./components/PlayerPositions";
 
 export function PlayerList(){
 
@@ -10,7 +11,7 @@ export function PlayerList(){
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
-    console.log(list)
+
     useEffect(() => {
 
         const indexOfLastRecord = currentPage * recordsPerPage;
@@ -40,6 +41,9 @@ export function PlayerList(){
                         setList={setList}
                         setFilterCount={setFilterCount}
                     />
+                </div>
+                <div className="positions">
+                    <PlayerPositions />
                 </div>
             </div>
             {playerList.map((item, index) => {
