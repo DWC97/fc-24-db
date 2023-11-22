@@ -5,12 +5,12 @@ import { PlayerStats } from "./components/PlayerStats";
 
 export function PlayerList(){
 
-    const [list, setList] = useState(data.results)
+    const [list, setList] = useState(data.results.filter(player => player.player_positions !== "GK"))
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
-    
+    console.log(list)
     useEffect(() => {
 
         const indexOfLastRecord = currentPage * recordsPerPage;
