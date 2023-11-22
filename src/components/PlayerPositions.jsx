@@ -1,8 +1,13 @@
 import { useState } from "react"
+import data from "../final.json"
 
-export function PlayerPositions(){
+export function PlayerPositions({ setCurrentPage, setList, setFilterCount, list }){
 
     const playerPositions = [
+        {
+            "position": "ALL",
+            "checked": true
+        },
         {
             "position": "ST",
             "checked": false
@@ -73,6 +78,17 @@ export function PlayerPositions(){
                 }
             })
         })
+
+        setCurrentPage(1)
+        
+        if (position.position === "ALL"){
+            setList(data.results)
+        }
+        else {
+            setList(data.results.filter(player => player.player_positions.includes(position.position)))
+        }
+        
+        setFilterCount(prev => prev + 1)
     }
 
     return (
