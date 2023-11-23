@@ -47,9 +47,9 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount, filterCou
         }
     ]
 
-    useEffect(() => {
-        setStats(playerStats)
-    }, [])
+    // useEffect(() => {
+    //     setStats(playerStats)
+    // }, [])
     
     function sortByStat(stat){
         
@@ -64,16 +64,16 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount, filterCou
             })
         })
         
-        setCurrentPage(1)
-        setList(prev => {
-            if (stat.flipped === true){
-                return prev.sort((a, b) => (a[stat.name] < b[stat.name]) ? 1 : -1)
-            }
-            else {
-                return prev.sort((a, b) => (a[stat.name] > b[stat.name]) ? 1 : -1)
-            }
+        // setCurrentPage(1)
+        // setList(prev => {
+        //     if (stat.flipped === true){
+        //         return prev.sort((a, b) => (a[stat.name] < b[stat.name]) ? 1 : -1)
+        //     }
+        //     else {
+        //         return prev.sort((a, b) => (a[stat.name] > b[stat.name]) ? 1 : -1)
+        //     }
             
-        })
+        // })
         setFilterCount(prev => prev + 1)
     }
 

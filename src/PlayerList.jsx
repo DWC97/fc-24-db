@@ -6,15 +6,70 @@ import { PlayerPositions } from "./components/PlayerPositions";
 
 export function PlayerList(){
 
+    const playerStats = [
+        {
+            "name": "overall",
+            "abbreviation": "OVE",
+            "clicked": true,
+            "flipped": false
+        },
+        {
+            "name": "pace",
+            "abbreviation": "PAC",
+            "clicked": false,
+            "flipped": true
+        },
+        {
+            "name": "shooting",
+            "abbreviation": "SHO",
+            "clicked": false,
+            "flipped": true
+        },
+        {
+            "name": "passing",
+            "abbreviation": "PAS",
+            "clicked": false,
+            "flipped": true
+        },
+        {
+            "name": "dribbling",
+            "abbreviation": "DRI",
+            "clicked": false,
+            "flipped": true
+        },
+        {
+            "name": "defending",
+            "abbreviation": "DEF",
+            "clicked": false,
+            "flipped": true
+        },
+        {
+            "name": "physic",
+            "abbreviation": "PHY",
+            "clicked": false,
+            "flipped": true
+        }
+    ]
+
     const [list, setList] = useState(data.results.filter(player => player.player_positions !== "GK"))
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
-    const [stats, setStats] = useState([])
+    const [stats, setStats] = useState(playerStats)
 
     useEffect(() => {
+        const clickedStat = stats.find(stat => stat.clicked === true)
 
+        if (clickedStat.flipped === false){
+            setPlayerList(list.sort((a, b) => (a[clickedStat.name] < b[clickedStat.name]) ? 1 : -1))
+        }
+        else {
+            setPlayerList(list.sort((a, b) => (a[clickedStat.name] > b[clickedStat.name]) ? 1 : -1))
+        }
+
+        
+        
     }, [filterCount])
 
     useEffect(() => {
