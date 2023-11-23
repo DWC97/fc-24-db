@@ -11,6 +11,11 @@ export function PlayerList(){
     const [recordsPerPage] = useState(40);
     const [playerList, setPlayerList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
+    const [stats, setStats] = useState([])
+
+    useEffect(() => {
+
+    }, [filterCount])
 
     useEffect(() => {
 
@@ -39,13 +44,15 @@ export function PlayerList(){
                     <PlayerStats 
                         setCurrentPage={setCurrentPage} 
                         setList={setList}
+                        filterCount={filterCount}
                         setFilterCount={setFilterCount}
+                        stats={stats}
+                        setStats={setStats}
                     />
                 </div>
                 <div className="positions">
                     <PlayerPositions 
                         setCurrentPage={setCurrentPage}
-                        list={list} 
                         setList={setList}
                         setFilterCount={setFilterCount}
                     />

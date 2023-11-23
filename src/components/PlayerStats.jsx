@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
+export function PlayerStats({ setCurrentPage, setList, setFilterCount, filterCount, stats, setStats }){
 
     const playerStats = [
         {
             "name": "overall",
             "abbreviation": "OVE",
-            "clicked": false,
+            "clicked": true,
             "flipped": false
         },
         {
@@ -47,7 +47,9 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         }
     ]
 
-    const [stats, setStats] = useState(playerStats)
+    useEffect(() => {
+        setStats(playerStats)
+    }, [])
     
     function sortByStat(stat){
         
@@ -61,7 +63,7 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
                 }
             })
         })
-  
+        
         setCurrentPage(1)
         setList(prev => {
             if (stat.flipped === true){
@@ -74,6 +76,21 @@ export function PlayerStats({ setCurrentPage, setList, setFilterCount }){
         })
         setFilterCount(prev => prev + 1)
     }
+
+    // useEffect(() => {
+    //     const stat = stats.find(s => s.clicked === true)
+
+    //     setCurrentPage(1)
+    //     setList(prev => {
+    //         if (stat.flipped === true){
+    //             return prev.sort((a, b) => (a[stat.name] < b[stat.name]) ? 1 : -1)
+    //         }
+    //         else {
+    //             return prev.sort((a, b) => (a[stat.name] > b[stat.name]) ? 1 : -1)
+    //         }
+            
+    //     })
+    // }, [filterCount])
 
     return (
         <div>
