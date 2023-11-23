@@ -166,11 +166,12 @@ export function PlayerList(){
                     />
                 </div>
                 <div className="positions">
-                    {/* <PlayerPositions 
+                    <PlayerPositions 
+                        positions={positions}
+                        setPositions={setPositions}
                         setCurrentPage={setCurrentPage}
-                        setList={setList}
                         setFilterCount={setFilterCount}
-                    /> */}
+                    />
                 </div>
             </div>
             {playerList.map((item, index) => {

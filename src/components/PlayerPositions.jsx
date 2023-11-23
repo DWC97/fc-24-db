@@ -1,12 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import data from "../final.json"
 
-export function PlayerPositions({ setCurrentPage, setList, setFilterCount, list }){
+export function PlayerPositions({ setCurrentPage,  setFilterCount,  positions, setPositions }){
 
     
-    
+    useEffect(() => {
+        if (positions.find(position => position.checked === true) === undefined){
+            setPositions(prev => {
+                return prev.map(p => {
+                    if (p.position === "ALL"){
+                        return {...p, checked: true}
+                    }
+                    else {
+                        return p
+                    }
+                })
+            })
+        }
+        setFilterCount(prev => prev + 1)
+    }, positions)
 
     function filterByPosition(position){
+        
+
         setPositions(prev => {
             return prev.map(p => {
                 if (p === position){
