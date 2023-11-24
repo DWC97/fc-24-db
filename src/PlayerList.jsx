@@ -114,30 +114,55 @@ export function PlayerList(){
         }
     ]
 
-    const [list, setList] = useState(data.results.filter(player => player.player_positions !== "GK"))
+    const list = data.results.filter(player => player.player_positions !== "GK")
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage] = useState(40);
-    const [playerList, setPlayerList] = useState([])
+    const [playerList, setPlayerList] = useState(list.slice(0, 40))
+    const [renderedList, setRenderedList] = useState([])
     const [filterCount, setFilterCount] = useState(0)
     const [stats, setStats] = useState(playerStats)
     const [positions, setPositions] = useState(playerPositions)
 
     useEffect(() => {
-        const clickedStat = stats.find(stat => stat.clicked === true)
+        setRenderedList(playerList)
+    }, [])
 
-        if (clickedStat.flipped === false){
-            setPlayerList(list.sort((a, b) => (a[clickedStat.name] < b[clickedStat.name]) ? 1 : -1))
-        }
-        else {
-            setPlayerList(list.sort((a, b) => (a[clickedStat.name] > b[clickedStat.name]) ? 1 : -1))
-        }
+    useEffect(() => {
+        const clickedStat = stats.find(stat => stat.clicked === true)
+        const clickedPosition = positions.find(position => position.checked === true)
+ 
+
+
+            if (clickedStat.flipped === false){
+
+                setPlayerList(list.sort((a, b) => (a[clickedStat.name] < b[clickedStat.name]) ? 1 : -1))
+            }
+            else {
+       
+                setPlayerList(list.sort((a, b) => (a[clickedStat.name] > b[clickedStat.name]) ? 1 : -1))
+            }
+           
+        // else {
+        //     if (clickedStat.flipped === false){
+          
+        //         setPlayerList(list.sort((a, b) => (a[clickedStat.name] < b[clickedStat.name]) ? 1 : -1))
+        //     }
+        //     else {
+         
+        //         setPlayerList(list.sort((a, b) => (a[clickedStat.name] > b[clickedStat.name]) ? 1 : -1))
+        //     }
+        // }
+        
         
     }, [filterCount])
 
     useEffect(() => {
 
         const indexOfLastRecord = currentPage * recordsPerPage;
-        setPlayerList(list.slice(0,indexOfLastRecord))
+        // setPlayerList(list.slice(0,indexOfLastRecord))
+        setRenderedList(playerList.slice(0, indexOfLastRecord))
+        console.log(playerList)
+        
 
     }, [currentPage, filterCount])
     
@@ -147,7 +172,9 @@ export function PlayerList(){
         if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting){
+                console.log("observed")
                 setCurrentPage(prevNumber => prevNumber + 1)
+                console.log(currentPage)
             }
         })
 
@@ -174,8 +201,8 @@ export function PlayerList(){
                     />
                 </div>
             </div>
-            {playerList.map((item, index) => {
-                if (playerList.length === index + 1){
+            {renderedList.map((item, index) => {
+                if (renderedList.length === index + 1){
                     return (
                         <div key={item.player_id} ref={lastPlayerElementRef}>
                             <Link to={`/player/${item.short_name}`}>

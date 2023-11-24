@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import data from "../final.json"
+import { useEffect } from "react"
 
 export function PlayerPositions({ setCurrentPage,  setFilterCount,  positions, setPositions }){
 
