@@ -1,7 +1,7 @@
-export function Player({ name, position, overall, pace, shooting, passing, dribbling, defending, physic }){
+export function Player({ short_name, position, overall, pace, shooting, passing, dribbling, defending, physic }){
     return (
         <div>
-            {name}
+            {short_name}
             {position}
             {overall}
         </div>
