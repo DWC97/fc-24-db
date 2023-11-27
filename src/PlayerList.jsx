@@ -136,10 +136,12 @@ export function PlayerList(){
             if (clickedStat.flipped === false){
 
                 setPlayerList(list.sort((a, b) => (a[clickedStat.name] < b[clickedStat.name]) ? 1 : -1))
+                setRenderedList(playerList)
             }
             else {
        
                 setPlayerList(list.sort((a, b) => (a[clickedStat.name] > b[clickedStat.name]) ? 1 : -1))
+                setRenderedList(playerList)
             }
            
         // else {
