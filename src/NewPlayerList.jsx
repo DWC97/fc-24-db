@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Player } from "./Player";
 
 export function NewPlayerList({ players }){
@@ -24,9 +24,6 @@ export function NewPlayerList({ players }){
         })
         .slice(0, 40 * currentPage);
 
-    //   const uniquePositions = [...new Set(players.map(player => player.club_position))];
-    
-    //   const positionOptions = ['ALL', ...uniquePositions];
     const playerPositions = ["ALL", "ST", "CF", "LW", "LM", "RW", "RM", "CAM", "CM", "CDM", "LWB", "LB", "RWB", "RB", "CB"]
     const playerStats = [
         {
@@ -59,6 +56,10 @@ export function NewPlayerList({ players }){
             "abbreviation": "PHY"
         }
     ]
+
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [positionFilter, sortOrder, sortedBy])
 
     const observer = useRef()
     const lastPlayerElementRef = useCallback(node => {
@@ -101,9 +102,6 @@ export function NewPlayerList({ players }){
         </div>
 
         <div>
-            {/* {sortedPlayers.map((player, index) => (
-            <Player key={player.player_id} {...player} />
-            ))} */}
             {sortedPlayers.map((player, index) => {
                 if (sortedPlayers.length === index + 1){
                     return (
