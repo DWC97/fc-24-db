@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import data from "./final.json"
+import data from "../final.json"
 import { useCallback, useEffect, useRef, useState } from "react";
-import { PlayerStats } from "./components/PlayerStats";
-import { PlayerPositions } from "./components/PlayerPositions";
+import { PlayerStats } from "../components/PlayerStats";
+import { PlayerPositions } from "../components/PlayerPositions";
 
 export function PlayerList(){
 
