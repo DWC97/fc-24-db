@@ -1,5 +1,5 @@
 import { useState } from "react"
-import data from "./final.json"
+import data from "./data/final.json"
 
 export function SuggestedSearch(){
 

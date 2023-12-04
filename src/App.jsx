@@ -1,10 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { PlayerList } from "./PlayerList";
 import { SuggestedSearch } from "./SuggestedSearch";
-import WdsSearch from "./WdsSearch";
 import { PlayerPage } from "./PlayerPage";
 import { NewPlayerList } from "./NewPlayerList";
-import data from "./final.json"
+import data from "./data/final.json"
 
 
 const players = data.results.filter(player => player.player_positions !== "GK")

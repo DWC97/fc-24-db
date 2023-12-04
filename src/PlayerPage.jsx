@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import data from "./final.json"
+import data from "./data/final.json"
 
 export function PlayerPage(){
 
