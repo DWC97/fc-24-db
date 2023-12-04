@@ -8,6 +8,7 @@ import data from "./data/final.json"
 import { Home } from "./pages/Home";
 import { Players } from "./pages/Players";
 import { Player } from "./pages/Player";
+import { Navbar } from "./components/Navbar";
 
 
 const players = data.results.filter(player => player.player_positions !== "GK")
@@ -21,6 +22,7 @@ export default function App(){
         <Link to={"/"}>Home</Link>
         <Link to={"/search"}>Search</Link>
       </div> */}
+      <Navbar />
 
       {/* <Routes>
         <Route path="/" element={<NewPlayerList players={players}/>} />
