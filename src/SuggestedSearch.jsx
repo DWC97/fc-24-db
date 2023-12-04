@@ -1,5 +1,6 @@
 import { useState } from "react"
 import data from "./data/final.json"
+import { Link } from "react-router-dom"
 
 export function SuggestedSearch(){
 
@@ -24,7 +25,7 @@ export function SuggestedSearch(){
             .map(item => {
                 return <div key={item.player_id} onClick={() => {
                     onSearch(item.short_name)
-                }}>{`${item.short_name} - ${item.overall}`}</div>
+                }}><Link to={`/player/${item.short_name}`}>{`${item.short_name} - ${item.overall}`}</Link></div>
             })}
         </div>
     )
