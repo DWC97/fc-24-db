@@ -1,7 +1,9 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { SuggestedSearch } from "./SuggestedSearch";
-import { PlayerPage } from "./PlayerPage";
-import { NewPlayerList } from "./NewPlayerList";
+import { SuggestedSearch } from "./legacy/SuggestedSearch";
+import { PlayerPage } from "./legacy/PlayerPage";
+import { NewPlayerList } from "./legacy/NewPlayerList";
+import { Club } from "./pages/Club"
+import { Nation } from "./pages/Nation"
 import data from "./data/final.json"
 
 
@@ -23,6 +25,8 @@ export default function App(){
         <Route path="/" element={<NewPlayerList players={players}/>} />
         <Route path="/search" element={<SuggestedSearch />} />
         <Route path="/player/:id" element={<PlayerPage/>}/>
+        <Route path="/club/:id" element={<Club/>}/>
+        <Route path="/nation/:id" element={<Nation/>}/>
       </Routes>
     </>
   )

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import data from "./data/final.json"
+import data from "../data/final.json"
 import { Link } from "react-router-dom"
 
 export function SuggestedSearch(){
