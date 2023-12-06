@@ -36,8 +36,8 @@ export function Navbar(){
             <div className="w-32 hidden md:flex items-center justify-center mr-0">
                 <Icon icon="material-symbols:search" color="white" width="30"/>
             </div> 
-            <div className="w-32 flex md:hidden items-center justify-center mr-0">
-                <Icon icon="pajamas:hamburger" color="white" width="25" />
+            <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer" onClick={handleNav}>
+                {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div> 
         </div>
     )
