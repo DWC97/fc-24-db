@@ -20,14 +20,14 @@ export function Navbar(){
                 </NavLink>
                 <ul className="hidden md:flex flex-row ">
                     <NavLink to={"/players"}>
-                        <li className="text-white w-32 h-full flex items-center justify-center font-medium">
+                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm">
                             Players
                         </li>
                     </NavLink>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium">
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm">
                         Nations
                     </li>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium">
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm">
                         Clubs
                     </li>
                 </ul>
