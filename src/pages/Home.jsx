@@ -34,7 +34,7 @@ export function Home(){
             <div className="pb-12">
                 <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 px-24 rounded-lg text-center text-custom-grey"/>
             </div>
-            <div className="flex flex-row pb-8">
+            <div className="hidden md:flex flex-row pb-8">
                {newsPosters.map(item => {
                 return <NewsModule key={item.id} {...item} />
                })}

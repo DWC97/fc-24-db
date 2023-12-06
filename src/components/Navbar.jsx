@@ -12,12 +12,15 @@ export function Navbar(){
 
     return (
         <div className="w-full bg-custom-grey h-20 flex fixed justify-between">
-            <div className="flex ">
+            <div className="flex">
                 <NavLink to={"/"}>
-                    <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
+                    <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
                         <img src="assets/logos/nav.png" className="w-12"/>
                     </div>
                 </NavLink>
+                <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3] md:hidden">
+                    <img src="assets/logos/nav.png" className="w-12"/>
+                </div>
                 <ul className="hidden md:flex flex-row ">
                     <NavLink to={"/players"}>
                         <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
