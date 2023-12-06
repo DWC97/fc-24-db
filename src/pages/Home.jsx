@@ -4,11 +4,11 @@ export function Home(){
             <div>
                 <img src="assets/logos/main.png" className="w-96"/>
             </div>
-            <div>
+            <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8">
                 THE ULTIMATE PLAYER DATABASE
             </div>
             <div>
-                <input type="text" placeholder="Search player name..." />
+                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 px-24 rounded-md text-center text-custom-grey"/>
             </div>
             <div className="flex flex-row">
                 <div className="flex flex-col">
