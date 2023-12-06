@@ -4,17 +4,20 @@ const newsPosters = [
     {
         "id": 1,
         "imageSrc": "assets/images/rice.jpeg",
-        "desc": "GUNNERS' NEW SUPERMAN"
+        "desc": "GUNNERS' NEW SUPERMAN",
+        "url": "https://www.youtube.com/watch?v=2fqgT6sF3Jw"
     },
     {
         "id": 2,
         "imageSrc": "assets/images/haaland.jpg",
-        "desc": "HAALAND LEFT FURIOUS"
+        "desc": "HAALAND LEFT FURIOUS",
+        "url": "https://www.telegraph.co.uk/football/2023/12/04/erling-haaland-fa-investigation-referee-abuse-man-city/"
     },
     {
         "id": 3,
         "imageSrc": "assets/images/champions.jpg",
-        "desc": "MATCHDAY 5 RESULTS"
+        "desc": "MATCHDAY 5 RESULTS",
+        "url": "https://en.as.com/resultados/futbol/champions/2021_2022/jornada/grupos_a_5/"
     }
 ]
 
@@ -33,7 +36,7 @@ export function Home(){
             </div>
             <div className="flex flex-row pb-8">
                {newsPosters.map(item => {
-                return <NewsModule {...item} />
+                return <NewsModule key={item.id} {...item} />
                })}
             </div>
             <div className="text-xs text-custom-grey">
