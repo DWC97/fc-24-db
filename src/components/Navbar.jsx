@@ -36,9 +36,20 @@ export function Navbar(){
             <div className="w-32 hidden md:flex items-center justify-center mr-0">
                 <Icon icon="material-symbols:search" color="white" width="30"/>
             </div> 
-            <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer" onClick={handleNav}>
+            <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
-            </div> 
+            </div>
+            <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center " : "hidden"}>
+                <div className="mt-32">
+                    <img src="assets/logos/nav.png" className="w-44"/>
+                </div>
+                <ul className="text-white w-full text-left px-12 pt-16">
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-lg">SEARCH</li>
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-lg">PLAYERS</li>
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-lg">CLUBS</li>
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-lg">NATIONS</li>
+                </ul>
+            </div>
         </div>
     )
 }
