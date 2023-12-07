@@ -24,22 +24,22 @@ const newsPosters = [
 export function Home(){
 
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
             <div className="mt-28">
                 <img src="assets/logos/main.png" className="w-72"/>
             </div>
-            <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8">
+            <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE
             </div>
             <div className="pb-12">
-                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 px-24 rounded-lg text-center text-custom-grey"/>
+                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center text-custom-grey px-12 md:px-24"/>
             </div>
             <div className="hidden md:flex flex-row pb-8">
                {newsPosters.map(item => {
                 return <NewsModule key={item.id} {...item} />
                })}
             </div>
-            <div className="text-xs text-custom-grey">
+            <div className="text-xs text-custom-grey px-8 text-center">
                 Please note this is not a commercial product and is only hosted as part of a web development portfolio.
             </div>
         </div>
