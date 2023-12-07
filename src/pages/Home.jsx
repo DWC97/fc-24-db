@@ -1,4 +1,6 @@
 import { NewsModule } from "../components/NewsModule"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const newsPosters = [
     {
@@ -21,7 +23,14 @@ const newsPosters = [
     }
 ]
 
-export function Home(){
+export function Home({ players }){
+
+    const [value, setValue] = useState("")
+    const playerList = players
+
+    function onSearch(player){
+        setValue(player)
+    }
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
@@ -32,7 +41,17 @@ export function Home(){
                 THE ULTIMATE PLAYER DATABASE
             </div>
             <div className="pb-12">
-                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center text-custom-grey px-12 md:px-24"/>
+                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center text-custom-grey px-12 md:px-24" value={value} onChange={(e) => {
+                setValue(e.target.value)
+            }}/>
+            {playerList.filter(item => {
+                return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+            }).slice(0,10)
+            .map(item => {
+                return <div key={item.player_id} onClick={() => {
+                    onSearch(item.short_name)
+                }}><Link to={`/player/${item.short_name}`}>{`${item.short_name} - ${item.overall}`}</Link></div>
+            })}
             </div>
             <div className="hidden md:flex flex-row pb-8">
                {newsPosters.map(item => {
