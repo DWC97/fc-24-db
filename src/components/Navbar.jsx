@@ -11,7 +11,7 @@ export function Navbar(){
     }
 
     return (
-        <div className="w-full bg-custom-grey h-20 flex fixed justify-between">
+        <div className="w-full bg-custom-grey h-20 flex fixed justify-between z-50">
             <div className="flex">
                 <NavLink to={"/"}>
                     <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3]">

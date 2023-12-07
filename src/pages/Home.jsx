@@ -1,6 +1,7 @@
 import { NewsModule } from "../components/NewsModule"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { PlayerSearch } from "../components/PlayerSearch"
 
 const newsPosters = [
     {
@@ -28,12 +29,8 @@ export function Home({ players }){
     const [value, setValue] = useState("")
     const playerList = players
 
-    function onSearch(player){
-        setValue(player)
-    }
-
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center overflow-hidden">
+        <div className="w-full h-screen relative flex flex-col justify-center items-center overflow-hidden">
             <div className="mt-28">
                 <img src="assets/logos/main.png" className="w-72"/>
             </div>
@@ -44,18 +41,18 @@ export function Home({ players }){
                 <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center text-custom-grey px-12 md:px-24" value={value} onChange={(e) => {
                 setValue(e.target.value)
             }}/>
-            {playerList.filter(item => {
-                return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
-            }).slice(0,10)
-            .map(item => {
-                return <div key={item.player_id} onClick={() => {
-                    onSearch(item.short_name)
-                }}><Link to={`/player/${item.short_name}`}>{`${item.short_name} - ${item.overall}`}</Link></div>
-            })}
+            <div className="absolute z-10">
+                {playerList.filter(item => {
+                    return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+                }).slice(0,10)
+                .map(item => {
+                    return <PlayerSearch key={item.player_id} {...item}/>
+                })}
+            </div>
             </div>
             <div className="hidden md:flex flex-row pb-8">
                {newsPosters.map(item => {
-                return <NewsModule key={item.id} {...item} />
+                return <NewsModule key={item.id} {...item} setValue={setValue}/>
                })}
             </div>
             <div className="text-xs text-custom-grey px-8 text-center">
