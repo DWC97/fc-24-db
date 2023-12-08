@@ -38,7 +38,7 @@ export function Home({ players }){
                 THE ULTIMATE PLAYER DATABASE
             </div>
             <div className="pb-12">
-                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center text-custom-grey px-12 md:px-24" value={value} onChange={(e) => {
+                <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center font-semibold text-custom-grey w-72 md:w-96" value={value} onChange={(e) => {
                 setValue(e.target.value)
             }}/>
             <div className="absolute z-10">
