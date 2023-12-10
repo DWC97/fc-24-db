@@ -9,6 +9,7 @@ export default {
       colors: {
         'custom-maroon':'#950206',
         'custom-grey':'#2C2E2D',
+        'custom-black':'#1C1E1D',
       }
     },
   },

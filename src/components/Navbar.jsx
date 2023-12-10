@@ -36,8 +36,11 @@ export function Navbar(){
                 </ul>
             </div>
             
-            <div className="w-32 hidden md:flex items-center justify-center mr-0">
-                <Icon icon="material-symbols:search" color="white" width="30"/>
+            <div className="w-96 mr-8 hidden md:flex items-center justify-center relative">
+                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-96 text-white rounded"/>
+                <div className="absolute right-1">
+                    <Icon icon="material-symbols-light:search" color="white" width="25"/>
+                </div>
             </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
