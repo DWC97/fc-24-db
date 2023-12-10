@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from '@iconify/react';
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Navbar(){
 
     const [nav, setNav] = useState(false)
+    const [value, setValue] = useState("")
+    const [open, setOpen] = useState(false)
+
+    let dropdownRef = useRef()
 
     function handleNav(){
         setNav(!nav)
@@ -14,32 +18,36 @@ export function Navbar(){
         <div className="w-full bg-custom-grey h-20 flex fixed justify-between z-50">
             <div className="flex">
                 <NavLink to={"/"}>
-                    <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
+                    <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
                         <img src="assets/logos/nav.png" className="w-12"/>
                     </div>
                 </NavLink>
-                <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-maroon/[.3] md:hidden">
+                <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
                     <img src="assets/logos/nav.png" className="w-12"/>
                 </div>
                 <ul className="hidden md:flex flex-row ">
                     <NavLink to={"/players"}>
-                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
+                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                             Players
                         </li>
                     </NavLink>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Nations
                     </li>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-maroon/[.3]">
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Clubs
                     </li>
                 </ul>
             </div>
             
-            <div className="w-96 mr-8 hidden md:flex items-center justify-center relative">
-                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-96 text-white rounded"/>
+            <div className="w-48 mr-8 hidden md:flex items-center justify-center relative">
+                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded" value={value} onChange={(e) => {
+                setValue(e.target.value)}}/>
                 <div className="absolute right-1">
-                    <Icon icon="material-symbols-light:search" color="white" width="25"/>
+                    {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer" onClick={() => {
+                        setValue("")
+                    }}><Icon icon="ph:x-bold" color="white" width="20" /></div>}
+                    
                 </div>
             </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>

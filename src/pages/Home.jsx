@@ -73,7 +73,7 @@ export function Home({ players }){
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,10)
                 .map(item => {
-                    return <PlayerSearch key={item.player_id} {...item}/>
+                    return <PlayerSearch key={item.player_id} {...item} width={[72, 96]}/>
                 })}
             </div>
             </div>
