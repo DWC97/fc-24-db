@@ -1,5 +1,5 @@
 import { NewsModule } from "../components/NewsModule"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { PlayerSearch } from "../components/PlayerSearch"
 import { Icon } from '@iconify/react';
@@ -28,7 +28,26 @@ const newsPosters = [
 export function Home({ players }){
 
     const [value, setValue] = useState("")
+    const [open, setOpen] = useState(false)
+
+    let dropdownRef = useRef()
+
     const playerList = players
+
+    useEffect(() => {
+
+        function handler(e){
+            if (!dropdownRef.current.contains(e.target)){
+                setOpen(false)
+            }    
+        }
+
+        document.addEventListener("mousedown", handler)
+
+        return () => {
+            document.removeEventListener("mousedown", handler)
+        }
+    })
 
     return (
         <div className="w-full h-screen relative flex flex-col justify-center items-center overflow-hidden">
@@ -38,16 +57,19 @@ export function Home({ players }){
             <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE
             </div>
-            <div className="pb-12 relative">
+            <div className="pb-12 relative" onClick={() => {
+                setOpen(true)
+                console.log(open)
+            }}>
                 <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-lg text-center font-medium text-custom-grey w-72 md:w-96" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-2 top-2">
-                    {value === "" ? <Icon icon="material-symbols:search" color="#2c2e2d" width="25"/> : <div onClick={() => {
+                    {value === "" ? <Icon icon="material-symbols:search" color="#2c2e2d" width="25"/> : <div className="cursor-pointer" onClick={() => {
                         setValue("")
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>
-            <div className="absolute z-10 h-48 overflow-y-auto">
-                {playerList.filter(item => {
+            <div className="absolute z-10 h-48 overflow-y-auto" ref={dropdownRef}>
+                {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,10)
                 .map(item => {
