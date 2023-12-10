@@ -46,8 +46,7 @@ export function Navbar(){
                 <div className="absolute right-1">
                     {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer" onClick={() => {
                         setValue("")
-                    }}><Icon icon="ph:x-bold" color="white" width="20" /></div>}
-                    
+                    }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
             </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
