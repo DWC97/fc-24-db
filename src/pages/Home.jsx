@@ -59,7 +59,6 @@ export function Home({ players }){
             </div>
             <div className="pb-12 relative" onClick={() => {
                 setOpen(true)
-                console.log(open)
             }}>
                 <input type="text" placeholder="Search player name..." className="border border-custom-grey py-2 rounded-3xl text-center font-medium text-custom-grey w-72 md:w-96" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>

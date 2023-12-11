@@ -8,13 +8,27 @@ export function Navbar({ players }){
 
     const [nav, setNav] = useState(false)
     const [value, setValue] = useState("")
+    const [open, setOpen] = useState(false)
 
-
+    let dropdownRef = useRef()
 
     const playerList = players
 
-    
+    useEffect(() => {
 
+        function handler(e){
+            if (!dropdownRef.current.contains(e.target)){
+                setOpen(false)
+            }    
+        }
+
+        document.addEventListener("mousedown", handler)
+
+        return () => {
+            document.removeEventListener("mousedown", handler)
+        }
+    })
+    
     function handleNav(){
         setNav(!nav)
     }
@@ -45,7 +59,9 @@ export function Navbar({ players }){
                 </ul>
             </div>
             
-            <div className="w-48 mr-8 hidden md:flex items-center justify-center relative">
+            <div className="w-48 mr-8 hidden md:flex items-center justify-center relative" onClick={() => {
+                setOpen(true)
+            }}>
                 <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-1">
@@ -53,8 +69,8 @@ export function Navbar({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
-                <div className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden">
-                {playerList.filter(item => {
+                <div ref={dropdownRef} className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden">
+                {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,100)
                 .map(item => {
