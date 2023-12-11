@@ -74,7 +74,7 @@ export function Navbar({ players }){
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,100)
                 .map(item => {
-                    return <NavbarSearch key={item.player_id} {...item}/>
+                    return <NavbarSearch setOpen={setOpen} key={item.player_id} {...item}/>
                 })}
                 </div>
             </div> 

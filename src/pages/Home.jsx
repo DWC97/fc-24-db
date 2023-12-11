@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { PlayerSearch } from "../components/PlayerSearch"
 import { Icon } from '@iconify/react';
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const newsPosters = [
     {
@@ -30,23 +31,12 @@ export function Home({ players }){
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 
-    let dropdownRef = useRef()
+
 
     const playerList = players
 
-    useEffect(() => {
-
-        function handler(e){
-            if (!dropdownRef.current.contains(e.target)){
-                setOpen(false)
-            }    
-        }
-
-        document.addEventListener("mousedown", handler)
-
-        return () => {
-            document.removeEventListener("mousedown", handler)
-        }
+    let domNode = useClickOutside(() => {
+        setOpen(false)
     })
 
     return (
@@ -67,7 +57,7 @@ export function Home({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>
-            <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={dropdownRef} >
+            <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
                 {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,10)
