@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import { useState, useRef, useEffect } from "react";
 import { PlayerSearch } from "./PlayerSearch";
 import { NavbarSearch } from "./NavbarSearch";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 export function Navbar({ players }){
 
@@ -10,23 +11,10 @@ export function Navbar({ players }){
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 
-    let dropdownRef = useRef()
-
     const playerList = players
 
-    useEffect(() => {
-
-        function handler(e){
-            if (!dropdownRef.current.contains(e.target)){
-                setOpen(false)
-            }    
-        }
-
-        document.addEventListener("mousedown", handler)
-
-        return () => {
-            document.removeEventListener("mousedown", handler)
-        }
+    let domNode = useClickOutside(() => {
+        setOpen(false)
     })
     
     function handleNav(){
@@ -69,12 +57,12 @@ export function Navbar({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
-                <div ref={dropdownRef} className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
+                <div ref={domNode} className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
                 {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,100)
                 .map(item => {
-                    return <NavbarSearch setOpen={setOpen} key={item.player_id} {...item}/>
+                    return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>
                 })}
                 </div>
             </div> 
