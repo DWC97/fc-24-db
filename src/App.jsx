@@ -23,7 +23,7 @@ export default function App(){
         <Link to={"/"}>Home</Link>
         <Link to={"/search"}>Search</Link>
       </div> */}
-      <Navbar />
+      <Navbar players={players}/>
 
       {/* <Routes>
         <Route path="/" element={<NewPlayerList players={players}/>} />

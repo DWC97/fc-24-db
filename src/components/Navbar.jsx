@@ -1,14 +1,19 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from '@iconify/react';
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { PlayerSearch } from "./PlayerSearch";
+import { NavbarSearch } from "./NavbarSearch";
 
-export function Navbar(){
+export function Navbar({ players }){
 
     const [nav, setNav] = useState(false)
     const [value, setValue] = useState("")
-    const [open, setOpen] = useState(false)
 
-    let dropdownRef = useRef()
+
+
+    const playerList = players
+
+    
 
     function handleNav(){
         setNav(!nav)
@@ -48,7 +53,16 @@ export function Navbar(){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
+                
             </div> 
+            <div className="absolute z-100 h-48 overflow-y-auto right-4 top-16" >
+                {playerList.filter(item => {
+                    return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+                }).slice(0,10)
+                .map(item => {
+                    return <NavbarSearch key={item.player_id} {...item}/>
+                })}
+            </div>
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div>
