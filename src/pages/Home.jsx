@@ -67,7 +67,7 @@ export function Home({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>
-            <div className="absolute z-10 h-48 overflow-y-auto" ref={dropdownRef}>
+            <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={dropdownRef} >
                 {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,10)
