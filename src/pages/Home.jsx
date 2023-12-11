@@ -31,8 +31,6 @@ export function Home({ players }){
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 
-
-
     const playerList = players
 
     let domNode = useClickOutside(() => {

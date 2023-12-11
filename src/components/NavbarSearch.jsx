@@ -5,7 +5,7 @@ export function NavbarSearch({ short_name, overall, setValue }){
     // function onSearch(player){
     //     setValue(player)
     // }
-
+    
     return (
         <Link to={`/player/${short_name}`}>
             <div 
