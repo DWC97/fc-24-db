@@ -53,16 +53,15 @@ export function Navbar({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
-                
-            </div> 
-            <div className="absolute z-100 h-48 overflow-y-auto right-4 top-16" >
+                <div className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden">
                 {playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
-                }).slice(0,10)
+                }).slice(0,100)
                 .map(item => {
                     return <NavbarSearch key={item.player_id} {...item}/>
                 })}
-            </div>
+                </div>
+            </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div>
