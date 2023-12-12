@@ -10,8 +10,10 @@ export function Player({ players }){
     console.log(player)
 
     return (
-        <div className="h-96 w-full text-3xl flex justify-center items-center text-red-600 bg-slate-600">
-            {player ? player.short_name : <RouteError />}
+        <div className="flex flex-col w-full">
+           <div className="flex flex-row mt-20">
+                Henlo
+           </div>
         </div>
     )
 }
