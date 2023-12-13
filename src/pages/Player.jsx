@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 import { formatNumber } from "../utils/Utils";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 export function Player({ players }){
 
@@ -23,9 +24,18 @@ export function Player({ players }){
         "Wages (Weekly)": `€${formatNumber(player.wage_eur)}`
     }
 
+    const chartData = [
+        { name: "PACE", x: player.pace },
+        { name: "SHOOTING", x: player.shooting },
+        { name: "PASSING", x: player.passing },
+        { name: "DRIBBLING", x: player.dribbling },
+        { name: "DEFENDING", x: player.defending },
+        { name: "PHYSIC", x: player.physic },
+    ]
+
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
-           <div className="flex flex-row mt-28 relative justify-between items-center text-custom-maroon">
+           <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
                 <div className="bg-gray-200 rounded-full overflow-hidden">
                     <img src="https://cdn.sofifa.net/players/231/747/24_120.png" className="w-24 md:w-32"/>
                 </div>
@@ -60,8 +70,15 @@ export function Player({ players }){
                         ))}
                     </ul>
                 </div>
-                <div className="w-full md:w-2/4 h-96 bg-yellow-500">
-
+                <div className="w-full md:w-2/4 h-96">
+                    <RadarChart height={500} width={500} 
+                    outerRadius="80%" data={chartData}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="name" />
+                        <PolarRadiusAxis />
+                        <Radar dataKey="x" stroke="green"
+                        fill="green" fillOpacity={0.5} />
+                    </RadarChart>
                 </div>
            </div>
         </div>
