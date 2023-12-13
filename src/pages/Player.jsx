@@ -50,11 +50,12 @@ export function Player({ players }){
 
            <div className="flex flex-wrap">
                 <div className="w-full md:w-2/4">
-                    <ul>
+                    <ul className="w-full ">
                         {Object.entries(playerDesc).map(([key, val], i) => (
-                            <p key={i}>
-                                {key}: {val}
-                            </p>
+                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2 py-1">
+                                <span className="text-gray-700">{key}</span>
+                                <span className="text-custom-grey font-medium">{val}</span>
+                            </li>
                         ))}
                     </ul>
                 </div>
