@@ -8,10 +8,23 @@ export function Player({ players }){
         return item.short_name === id
     })
     console.log(player)
+    const playerDesc = {
+        "Full Name": player.long_name,
+        "Age": player.age,
+        "Height": player.height_cm,
+        "Positions": player.player_positions,
+        "Preferred Foot": player.preferred_foot,
+        "Weak Foot": player.weak_foot,
+        "Skill Moves": player.skill_moves,
+        "Work Rate": player.work_rate,
+        "League": player.league_name,
+        "Estimated Market Value": player.value_eur,
+        "Wages (Weekly)": player.wage_eur
+    }
 
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
-           <div className="flex flex-row mt-36 relative justify-between items-center text-custom-maroon">
+           <div className="flex flex-row mt-28 relative justify-between items-center text-custom-maroon">
                 <div className="bg-gray-200 rounded-full overflow-hidden">
                     <img src="https://cdn.sofifa.net/players/231/747/24_120.png" className="w-24 md:w-32"/>
                 </div>
@@ -36,8 +49,14 @@ export function Player({ players }){
            </div>
 
            <div className="flex flex-wrap">
-                <div className="w-full md:w-2/4 h-96 bg-blue-600">
-
+                <div className="w-full md:w-2/4">
+                    <ul>
+                        {Object.entries(playerDesc).map(([key, val], i) => (
+                            <p key={i}>
+                                {key}: {val}
+                            </p>
+                        ))}
+                    </ul>
                 </div>
                 <div className="w-full md:w-2/4 h-96 bg-yellow-500">
 
