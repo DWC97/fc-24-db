@@ -34,6 +34,15 @@ export function Player({ players }){
                     <span className="text-4xl md:text-6xl font-semibold">{player.overall}</span>
                 </div>
            </div>
+
+           <div className="flex flex-wrap">
+                <div className="w-full md:w-2/4 h-96 bg-blue-600">
+
+                </div>
+                <div className="w-full md:w-2/4 h-96 bg-yellow-500">
+
+                </div>
+           </div>
         </div>
     )
 }
