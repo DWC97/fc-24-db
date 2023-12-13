@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
+import { formatNumber } from "../utils/Utils";
 
 export function Player({ players }){
 
@@ -11,15 +12,15 @@ export function Player({ players }){
     const playerDesc = {
         "Full Name": player.long_name,
         "Age": player.age,
-        "Height": player.height_cm,
+        "Height (cm)": player.height_cm,
         "Positions": player.player_positions,
         "Preferred Foot": player.preferred_foot,
-        "Weak Foot": player.weak_foot,
-        "Skill Moves": player.skill_moves,
+        "Weak Foot": `${player.weak_foot}*`,
+        "Skill Moves": `${player.skill_moves}*`,
         "Work Rate": player.work_rate,
         "League": player.league_name,
-        "Estimated Market Value": player.value_eur,
-        "Wages (Weekly)": player.wage_eur
+        "Estimated Market Value": `€${formatNumber(player.value_eur)}`,
+        "Wages (Weekly)": `€${formatNumber(player.wage_eur)}`
     }
 
     return (
