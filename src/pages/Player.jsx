@@ -25,12 +25,12 @@ export function Player({ players }){
     }
 
     const chartData = [
-        { name: "PACE", x: player.pace },
-        { name: "SHOOTING", x: player.shooting },
-        { name: "PASSING", x: player.passing },
-        { name: "DRIBBLING", x: player.dribbling },
-        { name: "DEFENDING", x: player.defending },
-        { name: "PHYSIC", x: player.physic },
+        { name: "PAC", x: player.pace },
+        { name: "SHO", x: player.shooting },
+        { name: "PAS", x: player.passing },
+        { name: "DRI", x: player.dribbling },
+        { name: "DEF", x: player.defending },
+        { name: "PHY", x: player.physic },
     ]
 
     return (
@@ -59,25 +59,25 @@ export function Player({ players }){
                 </div>
            </div>
 
-           <div className="flex flex-wrap">
+           <div className="flex flex-wrap justify-between items-center mt-4 md:mt-0">
                 <div className="w-full md:w-2/4">
                     <ul className="w-full ">
                         {Object.entries(playerDesc).map(([key, val], i) => (
-                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2 py-1 text-xs md:text-sm lg:text-base">
+                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2  text-xs md:text-sm lg:text-base">
                                 <span className="text-gray-700">{key}</span>
                                 <span className="text-custom-grey font-medium">{val}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <div className="w-full md:w-2/4 h-96">
-                    <RadarChart height={500} width={500} 
+                <div className="w-full md:w-2/5 h-96 flex justify-center items-center">
+                    <RadarChart height={350} width={350} 
                     outerRadius="80%" data={chartData}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="name" />
                         <PolarRadiusAxis />
-                        <Radar dataKey="x" stroke="green"
-                        fill="green" fillOpacity={0.5} />
+                        <Radar dataKey="x" stroke="#950206"
+                        fill="#950206" fillOpacity={0.5} />
                     </RadarChart>
                 </div>
            </div>
