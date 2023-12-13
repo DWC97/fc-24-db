@@ -53,7 +53,7 @@ export function Player({ players }){
                 <div className="w-full md:w-2/4">
                     <ul className="w-full ">
                         {Object.entries(playerDesc).map(([key, val], i) => (
-                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2 py-1">
+                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2 py-1 text-xs md:text-sm lg:text-base">
                                 <span className="text-gray-700">{key}</span>
                                 <span className="text-custom-grey font-medium">{val}</span>
                             </li>
