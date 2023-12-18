@@ -33,6 +33,68 @@ export function Player({ players }){
         { name: "PHY", x: player.physic },
     ]
 
+    const attributeData = [
+        {
+            "name": "pace",
+            "stats": {
+                "Acceleration": player.movement_acceleration,
+                "Sprint Speed": player.movement_sprint_speed
+            }
+        },
+        {
+            "name": "shooting",
+            "stats": {
+                "Positioning": player.mentality_positioning,
+                "Finishing": player.attacking_finishing,
+                "Shot Power": player.power_shot_power,
+                "Long Shots": player.power_long_shots,
+                "Volleys": player.attacking_volleys,
+                "Penalties": player.mentality_penalties
+            }
+        },
+        {
+            "name": "passing",
+            "stats": {
+                "Vision": player.mentality_vision,
+                "Crossing": player.attacking_crossing,
+                "FK. Accuracy": player.skill_fk_accuracy,
+                "Short Passing": player.attacking_short_passing,
+                "Long Passing": player.skill_long_passing,
+                "Curve": player.skill_curve
+            }
+        },
+        {
+            "name": "dribbling",
+            "stats": {
+                "Agility": player.movement_agility,
+                "Balance": player.movement_balance,
+                "Reactions": player.movement_reactions,
+                "Ball Control": player.skill_ball_control,
+                "Dribbling": player.skill_dribbling,
+                "Composure": player.mentality_composure,
+            }
+        },
+        {
+            "name": "defending",
+            "stats": {
+                "Interceptions": player.mentality_interceptions,
+                "Heading Accuracy": player.attacking_heading_accuracy,
+                "Def. Awareness": player.defending_marking_awareness,
+                "Standing Tackle": player.defending_standing_tackle,
+                "Sliding Tackle": player.defending_sliding_tackle,
+            }
+        },
+        {
+            "name": "physicality",
+            "stats": {
+                "Jumping": player.power_jumping,
+                "Stamina": player.power_stamina,
+                "Strength": player.power_strength,
+                "Aggression": player.mentality_aggression,
+            }
+        },
+    ]
+
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
            <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
@@ -80,6 +142,10 @@ export function Player({ players }){
                         fill="#950206" fillOpacity={0.5} />
                     </RadarChart>
                 </div>
+           </div>
+
+           <div>
+
            </div>
         </div>
     )
