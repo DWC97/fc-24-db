@@ -144,8 +144,14 @@ export function Player({ players }){
                 </div>
            </div>
 
-           <div>
-
+           <div className="flex flex-wrap justify-between items-center">
+                {attributeData.map(item => {
+                    return (
+                        <div className="flex flex-col w-32 sm:w-48 m-w-72">
+                            helo
+                        </div>
+                    )
+                })}
            </div>
         </div>
     )
