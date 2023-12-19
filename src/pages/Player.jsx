@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 import { formatNumber } from "../utils/Utils";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 export function Player({ players }){
@@ -38,6 +38,7 @@ export function Player({ players }){
     const attributeData = [
         {
             "name": "pace",
+            "value": player.pace,
             "stats": {
                 "Acceleration": player.movement_acceleration,
                 "Sprint Speed": player.movement_sprint_speed
@@ -45,6 +46,7 @@ export function Player({ players }){
         },
         {
             "name": "shooting",
+            "value": player.shooting,
             "stats": {
                 "Positioning": player.mentality_positioning,
                 "Finishing": player.attacking_finishing,
@@ -56,6 +58,7 @@ export function Player({ players }){
         },
         {
             "name": "passing",
+            "value": player.passing,
             "stats": {
                 "Vision": player.mentality_vision,
                 "Crossing": player.attacking_crossing,
@@ -67,6 +70,7 @@ export function Player({ players }){
         },
         {
             "name": "dribbling",
+            "value": player.dribbling,
             "stats": {
                 "Agility": player.movement_agility,
                 "Balance": player.movement_balance,
@@ -78,6 +82,7 @@ export function Player({ players }){
         },
         {
             "name": "defending",
+            "value": player.defending,
             "stats": {
                 "Interceptions": player.mentality_interceptions,
                 "Heading Accuracy": player.attacking_heading_accuracy,
@@ -88,6 +93,7 @@ export function Player({ players }){
         },
         {
             "name": "physicality",
+            "value": player.physic,
             "stats": {
                 "Jumping": player.power_jumping,
                 "Stamina": player.power_stamina,
@@ -151,20 +157,25 @@ export function Player({ players }){
                     return (
                         <div className="flex flex-col w-32 sm:w-48 m-w-72">
                             <span>{item.name.toUpperCase()}</span>
-                            <CircularProgressbar
-                                value={50}
-                                circleRatio={0.5}
-                                strokeWidth={25}
-                                styles={{
-                                root: {
-                                    transform: "rotate(0.75turn)"
-                                },
-                                path: { stroke: "green", strokeLinecap: "butt" },
-                                trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
-                                trailColor: "grey",
-                                backgroundColor: "red"
-                                }}
-                            />
+                            <div className="w-28">
+                                <CircularProgressbarWithChildren
+                                    value={item.value * 100 / 100}
+                                    circleRatio={0.5}
+                                    strokeWidth={7}
+                                    styles={{
+                                    root: {
+                                        transform: "rotate(0.75turn)"
+                                    },
+                                    path: { stroke: "green", strokeLinecap: "butt" },
+                                    trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
+                                    trailColor: "grey",
+                                    backgroundColor: "red"
+                                    }}
+                                >
+                                    <span className="mb-5 text-xl">{item.value}</span>
+                                </CircularProgressbarWithChildren>
+                            </div>
+                            
                             <ul>
                                 {Object.keys(item.stats).map((key, index) => {
                                     return (
