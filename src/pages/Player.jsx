@@ -152,19 +152,28 @@ export function Player({ players }){
                         <div className="flex flex-col w-32 sm:w-48 m-w-72">
                             <span>{item.name.toUpperCase()}</span>
                             <CircularProgressbar
-            value={50}
-            circleRatio={0.5}
-            strokeWidth={25}
-            styles={{
-              root: {
-                transform: "rotate(0.75turn)"
-              },
-              path: { stroke: "green", strokeLinecap: "butt" },
-              trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
-              trailColor: "grey",
-              backgroundColor: "red"
-            }}
-          />
+                                value={50}
+                                circleRatio={0.5}
+                                strokeWidth={25}
+                                styles={{
+                                root: {
+                                    transform: "rotate(0.75turn)"
+                                },
+                                path: { stroke: "green", strokeLinecap: "butt" },
+                                trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
+                                trailColor: "grey",
+                                backgroundColor: "red"
+                                }}
+                            />
+                            <ul>
+                                {Object.keys(item.stats).map((key, index) => {
+                                    return (
+                                        <li key={index}>
+                                            {key} <span>{item.stats[key]}</span>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
                         </div>
                     )
                 })}
