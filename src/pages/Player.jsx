@@ -103,8 +103,22 @@ export function Player({ players }){
         },
     ]
 
-    function colorGenerator(value){
-        return "#f8aa3d"
+    function colorGenerator(value, number){
+        if (number < 1){
+            if (value < 55) return '#fa5d54'
+            else if (value >= 55 && value < 70) return '#f8aa3d'
+            else if (value >= 70 && value < 80) return '#f3cc57'
+            else if (value >= 80 && value < 90) return '#78ca68'
+            else if (value >= 90) return '#44924a'
+        }
+        else {
+            if (value < 55) return 'text-[#fa5d54]'
+            else if (value >= 55 && value < 70) return 'text-[#f8aa3d]'
+            else if (value >= 70 && value < 80) return 'text-[#f3cc57]'
+            else if (value >= 80 && value < 90) return 'text-[#78ca68]'
+            else if (value >= 90) return 'text-[#44924a]'
+        }
+        
     }
 
     return (
@@ -170,18 +184,14 @@ export function Player({ players }){
                                     root: {
                                         transform: "rotate(0.75turn)"
                                     },
-                                    path: { stroke: colorGenerator(), strokeLinecap: "butt" },
-                                    trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
+                                    path: { stroke: colorGenerator(item.value, 0), strokeLinecap: "butt" },
+                                    trail: { stroke: "#e5e5e5", strokeLinecap: "butt" },
                                     trailColor: "grey",
                                     backgroundColor: "red"
                                     }}
                                 >
-                                    <span className={`mb-5 text-xl font-semibold
-                                    ${item.value < 55 && "text-custom-red"}
-                                    ${item.value >= 55 && item.value < 70 && "text-custom-orange"}
-                                    ${item.value >= 70 && item.value < 80 && "text-custom-yellow"}
-                                    ${item.value >= 80 && item.value < 90 && "text-custom-light-green"}
-                                    ${item.value >= 90 && "text-custom-dark-green"}
+                                    <span className={`mb-5 text-xl font-semibold 
+                                    ${colorGenerator(item.value, 1)}
                                     `}>{item.value}</span>
                                 </CircularProgressbarWithChildren>
                             </div>
