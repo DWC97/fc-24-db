@@ -11,12 +11,12 @@ export function Player({ players }){
     const player = players.find(item => {
         return item.short_name === id
     })
-    console.log(player)
+
     const playerDesc = {
         "Full Name": player.long_name,
         "Age": player.age,
         "Height (cm)": player.height_cm,
-        "Positions": player.player_positions,
+        "Position(s)": player.player_positions,
         "Preferred Foot": player.preferred_foot,
         "Weak Foot": `${player.weak_foot}*`,
         "Skill Moves": `${player.skill_moves}*`,
