@@ -103,6 +103,10 @@ export function Player({ players }){
         },
     ]
 
+    function colorGenerator(value){
+        return "#f8aa3d"
+    }
+
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
            <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
@@ -166,7 +170,7 @@ export function Player({ players }){
                                     root: {
                                         transform: "rotate(0.75turn)"
                                     },
-                                    path: { stroke: "green", strokeLinecap: "butt" },
+                                    path: { stroke: colorGenerator(), strokeLinecap: "butt" },
                                     trail: { stroke: "#C4C4C4", strokeLinecap: "butt" },
                                     trailColor: "grey",
                                     backgroundColor: "red"
