@@ -200,7 +200,7 @@ export function Player({ players }){
                                 {Object.keys(item.stats).map((key, index) => {
                                     return (
                                         <li className="w-full flex flex-row justify-between px-4 text-sm py-2" key={index}>
-                                            <span className="text-custom-grey">{key}</span> <span className="">{item.stats[key]}</span>
+                                            <span className="text-custom-grey">{key}</span> <span className={`${colorGenerator(item.stats[key], 1)} font-semibold`}>{item.stats[key]}</span>
                                         </li>
                                     )
                                 })}
