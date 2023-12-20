@@ -152,11 +152,11 @@ export function Player({ players }){
                 </div>
            </div>
 
-           <div className="flex flex-wrap justify-between items-center">
+           <div className="flex flex-wrap justify-between">
                 {attributeData.map(item => {
                     return (
-                        <div className="flex flex-col w-32 sm:w-48 m-w-72">
-                            <span>{item.name.toUpperCase()}</span>
+                        <div className="flex flex-col  items-center w-32 sm:w-48 m-w-72">
+                            <span className="font-semibold text-custom-grey mb-4">{item.name.toUpperCase()}</span>
                             <div className="w-28">
                                 <CircularProgressbarWithChildren
                                     value={item.value * 100 / 100}
@@ -172,15 +172,21 @@ export function Player({ players }){
                                     backgroundColor: "red"
                                     }}
                                 >
-                                    <span className="mb-5 text-xl">{item.value}</span>
+                                    <span className={`mb-5 text-xl font-semibold
+                                    ${item.value < 55 && "text-custom-red"}
+                                    ${item.value >= 55 && item.value < 70 && "text-custom-orange"}
+                                    ${item.value >= 70 && item.value < 80 && "text-custom-yellow"}
+                                    ${item.value >= 80 && item.value < 90 && "text-custom-light-green"}
+                                    ${item.value >= 90 && "text-custom-dark-green"}
+                                    `}>{item.value}</span>
                                 </CircularProgressbarWithChildren>
                             </div>
                             
-                            <ul>
+                            <ul className="-mt-8 w-full">
                                 {Object.keys(item.stats).map((key, index) => {
                                     return (
-                                        <li key={index}>
-                                            {key} <span>{item.stats[key]}</span>
+                                        <li className="w-full flex flex-row justify-between px-4 text-sm py-2" key={index}>
+                                            <span className="text-custom-grey">{key}</span> <span className="">{item.stats[key]}</span>
                                         </li>
                                     )
                                 })}
