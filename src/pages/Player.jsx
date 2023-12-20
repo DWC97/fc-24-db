@@ -85,7 +85,7 @@ export function Player({ players }){
             "value": player.defending,
             "stats": {
                 "Interceptions": player.mentality_interceptions,
-                "Heading Accuracy": player.attacking_heading_accuracy,
+                "Heading Acc.": player.attacking_heading_accuracy,
                 "Def. Awareness": player.defending_marking_awareness,
                 "Standing Tackle": player.defending_standing_tackle,
                 "Sliding Tackle": player.defending_sliding_tackle,
@@ -147,11 +147,11 @@ export function Player({ players }){
                 </div>
            </div>
 
-           <div className="flex flex-wrap justify-between items-center mt-4 md:mt-0">
+           <div className="flex flex-wrap justify-between items-center mt-4 md:-mt-8">
                 <div className="w-full md:w-2/4">
                     <ul className="w-full ">
                         {Object.entries(playerDesc).map(([key, val], i) => (
-                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2  text-xs md:text-sm lg:text-base">
+                            <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2  text-sm lg:text-base">
                                 <span className="text-gray-700">{key}</span>
                                 <span className="text-custom-grey font-medium">{val}</span>
                             </li>
@@ -164,16 +164,16 @@ export function Player({ players }){
                         <PolarGrid />
                         <PolarAngleAxis dataKey="name" />
                         <PolarRadiusAxis />
-                        <Radar dataKey="x" stroke="#950206"
-                        fill="#950206" fillOpacity={0.5} />
+                        <Radar dataKey="x" stroke={colorGenerator(player.overall, 0)}
+                        fill={colorGenerator(player.overall, 0)} fillOpacity={0.5} />
                     </RadarChart>
                 </div>
            </div>
 
-           <div className="flex flex-wrap justify-between">
+           <div className="flex flex-wrap justify-around w-full ">
                 {attributeData.map(item => {
                     return (
-                        <div className="flex flex-col  items-center w-32 sm:w-48 m-w-72">
+                        <div className="flex flex-col  items-center w-40 mb-8 sm:w-48 m-w-72">
                             <span className="font-semibold text-custom-grey mb-4">{item.name.toUpperCase()}</span>
                             <div className="w-28">
                                 <CircularProgressbarWithChildren
@@ -199,7 +199,7 @@ export function Player({ players }){
                             <ul className="-mt-8 w-full">
                                 {Object.keys(item.stats).map((key, index) => {
                                     return (
-                                        <li className="w-full flex flex-row justify-between px-4 text-sm py-2" key={index}>
+                                        <li className="w-full flex flex-row justify-between px-4 md:text-sm text-xs py-2" key={index}>
                                             <span className="text-custom-grey">{key}</span> <span className={`${colorGenerator(item.stats[key], 1)} font-semibold`}>{item.stats[key]}</span>
                                         </li>
                                     )
