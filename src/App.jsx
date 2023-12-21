@@ -34,7 +34,7 @@ export default function App(){
       </Routes> */}
       <Routes>
         <Route path="/" element={<Home players={players}/>} />
-        <Route path="/players" element={<Players />} />
+        <Route path="/players" element={<Players players={players}/>} />
         <Route path="/player/:id" element={<Player players={players}/>}/>
         <Route path="/club/:id" element={<Club/>}/>
         <Route path="/nation/:id" element={<Nation/>}/>
