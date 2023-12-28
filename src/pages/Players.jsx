@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Icon } from '@iconify/react';
 
 export function Players({ players }){
 
     const [positionFilter, setPositionFilter] = useState('');
-    const [sortedBy, setSortedBy] = useState('');
+    const [sortedBy, setSortedBy] = useState('overall');
     const [sortOrder, setSortOrder] = useState('desc');
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -122,11 +123,11 @@ export function Players({ players }){
                     ))}
                 </div> */}
 
-                <div className="flex flex-row items-center justify-end text-white bg-custom-maroon mt-4 sticky top-20">
-                    <span className="absolute left-0">PLAYER</span>
-                    <span className="w-16 border border-1 border-blue-500 flex justify-center">NAT</span>
-                    <span className="w-16 border border-1 border-blue-500 flex justify-center">TEAM</span>
-                    <select value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+                <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon">
+                    <span className="absolute left-4 text-custom-grey">PLAYER</span>
+                    <span className="w-16 flex justify-center">NAT</span>
+                    <span className="w-16 flex justify-center">CLUB</span>
+                    <select className="ml-3 w-16" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
                     {playerPositions.map(position => (
                         <option key={position} value={position}>
                         {position}
@@ -135,9 +136,13 @@ export function Players({ players }){
                     </select>
                     {playerStats.map(stat => {
                         return (
-                        <div key={stat.name} className="w-16 border border-1 border-blue-500 flex justify-center"
+                        <div key={stat.name} className="w-16  flex justify-center relative"
                         onClick={() => toggleSortOrder(stat.name)}>
-                            {stat.abbreviation}
+                            <span>{stat.abbreviation}</span>
+                            {sortedBy === stat.name && <div className="absolute right-0 top-1">
+                                <Icon icon={`ph:arrow-${sortOrder === "desc" ? `down` : `up`}-bold`} color="#950206" />
+                            </div>}
+                            
                         </div>
                         )
                     })}
