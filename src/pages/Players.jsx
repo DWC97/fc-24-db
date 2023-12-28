@@ -115,9 +115,14 @@ export function Players({ players }){
 
                 <div className="flex flex-row items-center relative justify-end text-blue-700">
                     <span className="absolute left-0">Name</span>
-                    <div className="w-16 border border-1 border-blue-500 flex justify-center">
-                        <span className="">Name</span>
-                    </div>
+                    {playerStats.map(stat => {
+                        return (
+                        <div key={stat.name} className="w-16 border border-1 border-blue-500 flex justify-center"
+                        onClick={() => toggleSortOrder(stat.name)}>
+                            {stat.abbreviation}
+                        </div>
+                        )
+                    })}
                     
                 </div>
 

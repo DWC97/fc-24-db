@@ -57,7 +57,7 @@ export function Navbar({ players }){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
-                <div ref={domNode} className="absolute w-48 z-100 h-96 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
+                <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
                 {open && playerList.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                 }).slice(0,100)
