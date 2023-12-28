@@ -84,7 +84,12 @@ export function Players({ players }){
             </div>
 
             <div className="flex flex-row justify-between mt-12 font-medium">
-                <p className="text-gray-500">Showing 5325 results</p>
+                <p className="text-gray-500">Showing {players.filter(player => {
+                    if (positionFilter === "ALL") return player
+                    else {
+                        return player.player_positions.includes(positionFilter)
+                    }
+                }).length} results</p>
                 <p className="text-custom-maroon">Filter by position and sort by attributes</p>
                 <button className="bg-custom-maroon text-white px-4 py-2 rounded-md cursor-pointer" onClick={() => {
                     setPositionFilter("ALL")
