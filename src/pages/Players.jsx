@@ -86,11 +86,15 @@ export function Players({ players }){
             <div className="flex flex-row justify-between mt-12 font-medium">
                 <p className="text-gray-500">Showing 5325 results</p>
                 <p className="text-custom-maroon">Filter by position and sort by attributes</p>
-                <button className="bg-custom-maroon text-white px-4 py-2 rounded-md cursor-pointer">Remove Filters</button>
+                <button className="bg-custom-maroon text-white px-4 py-2 rounded-md cursor-pointer" onClick={() => {
+                    setPositionFilter("ALL")
+                    setSortedBy("overall")
+                    setSortOrder('desc')
+                }}>Remove Filters</button>
             </div>
 
             <div>
-                <label>
+                {/* <label>
                     Filter by Position:
                     <select value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
                     {playerPositions.map(position => (
@@ -111,10 +115,17 @@ export function Players({ players }){
                         {stat.abbreviation}
                     </span>
                     ))}
-                </div>
+                </div> */}
 
                 <div className="flex flex-row items-center relative justify-end text-blue-700">
                     <span className="absolute left-0">Name</span>
+                    <select value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+                    {playerPositions.map(position => (
+                        <option key={position} value={position}>
+                        {position}
+                        </option>
+                    ))}
+                    </select>
                     {playerStats.map(stat => {
                         return (
                         <div key={stat.name} className="w-16 border border-1 border-blue-500 flex justify-center"
