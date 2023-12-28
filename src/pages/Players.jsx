@@ -122,8 +122,10 @@ export function Players({ players }){
                     ))}
                 </div> */}
 
-                <div className="flex flex-row items-center relative justify-end text-blue-700">
-                    <span className="absolute left-0">Name</span>
+                <div className="flex flex-row items-center justify-end text-white bg-custom-maroon mt-4 sticky top-20">
+                    <span className="absolute left-0">PLAYER</span>
+                    <span className="w-16 border border-1 border-blue-500 flex justify-center">NAT</span>
+                    <span className="w-16 border border-1 border-blue-500 flex justify-center">TEAM</span>
                     <select value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
                     {playerPositions.map(position => (
                         <option key={position} value={position}>
