@@ -113,6 +113,14 @@ export function Players({ players }){
                     ))}
                 </div>
 
+                <div className="flex flex-row items-center relative justify-end text-blue-700">
+                    <span className="absolute left-0">Name</span>
+                    <div className="w-16 border border-1 border-blue-500 flex justify-center">
+                        <span className="">Name</span>
+                    </div>
+                    
+                </div>
+
                 <div>
                     {sortedPlayers.map((player, index) => {
                         if (sortedPlayers.length === index + 1){
