@@ -7,7 +7,7 @@ export function NavbarSearch({ short_name, overall, setValue }){
     // }
     
     return (
-        <Link to={`/player/${short_name}`}>
+        <Link to={`/players/${short_name}`}>
             <div 
             onClick={() => {
             setValue("")

@@ -33,7 +33,7 @@ export function PlayerSearch({ short_name, overall, player_id, club_team_id, nat
     // }
 
     return (
-        <Link to={`/player/${short_name}`}>
+        <Link to={`/players/${short_name}`}>
             <div 
             // onClick={() => {
             // onSearch(short_name)
