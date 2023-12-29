@@ -93,7 +93,7 @@ export function Players({ players }){
                     }
                 }).length} results</p>
                 <p className="text-custom-maroon hidden md:flex">Filter by position and sort by attributes</p>
-                <button className="bg-custom-maroon text-white p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base" onClick={() => {
+                <button className="bg-custom-maroon text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base" onClick={() => {
                     setPositionFilter("ALL")
                     setSortedBy("overall")
                     setSortOrder('desc')
@@ -102,19 +102,20 @@ export function Players({ players }){
 
             <div>
                 <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
-                    <span className="absolute left-4 text-custom-grey">PLAYER</span>
-                    <span className="w-16 flex justify-center">NAT</span>
-                    <span className="w-16 flex justify-center">CLUB</span>
-                    <select className="ml-3 w-16" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+                    <span className="absolute text-sm md:text-base left-4 text-custom-grey">PLAYER</span>
+                    <span className="w-16 text-sm md:text-base flex justify-center">NAT</span>
+                    <span className="w-16 text-sm md:text-base flex justify-center">CLUB</span>
+                    <select className="ml-3 w-16 hidden md:flex" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
                     {playerPositions.map(position => (
                         <option key={position} value={position}>
                         {position}
                         </option>
                     ))}
                     </select>
+                    <span className="w-16 text-sm md:text-base flex justify-center md:hidden">OVE</span>
                     {playerStats.map(stat => {
                         return (
-                        <div key={stat.name} className="w-16  flex justify-center relative"
+                        <div key={stat.name} className="w-16 hidden md:flex justify-center relative"
                         onClick={() => toggleSortOrder(stat.name)}>
                             <span>{stat.abbreviation}</span>
                             {sortedBy === stat.name && <div className="absolute right-0 top-1">
