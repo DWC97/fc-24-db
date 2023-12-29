@@ -131,14 +131,14 @@ export function Players({ players }){
                     {sortedPlayers.map((player, index) => {
                         if (sortedPlayers.length === index + 1){
                             return (
-                                <div ref={lastPlayerElementRef} key={player.player_id}>
+                                <div ref={lastPlayerElementRef} key={player.player_id} className="odd:bg-slate-50 even:bg-white">
                                     <PlayerStack {...player} />
                                 </div>
                             )
                         }
                         else {
                             return (
-                                <div key={player.player_id}>
+                                <div key={player.player_id} className="odd:bg-slate-50 even:bg-white">
                                     <div>
                                         <PlayerStack {...player} />
                                     </div>
