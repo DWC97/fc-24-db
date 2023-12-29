@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from '@iconify/react';
+import { PlayerStack } from "../components/PlayerStack";
 
 export function Players({ players }){
 
@@ -100,29 +101,6 @@ export function Players({ players }){
             </div>
 
             <div>
-                {/* <label>
-                    Filter by Position:
-                    <select value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
-                    {playerPositions.map(position => (
-                        <option key={position} value={position}>
-                        {position}
-                        </option>
-                    ))}
-                    </select>
-                </label>
-
-                <div>
-                    {playerStats.map(stat => (
-                    <span
-                        key={stat.name}
-                        style={{ cursor: 'pointer', marginRight: '10px', fontWeight: sortedBy === stat.name ? 'bold' : 'normal' }}
-                        onClick={() => toggleSortOrder(stat.name)}
-                    >
-                        {stat.abbreviation}
-                    </span>
-                    ))}
-                </div> */}
-
                 <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon">
                     <span className="absolute left-4 text-custom-grey">PLAYER</span>
                     <span className="w-16 flex justify-center">NAT</span>
@@ -154,11 +132,7 @@ export function Players({ players }){
                         if (sortedPlayers.length === index + 1){
                             return (
                                 <div ref={lastPlayerElementRef} key={player.player_id}>
-                                    <div>
-                                        {player.short_name}
-                                        {player.position}
-                                        {player.overall}
-                                    </div>
+                                    <PlayerStack {...player} />
                                 </div>
                             )
                         }
@@ -166,9 +140,7 @@ export function Players({ players }){
                             return (
                                 <div key={player.player_id}>
                                     <div>
-                                        {player.short_name}
-                                        {player.position}
-                                        {player.overall}
+                                        <PlayerStack {...player} />
                                     </div>
                                 </div>
                             )
