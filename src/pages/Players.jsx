@@ -102,10 +102,10 @@ export function Players({ players }){
 
             <div>
                 <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
-                    <span className="absolute text-sm md:text-base left-4 text-custom-grey">PLAYER</span>
-                    <span className="w-16 text-sm md:text-base flex justify-center">NAT</span>
-                    <span className="w-16 text-sm md:text-base flex justify-center">CLUB</span>
-                    <select className="ml-3 w-16 hidden md:flex" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+                    <span className="absolute text-sm lg:text-base left-2 lg:left-4 text-custom-grey">PLAYER</span>
+                    <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
+                    <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">CLUB</span>
+                    <select className="ml-2 lg:ml-3 w-16 text-sm lg:text-base hidden md:flex" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
                     {playerPositions.map(position => (
                         <option key={position} value={position}>
                         {position}
@@ -115,10 +115,10 @@ export function Players({ players }){
                     <span className="w-16 text-sm md:text-base flex justify-center md:hidden">OVE</span>
                     {playerStats.map(stat => {
                         return (
-                        <div key={stat.name} className="w-16 hidden md:flex justify-center relative"
+                        <div key={stat.name} className="w-12 lg:w-16 text-sm lg:text-base hidden md:flex justify-center relative"
                         onClick={() => toggleSortOrder(stat.name)}>
                             <span>{stat.abbreviation}</span>
-                            {sortedBy === stat.name && <div className="absolute right-0 top-1">
+                            {sortedBy === stat.name && <div className="absolute -right-1 lg:right-0 top-1">
                                 <Icon icon={`ph:arrow-${sortOrder === "desc" ? `down` : `up`}-bold`} color="#950206" />
                             </div>}
                             
