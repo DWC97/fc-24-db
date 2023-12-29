@@ -101,7 +101,7 @@ export function Players({ players }){
             </div>
 
             <div>
-                <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon">
+                <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
                     <span className="absolute left-4 text-custom-grey">PLAYER</span>
                     <span className="w-16 flex justify-center">NAT</span>
                     <span className="w-16 flex justify-center">CLUB</span>
