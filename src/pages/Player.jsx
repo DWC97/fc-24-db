@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 import { formatNumber } from "../utils/Utils";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
@@ -131,8 +132,9 @@ export function Player({ players }){
                     <span className="hidden md:flex md:text-3xl font-medium tracking-widest">{player.short_name}</span>
                     <span className="text-xl flex md:hidden">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
                     <div className="flex flex-row justify-between items-center text-xs md:text-base">
+                        
                         <div className="flex flex-row items-center">
-                            <span>{player.club_name.toUpperCase()}</span>
+                            <Link to={`/clubs/${player.club_name}`}><span>{player.club_name.toUpperCase()}</span></Link>
                             <img src="https://cdn.sofifa.net/meta/team/9/120.png" className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
