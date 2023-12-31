@@ -2,9 +2,10 @@ import { Table } from "../components/Table";
 import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 
-export function Club(){
+export function Club({ players }){
 
     const { id } = useParams()
+    const clubPlayers = players.filter(player => player.club_name === id)
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
@@ -12,6 +13,7 @@ export function Club(){
                 <img src="https://cdn.sofifa.net/meta/team/9/120.png" className="w-16 mx-8"/>
                 <h1 className="text-white text-3xl font-medium tracking-widest">CLUB - {id.toUpperCase()}</h1>
             </div>
+            <Table players={clubPlayers}/>
         </div>
     )
 }

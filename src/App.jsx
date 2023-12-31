@@ -36,7 +36,7 @@ export default function App(){
         <Route path="/" element={<Home players={players}/>} />
         <Route path="/players" element={<Players players={players}/>} />
         <Route path="/players/:id" element={<Player players={players}/>}/>
-        <Route path="/clubs/:id" element={<Club/>}/>
+        <Route path="/clubs/:id" element={<Club players={players}/>}/>
         <Route path="/nations/:id" element={<Nation/>}/>
         <Route path="/utility" element={<CreateJSON/>}/>
       </Routes>
