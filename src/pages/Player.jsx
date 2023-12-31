@@ -138,7 +138,7 @@ export function Player({ players }){
                             <img src="https://cdn.sofifa.net/meta/team/9/120.png" className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
-                            <span>{player.nationality_name.toUpperCase()}</span>
+                            <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
                             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png" className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                     </div>
