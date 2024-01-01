@@ -12,6 +12,14 @@ export function Navbar({ players }){
     const [open, setOpen] = useState(false)
 
     const playerList = players
+    const clubMenuItems = [
+        {
+            "league": "Premier League",
+            "clubs": [
+                "Arsenal", "Aston Vila", "Bournemouth", "Brentford", 
+            ]
+        }
+    ]
 
     let domNode = useClickOutside(() => {
         setOpen(false)
