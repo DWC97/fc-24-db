@@ -1,4 +1,5 @@
 import data from "../data/male_teams.json"
+import { Link } from "react-router-dom"
 
 export function Practice(){
 
@@ -15,7 +16,7 @@ export function Practice(){
                     "name": "Arsenal"
                 },
                 {
-                    "name": "Aston Vila"
+                    "name": "Aston Villa"
                 },
                 {
                     "name": "Brentford"
@@ -78,7 +79,7 @@ export function Practice(){
                 {clubMenuItems.map(league => {
                     return league.clubs.map(club => {
                         return (
-                            <li>{club.name}</li>
+                            <Link to={`/clubs/${club.name}`}><li key={club.name}>{club.name}</li></Link>
                         )
                     })
                 })}
