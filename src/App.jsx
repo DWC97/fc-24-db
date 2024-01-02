@@ -20,19 +20,10 @@ export default function App(){
 
   return (
     <>
-      {/* <div>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/search"}>Search</Link>
-      </div> */}
+     
       <Navbar players={players}/>
 
-      {/* <Routes>
-        <Route path="/" element={<NewPlayerList players={players}/>} />
-        <Route path="/search" element={<SuggestedSearch />} />
-        <Route path="/player/:id" element={<PlayerPage/>}/>
-        <Route path="/club/:id" element={<Club/>}/>
-        <Route path="/nation/:id" element={<Nation/>}/>
-      </Routes> */}
+
       <Routes>
         <Route path="/" element={<Home players={players}/>} />
         <Route path="/players" element={<Players players={players}/>} />
