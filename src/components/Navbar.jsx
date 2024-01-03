@@ -57,9 +57,10 @@ export function Navbar({ players }){
                     onMouseLeave={handleMouseLeave}>
                         Leagues
                     </li>
-                    <div className="absolute">
-                        {isDropdownVisible && leagueData.map(league => {
-                            return <div>{league.name}</div>
+                    <div className="absolute top-20 left-48" onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}>
+                        {isDropdownVisible && leagueData.leagues.map(league => {
+                            return <NavLink to={`/leagues/${league.name}`}><div key={league.name}>{league.name}</div></NavLink>
                         })}
                     </div>
                 </ul>
