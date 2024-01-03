@@ -19,12 +19,12 @@ export function League(){
                 {league.clubs.map(club => {
                     return (
                     <Link to={`/clubs/${club.name}`}>
-                        <div key={club.name} className="flex flex-col justify-between bg-gray-100 border-b-2 border-custom-grey rounded-3xl h-44">
+                        <div key={club.name} className="flex flex-col justify-between bg-gray-100 border-b-2 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-44 hover:scale-110 ease-in-out duration-300 hover:bg-custom-maroon">
                             <img src={club.url} className="w-28 pt-3 pl-3"/>
                             <div className="flex flex-row pb-2 items-center justify-between">
-                                <span className="pl-6 tracking-widest font-semibold text-custom-grey">{club.name.toUpperCase()}</span>
+                                <span className="pl-6 tracking-widest font-semibold">{club.name.toUpperCase()}</span>
                                 <div className="mr-6">
-                                    <Icon icon="cil:arrow-right" color="#2c2e2d" />
+                                    <Icon icon="cil:arrow-right" color="white" />
                                 </div>
                             </div>
                         </div>
