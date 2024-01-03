@@ -50,7 +50,7 @@ export function Navbar({ players }){
                         Nations
                     </li>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
-                        Clubs
+                        Leagues
                     </li>
                 </ul>
             </div>
@@ -94,7 +94,7 @@ export function Navbar({ players }){
                     </NavLink>
                     <NavLink to={"/"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
-                        CLUBS
+                        LEAGUES
                         </li>
                     </NavLink>
                     <NavLink to={"/"}>
