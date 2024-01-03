@@ -4,22 +4,16 @@ import { useState, useRef, useEffect } from "react";
 import { PlayerSearch } from "./PlayerSearch";
 import { NavbarSearch } from "./NavbarSearch";
 import { useClickOutside } from "../hooks/useClickOutside";
+import leagueData from "../data/leagues.json"
 
 export function Navbar({ players }){
 
     const [nav, setNav] = useState(false)
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
+    const [isDropdownVisible, setDropdownVisible] = useState(false)
 
     const playerList = players
-    const clubMenuItems = [
-        {
-            "league": "Premier League",
-            "clubs": [
-                "Arsenal", "Aston Vila", "Bournemouth", "Brentford", 
-            ]
-        }
-    ]
 
     let domNode = useClickOutside(() => {
         setOpen(false)
@@ -27,6 +21,16 @@ export function Navbar({ players }){
     
     function handleNav(){
         setNav(!nav)
+    }
+
+    function handleMouseEnter(){
+        setDropdownVisible(true)
+        console.log("entered")
+    }
+
+    function handleMouseLeave(){
+        setDropdownVisible(false)
+        console.log("left")
     }
 
     return (
@@ -40,7 +44,7 @@ export function Navbar({ players }){
                 <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
                     <img src="assets/logos/nav.png" className="w-12"/>
                 </div>
-                <ul className="hidden md:flex flex-row ">
+                <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
                         <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                             Players
@@ -49,9 +53,15 @@ export function Navbar({ players }){
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Nations
                     </li>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black" onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}>
                         Leagues
                     </li>
+                    <div className="absolute">
+                        {isDropdownVisible && leagueData.map(league => {
+                            return <div>{league.name}</div>
+                        })}
+                    </div>
                 </ul>
             </div>
             
@@ -66,12 +76,12 @@ export function Navbar({ players }){
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
                 <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
-                {open && playerList.filter(item => {
-                    return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
-                }).slice(0,100)
-                .map(item => {
-                    return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>
-                })}
+                    {open && playerList.filter(item => {
+                        return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+                    }).slice(0,100)
+                    .map(item => {
+                        return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>
+                    })}
                 </div>
             </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
