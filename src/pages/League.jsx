@@ -9,11 +9,8 @@ export function League(){
     const { id } = useParams()
     const league = leagueData.leagues.find(league => league.name === id)
     console.log(league.color)
-    const [IsHovering, setIsHovering] = useState(false)
 
-    function setBg(){
-
-    }
+    const [hoveredClub, setHoveredClub] = useState(null)
 
     function bgGenerator(color){
         const randcolor = "hover:bg-[#0057B8]"
@@ -30,11 +27,15 @@ export function League(){
                 <h1 className="text-white text-sm md:text-3xl font-medium tracking-widest">{league.name.toUpperCase()}</h1>
             </div>
             <div className="grid grid-cols-4 gap-4 mt-8 mb-4">
-                {league.clubs.map(club => {
+                {league.clubs.map((club, index) => {
                     return (
                     <Link to={`/clubs/${club.name}`}>
-                        <div key={club.name} className={`flex flex-col justify-between  border-b-2 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-44 hover:scale-110 ease-in-out duration-300`}     
-                        style={IsHovering ? {backgroundColor: "lightblue"} : {backgroundColor: "#f5f5f5"}}
+                        <div key={index} className={`flex flex-col justify-between  border-b-2 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-44 hover:scale-110 ease-in-out duration-300`}     
+                        style={{
+                            backgroundColor: hoveredClub === index ? `${club.color}` : "#f5f5f5"
+                        }}
+                        onMouseOver={() => setHoveredClub(index)}
+                        onMouseLeave={() => setHoveredClub(null)}
                         >
                             <img src={club.url} className="w-28 pt-3 pl-3"/>
                             <div className="flex flex-row pb-2 items-center justify-between">
