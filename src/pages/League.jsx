@@ -32,16 +32,19 @@ export function League(){
                     <Link to={`/clubs/${club.name}`}>
                         <div key={index} className={`flex flex-col justify-between  border-b-2 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-44 hover:scale-110 ease-in-out duration-300`}     
                         style={{
-                            backgroundColor: hoveredClub === index ? `${club.color}` : "#f5f5f5"
+                            backgroundColor: hoveredClub === index ? `${club.color}` : "#f5f5f5",
+                            borderColor: `${club.color}`
                         }}
                         onMouseOver={() => setHoveredClub(index)}
                         onMouseLeave={() => setHoveredClub(null)}
                         >
                             <img src={club.url} className="w-28 pt-3 pl-3"/>
                             <div className="flex flex-row pb-2 items-center justify-between">
-                                <span className={`pl-6 tracking-widest font-semibold`}>{club.name.toUpperCase()}</span>
+                                <span className={`pl-6 tracking-widest font-semibold`}
+                                style={{color: hoveredClub === index ? "white" : `${club.color}`}}
+                                >{club.name.toUpperCase()}</span>
                                 <div className="mr-6">
-                                    <Icon icon="cil:arrow-right" color="#f5f5f5" />
+                                    <Icon icon="cil:arrow-right" color={hoveredClub === index ? `white` : `${club.color}`} />
                                 </div>
                             </div>
                         </div>
