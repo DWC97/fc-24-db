@@ -8,16 +8,7 @@ export function League(){
 
     const { id } = useParams()
     const league = leagueData.leagues.find(league => league.name === id)
-    console.log(league.color)
-
     const [hoveredClub, setHoveredClub] = useState(null)
-
-    function bgGenerator(color){
-        const randcolor = "hover:bg-[#0057B8]"
-        console.log(color)
-        // return `hover:bg-[${randcolor}]`
-        return color
-    }
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
@@ -26,11 +17,11 @@ export function League(){
                 <img src={league.url} className="w-10 md:w-12 mx-4 md:mx-8"/>
                 <h1 className="text-white text-sm md:text-3xl font-medium tracking-widest">{league.name.toUpperCase()}</h1>
             </div>
-            <div className="grid grid-cols-4 gap-4 mt-8 mb-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 mb-4">
                 {league.clubs.map((club, index) => {
                     return (
-                    <Link to={`/clubs/${club.name}`}>
-                        <div key={index} className={`flex flex-col justify-between  border-b-2 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-44 hover:scale-110 ease-in-out duration-300`}     
+                    <Link to={`/clubs/${club.name}`} key={index}>
+                        <div className={`flex flex-col justify-between border-b-4 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-36 md:h-44 hover:scale-105 ease-in-out duration-300`}     
                         style={{
                             backgroundColor: hoveredClub === index ? `${club.color}` : "#f5f5f5",
                             borderColor: `${club.color}`
@@ -38,12 +29,12 @@ export function League(){
                         onMouseOver={() => setHoveredClub(index)}
                         onMouseLeave={() => setHoveredClub(null)}
                         >
-                            <img src={club.url} className="w-28 pt-3 pl-3"/>
-                            <div className="flex flex-row pb-2 items-center justify-between">
-                                <span className={`pl-6 tracking-widest font-semibold`}
+                            <img src={club.url} className="w-20 md:w-28 pt-3 pl-3"/>
+                            <div className="flex flex-row pb-2 items-center justify-between relative">
+                                <span className={`pl-6 tracking-widest font-semibold text-xs md:text-sm mr-12`}
                                 style={{color: hoveredClub === index ? "white" : `${club.color}`}}
                                 >{club.name.toUpperCase()}</span>
-                                <div className="mr-6">
+                                <div className="right-4 md:right-6 absolute">
                                     <Icon icon="cil:arrow-right" color={hoveredClub === index ? `white` : `${club.color}`} />
                                 </div>
                             </div>
