@@ -3,86 +3,107 @@
         {
             "name": "Premier League",
             "url": "https://www.premierleague.com/resources/rebrand/v7.135.5/i/elements/pl-main-logo.png",
+            "color": "#38003c",
             "clubs": [
                 {
                     "name": "AFC Bournemouth",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t91.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t91.png",
+                    "color": "#DA291C"
                 },
                 {
                     "name": "Arsenal",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t3.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t3.png",
+                    "color": "#EF0107"
                 },
                 {
                     "name": "Aston Villa",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t7.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t7.png",
+                    "color": "#95BFE5"
                 },
                 {
                     "name": "Brentford",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t94.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t94.png",
+                    "color": "#E03A3E"
                 },
                 {
                     "name": "Brighton & Hove Albion",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t36.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t36.png",
+                    "color": "#0057B8"
                 },
                 {
                     "name": "Burnley",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t90.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t90.png",
+                    "color": "#6C1D45"
                 },
                 {
                     "name": "Chelsea",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t8.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t8.png",
+                    "color": "#034694"
                 },
                 {
                     "name": "Crystal Palace",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t31.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t31.png",
+                    "color": "#1B458F"
                 },
                 {
                     "name": "Everton",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t11.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t11.png",
+                    "color": "#003399"
                 },
                 {
                     "name": "Fulham",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t54.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t54.png",
+                    "color": "#000000"
                 },
                 {
                     "name": "Liverpool",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t14.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t14.png",
+                    "color": "#C8102E"
                 },
                 {
                     "name": "Luton Town",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t102.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t102.png",
+                    "color": "#F78F1E"
                 },
                 {
                     "name": "Manchester City",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t43.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t43.png",
+                    "color": "#6CABDD"
                 },
                 {
                     "name": "Manchester United",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t1.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t1.png",
+                    "color": "#DA291C"
                 },
                 {
                     "name": "Newcastle United",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t4.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t4.png",
+                    "color": "#241F20"
                 },
                 {
                     "name": "Nottingham Forest",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t17.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t17.png",
+                    "color": "#DD0000"
                 },
                 {
                     "name": "Sheffield United",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t49.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t49.png",
+                    "color": "#EE2737"
                 },
                 {
                     "name": "Tottenham Hotspur",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t6.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t6.png",
+                    "color": "#132257"
                 },
                 {
                     "name": "West Ham",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t21.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t21.png",
+                    "color": "#7A263A"
                 },
                 {
                     "name": "Wolverhampton Wanderers",
-                    "url": "https://resources.premierleague.com/premierleague/badges/100/t39.png"
+                    "url": "https://resources.premierleague.com/premierleague/badges/100/t39.png",
+                    "color": "#FDB913"
                 }
             ]
         }
