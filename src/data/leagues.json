@@ -18,7 +18,7 @@
                 {
                     "name": "Aston Villa",
                     "url": "https://resources.premierleague.com/premierleague/badges/100/t7.png",
-                    "color": "#95BFE5"
+                    "color": "#670E36"
                 },
                 {
                     "name": "Brentford",
@@ -201,6 +201,113 @@
                     "name": "Werder Bremen",
                     "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000E.svg",
                     "color": "#1d9053"
+                }
+            ]
+        },
+        {
+            "name": "La Liga",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/LaLiga_logo_2023.svg/2048px-LaLiga_logo_2023.svg.png",
+            "color": "#2C2E2D",
+            "clubs": [
+                {
+                    "name": "Almería",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/almeria.png",
+                    "color": "#ee1119"
+                },
+                {
+                    "name": "Athletic Club",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/athletic.png",
+                    "color": "#EE2523"
+                },
+                {
+                    "name": "Atlético Madrid",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/atletico.png",
+                    "color": "#272E61"
+                },
+                {
+                    "name": "Celta de Vigo",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/celta.png",
+                    "color": "#8AC3EE"
+                },
+                {
+                    "name": "Cádiz",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/cadiz.png",
+                    "color": "#000000"
+                },
+                {
+                    "name": "Deportivo Alavés",
+                    "url": "https://assets.laliga.com/assets/2020/09/01/xsmall/27002754a98bf535807fe49a24cc63ea.png",
+                    "color": "#57175E"
+                },
+                {
+                    "name": "FC Barcelona",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/barcelona.png",
+                    "color": "#EDBB00"
+                },
+                {
+                    "name": "Getafe",
+                    "url": "https://assets.laliga.com/assets/2023/05/12/xsmall/dc59645c96bc2c9010341c16dd6d4bfa.png",
+                    "color": "#005999"
+                },
+                {
+                    "name": "Girona",
+                    "url": "https://assets.laliga.com/assets/2022/06/22/xsmall/8f43addbb29e4a72f5e90b6edfe4728f.png",
+                    "color": "#cd2534"
+                },
+                {
+                    "name": "Granada",
+                    "url": "https://assets.laliga.com/assets/2023/01/17/xsmall/f5db12f3a29fdfd14a0d50337016dc95.png",
+                    "color": "#A61B2B"
+                },
+                {
+                    "name": "Las Palmas",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/las-palmas.png",
+                    "color": "#004b9d"
+                },
+                {
+                    "name": "Mallorca",
+                    "url": "https://assets.laliga.com/assets/2023/03/22/xsmall/013ae97735bc8e519dcf30f6826168ca.png",
+                    "color": "#E20613"
+                },
+                {
+                    "name": "Osasuna",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/osasuna.png",
+                    "color": "#0A346F"
+                },
+                {
+                    "name": "Rayo Vallecano",
+                    "url": "https://assets.laliga.com/assets/2023/04/27/xsmall/57d9950a8745ead226c04d37235c0786.png",
+                    "color": "#000000"
+                },
+                {
+                    "name": "Real Betis",
+                    "url": "https://assets.laliga.com/assets/2022/09/15/xsmall/e4a09419d3bd115b8f3dab73d480e146.png",
+                    "color": "#0BB363"
+                },
+                {
+                    "name": "Real Madrid",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/real-madrid.png",
+                    "color": "#FEBE10"
+                },
+                {
+                    "name": "Real Sociedad",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/real-sociedad.png",
+                    "color": "#0067B1"
+                },
+                {
+                    "name": "Sevilla",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/sevilla.png",
+                    "color": "#F43333"
+                },
+                {
+                    "name": "Valencia",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/valencia.png",
+                    "color": "#0097D7"
+                },
+                {
+                    "name": "Villarreal",
+                    "url": "https://assets.laliga.com/assets/2019/06/07/xsmall/villarreal.png",
+                    "color": "#005187"
                 }
             ]
         }

@@ -7,12 +7,6 @@ export function Club({ players }){
 
     const { id } = useParams()
     const clubPlayers = players.filter(player => player.club_name === id)
-    // const club = leagueData.leagues.map(league => {
-    //     if league.clubs.find
-    //     return league.clubs.find(club => {
-    //         if (club.name === id) return club
-    //     })  
-    // })
     const league = leagueData.leagues.find(league => {
         return league.clubs.find(club => club.name === id)
     })

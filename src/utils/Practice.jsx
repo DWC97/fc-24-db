@@ -155,41 +155,14 @@ export function Practice(){
 
   return (
     <div className="bg-gray-800 text-white p-4">
-      <div className="flex items-center">
-        <div className="mr-8 cursor-pointer">Home</div>
-        <div className="relative group">
-          <div className="cursor-pointer">Clubs</div>
-          <div className="dropdown hidden group-hover:block">
-            {leagues.map(league => (
-              <div
-                key={league.name}
-                className="cursor-pointer p-2 relative group"
-                onMouseEnter={() => setSelectedLeague(league)}
-                onMouseLeave={() => setSelectedLeague(null)}
-              >
-                {league.name}
-                {selectedLeague === league && (
-                  <div className="side-menu absolute left-full top-0 bg-gray-700 p-2">
-                    {league.clubs.map(club => (
-                      <div key={club} className="cursor-pointer p-2">
-                        {club}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+       <div className="mt-20">
+                {teamData.results.map(item => {
+                    if (item.league_name === "La Liga"){
+                        return item.team_name
+                    }
+                }).sort()}
+            </div>
     </div>
   );
 }
 
- {/* <div>
-                {teamData.results.map(item => {
-                    if (item.league_name === "Bundesliga"){
-                        return item.team_name
-                    }
-                }).sort()}
-            </div> */}
