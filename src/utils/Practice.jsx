@@ -157,7 +157,7 @@ export function Practice(){
     <div className="bg-slate-50 text-red p-4 w-96">
        <div className="mt-20 w-96">
                 {teamData.results.map(item => {
-                    if (item.league_id === 31){
+                    if (item.league_id === 16){
                         return item.team_name
                     }
                 }).sort()}
