@@ -310,6 +310,113 @@
                     "color": "#005187"
                 }
             ]
+        },
+        {
+            "name": "Serie A",
+            "url": "https://sportsfancovers.com/wp-content/uploads/2020/04/Serie_A_logo_2019-170x300.png",
+            "color": "#008fd7",
+            "clubs": [
+                {
+                    "name": "Atalanta",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l115845.png",
+                    "color": "#2d5cae"
+                },
+                {
+                    "name": "Bologna",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l189.png",
+                    "color": "#1b2838"
+                },
+                {
+                    "name": "Cagliari",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l1842.png",
+                    "color": "#082242"
+                },
+                {
+                    "name": "Empoli",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l1746.png",
+                    "color": "#00579C"
+                },
+                {
+                    "name": "Fiorentina",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l110374.png",
+                    "color": "#420a92"
+                },
+                {
+                    "name": "Frosinone",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l111657.png",
+                    "color": "#006AB3"
+                },
+                {
+                    "name": "Genoa",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l110556.png",
+                    "color": "#AD1919"
+                },
+                {
+                    "name": "Hellas Verona",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l206.png",
+                    "color": "#005395"
+                },
+                {
+                    "name": "Inter",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l44.png",
+                    "color": "#010E80"
+                },
+                {
+                    "name": "Juventus",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l45.png",
+                    "color": "#fec72e"
+                },
+                {
+                    "name": "Lazio",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l115841.png",
+                    "color": "#87D8F7"
+                },
+                {
+                    "name": "Lecce",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l347.png",
+                    "color": "#005b81"
+                },
+                {
+                    "name": "Milan",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l47.png",
+                    "color": "#FB090B"
+                },
+                {
+                    "name": "Monza",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l111811.png",
+                    "color": "#C30017"
+                },
+                {
+                    "name": "Napoli",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l116365.png",
+                    "color": "#003C82"
+                },
+                {
+                    "name": "Roma",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l114912.png",
+                    "color": "#970a2c"
+                },
+                {
+                    "name": "Salernitana",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l110373.png",
+                    "color": "#831D1C"
+                },
+                {
+                    "name": "Sassuolo",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l111974.png",
+                    "color": "#00A752"
+                },
+                {
+                    "name": "Torino",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l54.png",
+                    "color": "#8A1E03"
+                },
+                {
+                    "name": "Udinese",
+                    "url": "https://www.fifacm.com/content/media/imgs/fc24/teams/256/l55.png",
+                    "color": "#000000"
+                }
+            ]
         }
     ]
 }

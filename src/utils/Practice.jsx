@@ -154,10 +154,10 @@ export function Practice(){
   ];
 
   return (
-    <div className="bg-gray-800 text-white p-4">
-       <div className="mt-20">
+    <div className="bg-slate-50 text-red p-4 w-96">
+       <div className="mt-20 w-96">
                 {teamData.results.map(item => {
-                    if (item.league_name === "La Liga"){
+                    if (item.league_id === 31){
                         return item.team_name
                     }
                 }).sort()}
