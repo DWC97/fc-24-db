@@ -51,13 +51,15 @@ export function Navbar({ players }){
                         </li>
                     </NavLink>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black" onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}>
+                    onMouseLeave={handleMouseLeave}
+                    style={{backgroundColor: isDropdownVisible && "#1C1E1D"}}
+                    >
                         Leagues
                     </li>
                     <div className="absolute top-20 left-32 w-32" onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
                         {isDropdownVisible && leagueData.leagues.map(league => {
-                            return <NavLink to={`/leagues/${league.name}`} key={league.name}><div>{league.name}</div></NavLink>
+                            return <NavLink to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon">{league.name}</div></NavLink>
                         })}
                     </div>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
