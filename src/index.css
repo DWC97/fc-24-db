@@ -8,6 +8,6 @@
 
 .active {
     @apply bg-custom-maroon;
-    @apply ease-in-out;
+    @apply ease-in;
     @apply duration-300;
 }

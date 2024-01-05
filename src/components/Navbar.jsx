@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useMatch } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import { useState, useRef, useEffect } from "react";
 import { PlayerSearch } from "./PlayerSearch";
@@ -6,12 +6,15 @@ import { NavbarSearch } from "./NavbarSearch";
 import { useClickOutside } from "../hooks/useClickOutside";
 import leagueData from "../data/leagues.json"
 
+
 export function Navbar({ players }){
 
     const [nav, setNav] = useState(false)
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
+    const isLeaguesActive = useMatch('/leagues/:id');
+    console.log(isLeaguesActive)
 
     const playerList = players
 
@@ -25,12 +28,10 @@ export function Navbar({ players }){
 
     function handleMouseEnter(){
         setDropdownVisible(true)
-        console.log("entered")
     }
 
     function handleMouseLeave(){
         setDropdownVisible(false)
-        console.log("left")
     }
 
     return (
@@ -52,14 +53,16 @@ export function Navbar({ players }){
                     </NavLink>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black" onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    style={{backgroundColor: isDropdownVisible && "#1C1E1D"}}
+                    style={{backgroundColor: isLeaguesActive && "#950206"}}
                     >
                         Leagues
                     </li>
                     <div className="absolute top-20 left-32 w-32" onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
                         {isDropdownVisible && leagueData.leagues.map(league => {
-                            return <NavLink to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon">{league.name}</div></NavLink>
+                            return <Link to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon"
+                            onClick={() => handleMouseLeave()}
+                            >{league.name}</div></Link>
                         })}
                     </div>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
