@@ -106,6 +106,103 @@
                     "color": "#FDB913"
                 }
             ]
+        },
+        {
+            "name": "Bundesliga",
+            "url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/640px-Bundesliga_logo_%282017%29.svg.png",
+            "color": "#d20515",
+            "clubs": [
+                {
+                    "name": "Bayer 04 Leverkusen",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000B.svg",
+                    "color": "#e32221"
+                },
+                {
+                    "name": "Borussia Dortmund",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000007.svg",
+                    "color": "#fde100"
+                },
+                {
+                    "name": "Borussia Mönchengladbach",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000004.svg",
+                    "color": "#000000"
+                },
+                {
+                    "name": "Darmstadt 98",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000016.svg",
+                    "color": "#0F47AF"
+                },
+                {
+                    "name": "Eintracht Frankfurt",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000F.svg",
+                    "color": "#e1000f"
+                },
+                {
+                    "name": "FC Augsburg",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000010.svg",
+                    "color": "#ba3733"
+                },
+                {
+                    "name": "FC Bayern München",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000G.svg",
+                    "color": "#dc052d"
+                },
+                {
+                    "name": "FC Köln",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000008.svg",
+                    "color": "#ed1c24"
+                },
+                {
+                    "name": "FC Union Berlin",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000V.svg",
+                    "color": "#eb1923"
+                },
+                {
+                    "name": "FSV Mainz 05",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000006.svg",
+                    "color": "#c3141e"
+                },
+                {
+                    "name": "Heidenheim",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000018.svg",
+                    "color": "#003b79"
+                },
+                {
+                    "name": "RB Leipzig",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000017.svg",
+                    "color": "#dd0741"
+                },
+                {
+                    "name": "SC Freiburg",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000A.svg",
+                    "color": "#000000"
+                },
+                {
+                    "name": "TSG Hoffenheim",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000002.svg",
+                    "color": "#1961b5"
+                },
+                {
+                    "name": "VfB Stuttgart",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000D.svg",
+                    "color": "#E32219"
+                },
+                {
+                    "name": "VfL Bochum 1848",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000S.svg",
+                    "color": "#005CA9"
+                },
+                {
+                    "name": "VfL Wolfsburg",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-000003.svg",
+                    "color": "#65b32e"
+                },
+                {
+                    "name": "Werder Bremen",
+                    "url": "https://www.bundesliga.com/assets/clublogo/DFL-CLU-00000E.svg",
+                    "color": "#1d9053"
+                }
+            ]
         }
     ]
 }
