@@ -53,7 +53,7 @@ export function Navbar({ players }){
                     </NavLink>
                     <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black" onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    style={{backgroundColor: isLeaguesActive && "#950206"}}
+                    style={{backgroundColor: isLeaguesActive ? "#950206" : isDropdownVisible && "#1C1E1D"}}
                     >
                         Leagues
                     </li>
