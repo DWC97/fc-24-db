@@ -1,27 +1,11 @@
 import { useState } from "react"
-import nationsData from "../data/male_teams.json"
-import newNationsData from "../data/nations.json"
+import nationsData from "../data/nations.json"
 import { Link } from "react-router-dom"
 import { Icon } from '@iconify/react';
 
 export function Nations(){
 
     const [value, setValue] = useState("")
-    const nationsArray = nationsData.results.filter(item => item.league_name === "Friendly International" 
-    ).sort(compareByName)
-    const filteredNationsData = removeDuplicates(nationsArray, it => it.team_name)
-
-    function compareByName(a, b) {
-        return a.team_name.localeCompare(b.team_name);
-    }
-
-    function removeDuplicates(data, key){
-        return [
-            ...new Map(
-                data.map(item => [key(item), item])
-            ).values()
-        ]
-    }
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
@@ -31,7 +15,14 @@ export function Nations(){
                 setValue(e.target.value)}}/>
             </div>
             <div className="my-8">
-                {newNationsData.map((nation, index) => {
+                {nationsData
+                .filter(nation => {
+                    if (value === "") return nation
+                    else {
+                        return value && nation.name.toLowerCase().includes(value.toLowerCase())
+                    }    
+                })
+                .map((nation, index) => {
                     return (
                         <div className="odd:bg-slate-50 even:bg-white" key={index}>
                             <Link to={`/nations/${nation.name}`} >
