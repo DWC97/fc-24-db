@@ -1,6 +1,8 @@
 import { useState } from "react"
 import nationsData from "../data/male_teams.json"
 import newNationsData from "../data/nations.json"
+import { Link } from "react-router-dom"
+import { Icon } from '@iconify/react';
 
 export function Nations(){
 
@@ -28,12 +30,17 @@ export function Nations(){
                 <input type="text" placeholder="Search nation..." className="border-b-2 border-custom-grey py-2  font-medium text-custom-grey w-72 md:w-96 outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
             </div>
-            <div>
+            <div className="my-8">
                 {newNationsData.map((nation, index) => {
                     return (
-                        <div key={index} className="flex flex-row">
-                            <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-10"/>
-                            <span>{nation.name}</span>
+                        <div className="odd:bg-slate-50 even:bg-white" key={index}>
+                            <Link to={`/nations/${nation.name}`} >
+                                <div className="flex flex-row relative items-center justify-between px-4  py-2">
+                                    <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-12"/>
+                                    <span className="absolute left-28 text-custom-grey font-semibold tracking-widest">{nation.name.toUpperCase()}</span>
+                                    <Icon icon="cil:arrow-right" color={"#2C2E2D"} />
+                                </div>
+                            </Link>
                         </div>
                     )
                 })}

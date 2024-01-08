@@ -135,9 +135,7 @@ export function Table({ players }){
                         else {
                             return (
                                 <div key={player.player_id} className="odd:bg-slate-50 even:bg-white">
-                                    <div>
-                                        <PlayerStack {...player} />
-                                    </div>
+                                    <PlayerStack {...player} />
                                 </div>
                             )
                         }
