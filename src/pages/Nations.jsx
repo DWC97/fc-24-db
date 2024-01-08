@@ -1,8 +1,24 @@
 import { useState } from "react"
+import data from "../data/male_teams.json"
 
 export function Nations(){
 
     const [value, setValue] = useState("")
+    const nationsData = data.results.filter(item => item.league_name === "Friendly International" 
+    ).sort(compareByName)
+    console.log(removeDuplicates(nationsData, it => it.team_name))
+
+    function compareByName(a, b) {
+        return a.team_name.localeCompare(b.team_name);
+    }
+
+    function removeDuplicates(data, key){
+        return [
+            ...new Map(
+                data.map(item => [key(item), item])
+            ).values()
+        ]
+    }
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">

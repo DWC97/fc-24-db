@@ -14,7 +14,6 @@ export function Navbar({ players }){
     const [open, setOpen] = useState(false)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
     const isLeaguesActive = useMatch('/leagues/:id');
-    console.log(isLeaguesActive)
 
     const playerList = players
 
