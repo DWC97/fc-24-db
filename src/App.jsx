@@ -12,6 +12,7 @@ import { Navbar } from "./components/Navbar";
 import { CreateJSON } from "./utils/CreateJSON";
 import { Practice } from "./utils/Practice";
 import { League } from "./pages/League";
+import { Nations } from "./pages/Nations";
 
 const players = data.results.filter(player => player.player_positions !== "GK")
 console.log(players)
@@ -31,6 +32,7 @@ export default function App(){
         <Route path="/clubs/:id" element={<Club players={players}/>}/>
         <Route path="/leagues/:id" element={<League/>}/>
         <Route path="/nations/:id" element={<Nation players={players}/>}/>
+        <Route path="/nations" element={<Nations/>}/>
         <Route path="/utility" element={<Practice/>}/>
       </Routes>
     </>

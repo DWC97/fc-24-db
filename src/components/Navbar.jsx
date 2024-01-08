@@ -65,9 +65,9 @@ export function Navbar({ players }){
                             >{league.name}</div></Link>
                         })}
                     </div>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
+                    <NavLink to={"/nations"}><li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Nations
-                    </li>
+                    </li></NavLink>
                 </ul>
             </div>
             
