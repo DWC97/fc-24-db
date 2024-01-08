@@ -1,0 +1,226 @@
+[
+    {
+        "name": "Argentina",
+        "code": "AR"
+    },
+    {
+        "name": "Australia",
+        "code": "AU"
+    },
+    {
+        "name": "Austria",
+        "code": "AT"
+    },
+    {
+        "name": "Belgium",
+        "code": "BE"
+    },
+    {
+        "name": "Bolivia",
+        "code": "BO"
+    },
+    {
+        "name": "Brazil",
+        "code": "BR"
+    },
+    {
+        "name": "Bulgaria",
+        "code": "BG"
+    },
+    {
+        "name": "Cameroon",
+        "code": "CM"
+    },
+    {
+        "name": "Canada",
+        "code": "CA"
+    },
+    {
+        "name": "Chile",
+        "code": "CL"
+    },
+    {
+        "name": "China PR",
+        "code": "CN"
+    },
+    {
+        "name": "Colombia",
+        "code": "CO"
+    },
+    {
+        "name": "Côte d'Ivoire",
+        "code": "CI"
+    },
+    {
+        "name": "Croatia",
+        "code": "HR"
+    },
+    {
+        "name": "Czech Republic",
+        "code": "CZ"
+    },
+    {
+        "name": "Denmark",
+        "code": "DK"
+    },
+    {
+        "name": "Ecuador",
+        "code": "EC"
+    },
+    {
+        "name": "Egypt",
+        "code": "EG"
+    },
+    {
+        "name": "England",
+        "code": "https://cdn.britannica.com/44/344-004-494CC2E8/Flag-England.jpg"
+    },
+    {
+        "name": "Finland",
+        "code": "FI"
+    },
+    {
+        "name": "France",
+        "code": "FR"
+    },
+    {
+        "name": "Germany",
+        "code": "DE"
+    },
+    {
+        "name": "Ghana",
+        "code": "GH"
+    },
+    {
+        "name": "Greece",
+        "code": "GR"
+    },
+    {
+        "name": "Hungary",
+        "code": "HU"
+    },
+    {
+        "name": "Iceland",
+        "code": "IS"
+    },
+    {
+        "name": "India",
+        "code": "IN"
+    },
+    {
+        "name": "Italy",
+        "code": "IT"
+    },
+    {
+        "name": "Korea Republic",
+        "code": "KR"
+    },
+    {
+        "name": "Mexico",
+        "code": "MX"
+    },
+    {
+        "name": "Morocco",
+        "code": "MA"
+    },
+    {
+        "name": "Netherlands",
+        "code": "NL"
+    },
+    {
+        "name": "New Zealand",
+        "code": "NZ"
+    },
+    {
+        "name": "Northern Ireland",
+        "code": "https://cdn.britannica.com/92/3092-004-5B98A367/Flag-of-Northern-Ireland.jpg"
+    },
+    {
+        "name": "Norway",
+        "code": "NO"
+    },
+    {
+        "name": "Paraguay",
+        "code": "PY"
+    },
+    {
+        "name": "Peru",
+        "code": "PE"
+    },
+    {
+        "name": "Poland",
+        "code": "PL"
+    },
+    {
+        "name": "Portugal",
+        "code": "PT"
+    },
+    {
+        "name": "Qatar",
+        "code": "QA"
+    },
+    {
+        "name": "Republic of Ireland",
+        "code": "IE"
+    },
+    {
+        "name": "Romania",
+        "code": "RO"
+    },
+    {
+        "name": "Russia",
+        "code": "RU"
+    },
+    {
+        "name": "Saudi Arabia",
+        "code": "SA"
+    },
+    {
+        "name": "Scotland",
+        "code": "https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg"
+    },
+    {
+        "name": "Slovenia",
+        "code": "SI"
+    },
+    {
+        "name": "South Africa",
+        "code": "ZA"
+    },
+    {
+        "name": "Spain",
+        "code": "ES"
+    },
+    {
+        "name": "Sweden",
+        "code": "SE"
+    },
+    {
+        "name": "Switzerland",
+        "code": "CH"
+    },
+    {
+        "name": "Turkey",
+        "code": "TR"
+    },
+    {
+        "name": "Ukraine",
+        "code": "UA"
+    },
+    {
+        "name": "United States",
+        "code": "US"
+    },
+    {
+        "name": "Uruguay",
+        "code": "UY"
+    },
+    {
+        "name": "Venezuela",
+        "code": "VE"
+    },
+    {
+        "name": "Wales",
+        "code": "https://cdn.britannica.com/62/4962-050-E0A65F01/Flag-Wales.jpg?w=400&h=235&c=crop"
+    }
+]
