@@ -1,9 +1,15 @@
+import { useState } from "react"
+
 export function Nations(){
+
+    const [value, setValue] = useState("")
+
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
             <div className="flex flex-col mt-36">
                 <h1 className="text-custom-maroon text-2xl font-semibold tracking-widest mb-4">NATIONS</h1>
-                <p className="text-custom-grey">Ratings & statistics for male players in Europe’s top five leagues. </p>
+                <input type="text" placeholder="Search nation..." className="border-b-2 border-custom-grey py-2  font-medium text-custom-grey w-72 md:w-96 outline-none" value={value} onChange={(e) => {
+                setValue(e.target.value)}}/>
             </div>
         </div>
     )

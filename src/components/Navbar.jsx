@@ -74,7 +74,7 @@ export function Navbar({ players }){
             <div className="w-48 mr-8 hidden md:flex items-center justify-center relative" onClick={() => {
                 setOpen(true)
             }}>
-                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded font-medium" value={value} onChange={(e) => {
+                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded font-medium outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-1">
                     {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer" onClick={() => {
