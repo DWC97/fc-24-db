@@ -140,11 +140,11 @@ export function Player({ players }){
                         
                         <div className="flex flex-row items-center">
                             <Link to={`/clubs/${player.club_name}`}><span>{player.club_name.toUpperCase()}</span></Link>
-                            <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            {club ? <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>}
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
                             <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                            <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            {nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>}
                         </div>
                     </div>
                 </div>
@@ -178,9 +178,9 @@ export function Player({ players }){
            </div>
 
            <div className="flex flex-wrap justify-around w-full ">
-                {attributeData.map(item => {
+                {attributeData.map((item, index) => {
                     return (
-                        <div className="flex flex-col  items-center w-40 mb-8 sm:w-48 m-w-72">
+                        <div key={index} className="flex flex-col  items-center w-40 mb-8 sm:w-48 m-w-72">
                             <span className="font-semibold text-custom-grey mb-4">{item.name.toUpperCase()}</span>
                             <div className="w-28">
                                 <CircularProgressbarWithChildren

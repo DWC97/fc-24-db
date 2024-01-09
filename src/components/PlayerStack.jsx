@@ -16,11 +16,10 @@ export function PlayerStack({ short_name, overall, player_positions, pace, shoot
             <img src="https://cdn.sofifa.net/players/231/747/24_120.png" className="w-8 absolute left-0"/>
             <span className="absolute text-xs md:text-sm lg:text-base left-8 md:left-12 text-black tracking-wider "><Link to={`/players/${short_name}`}>{short_name}</Link></span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center">
-                {nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/> : <img src="https://flagsapi.com/DE/flat/64.png" className="w-6"/>}
-                
+                <Link to={`/nations/${nation.name}`}>{nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/> : <img src="https://flagsapi.com/DE/flat/64.png" className="w-6"/>}</Link>       
             </div>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center">
-                <img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="w-6"/>
+                <Link to={`/clubs/${player.club_name}`}><img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="w-6"/></Link>
             </div>
             <span className="w-16 md:w-12 lg:w-16 hidden md:flex justify-center font-medium ml-3 mr-3 lg:mr-0">{player_positions.split(",")[0]}</span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center font-medium">
