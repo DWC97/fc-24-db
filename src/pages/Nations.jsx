@@ -28,7 +28,7 @@ export function Nations(){
                             <Link to={`/nations/${nation.name}`} >
                                 <div className="flex flex-row relative items-center justify-between px-4  py-2">
                                     <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-12"/>
-                                    <span className="absolute left-28 text-custom-grey font-semibold tracking-widest">{nation.name.toUpperCase()}</span>
+                                    <span className="absolute left-24 text-sm md:text-base md:left-28 text-custom-grey font-semibold tracking-widest">{nation.name.toUpperCase()}</span>
                                     <Icon icon="cil:arrow-right" color={"#2C2E2D"} />
                                 </div>
                             </Link>
