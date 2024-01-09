@@ -1,7 +1,23 @@
 [
     {
+        "name": "Albania",
+        "code": "AL"
+    },
+    {
+        "name": "Algeria",
+        "code": "DZ"
+    },
+    {
+        "name": "Angola",
+        "code": "AO"
+    },
+    {
         "name": "Argentina",
         "code": "AR"
+    },
+    {
+        "name": "Armenia",
+        "code": "AM"
     },
     {
         "name": "Australia",
@@ -18,6 +34,10 @@
     {
         "name": "Bolivia",
         "code": "BO"
+    },
+    {
+        "name": "Bosnia and Herzegovina",
+        "code": "BA"
     },
     {
         "name": "Brazil",
@@ -48,6 +68,14 @@
         "code": "CO"
     },
     {
+        "name": "Congo DR",
+        "code": "CD"
+    },
+    {
+        "name": "Costa Rica",
+        "code": "CR"
+    },
+    {
         "name": "Côte d'Ivoire",
         "code": "CI"
     },
@@ -76,12 +104,24 @@
         "code": "https://cdn.britannica.com/44/344-004-494CC2E8/Flag-England.jpg"
     },
     {
+        "name": "Estonia",
+        "code": "EE"
+    },
+    {
         "name": "Finland",
         "code": "FI"
     },
     {
         "name": "France",
         "code": "FR"
+    },
+    {
+        "name": "Gabon",
+        "code": "GE"
+    },
+    {
+        "name": "Georgia",
+        "code": "GE"
     },
     {
         "name": "Germany",
@@ -96,6 +136,14 @@
         "code": "GR"
     },
     {
+        "name": "Guinea",
+        "code": "GN"
+    },
+    {
+        "name": "Honduras",
+        "code": "HN"
+    },
+    {
         "name": "Hungary",
         "code": "HU"
     },
@@ -108,12 +156,36 @@
         "code": "IN"
     },
     {
+        "name": "Iran",
+        "code": "IR"
+    },
+    {
+        "name": "Israel",
+        "code": "IL"
+    },
+    {
         "name": "Italy",
         "code": "IT"
     },
     {
+        "name": "Jamaica",
+        "code": "JM"
+    },
+    {
+        "name": "Japan",
+        "code": "JP"
+    },
+    {
+        "name": "Kenya",
+        "code": "KE"
+    },
+    {
         "name": "Korea Republic",
         "code": "KR"
+    },
+    {
+        "name": "Mali",
+        "code": "ML"
     },
     {
         "name": "Mexico",
@@ -130,6 +202,10 @@
     {
         "name": "New Zealand",
         "code": "NZ"
+    },
+    {
+        "name": "Nigeria",
+        "code": "NG"
     },
     {
         "name": "Northern Ireland",
@@ -176,8 +252,16 @@
         "code": "SA"
     },
     {
+        "name": "Serbia",
+        "code": "RS"
+    },
+    {
         "name": "Scotland",
         "code": "https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg"
+    },
+    {
+        "name": "Slovakia",
+        "code": "SK"
     },
     {
         "name": "Slovenia",
