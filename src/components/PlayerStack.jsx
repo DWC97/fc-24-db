@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
 
 export function PlayerStack({ short_name, overall, player_positions, pace, shooting, passing, dribbling, defending, physic }){
+
+    
+
     return (
         <div className="flex justify-end relative h-10 py-6 items-center border-b border-gray-300">
             <img src="https://cdn.sofifa.net/players/231/747/24_120.png" className="w-8 absolute left-0"/>
