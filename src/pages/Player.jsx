@@ -14,9 +14,9 @@ export function Player({ players }){
     const player = players.find(item => {
         return item.short_name === id
     })
-    // const league = leagueData.leagues.find(league => player.league_name === league.name)
-    // const club = league.clubs.find(club => club.name === player.club_name)
-    // const nation = nationsData.find(nation => nation.name === player.nationality_name)
+    const league = leagueData.leagues.find(league => player.league_name === league.name)
+    const club = league.clubs.find(club => club.name === player.club_name)
+    const nation = nationsData.find(nation => nation.name === player.nationality_name)
 
     const playerDesc = {
         "Full Name": player.long_name,
@@ -109,6 +109,12 @@ export function Player({ players }){
         },
     ]
 
+    function splitId(id){
+        const firstId = id.toString().slice(0, 3)
+        const secondId = id.toString().slice(3, 6)
+        return `${firstId}/${secondId}`
+    }
+
     function colorGenerator(value, number){
         if (number < 1){
             if (value < 55) return '#fa5d54'
@@ -131,22 +137,19 @@ export function Player({ players }){
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
            <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
                 <div className="bg-gray-200 rounded-full overflow-hidden">
-                    <img src="https://cdn.sofifa.net/players/231/747/24_120.png" className="w-24 md:w-32"/>
+                    <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-24 md:w-32"/>
                 </div>
                 <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
                     <span className="hidden md:flex md:text-3xl font-medium tracking-widest">{player.short_name}</span>
                     <span className="text-xl flex md:hidden">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
-                    <div className="flex flex-row justify-between items-center text-xs md:text-base">
-                        
+                    <div className="flex flex-row justify-between items-center text-xs md:text-base">   
                         <div className="flex flex-row items-center">
                             <Link to={`/clubs/${player.club_name}`}><span>{player.club_name.toUpperCase()}</span></Link>
-                            {/* {club ? <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>} */}
-                            <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
                             <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                            {/* {nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>} */}
-                            <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                     </div>
                 </div>

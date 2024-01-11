@@ -57,7 +57,7 @@ export function Home({ players }){
                 </div>
             <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
                 {open && playerList.filter(item => {
-                    return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+                    return value && item.long_name.toLowerCase().includes(value.toLowerCase())
                 }).slice(0,10)
                 .map(item => {
                     return <PlayerSearch key={item.player_id} {...item}/>
