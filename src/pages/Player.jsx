@@ -14,9 +14,9 @@ export function Player({ players }){
     const player = players.find(item => {
         return item.short_name === id
     })
-    const league = leagueData.leagues.find(league => player.league_name === league.name)
-    const club = league.clubs.find(club => club.name === player.club_name)
-    const nation = nationsData.find(nation => nation.name === player.nationality_name)
+    // const league = leagueData.leagues.find(league => player.league_name === league.name)
+    // const club = league.clubs.find(club => club.name === player.club_name)
+    // const nation = nationsData.find(nation => nation.name === player.nationality_name)
 
     const playerDesc = {
         "Full Name": player.long_name,
@@ -140,11 +140,13 @@ export function Player({ players }){
                         
                         <div className="flex flex-row items-center">
                             <Link to={`/clubs/${player.club_name}`}><span>{player.club_name.toUpperCase()}</span></Link>
-                            {club ? <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>}
+                            {/* {club ? <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>} */}
+                            <img src={`https://cdn.sofifa.net/meta/team/9/120.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
                             <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                            {nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>}
+                            {/* {nation ? <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/> : <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>} */}
+                            <img src={`https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/800px-Flag_of_France.svg.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
                         </div>
                     </div>
                 </div>

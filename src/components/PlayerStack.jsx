@@ -6,9 +6,9 @@ import nationsData from "../data/nations.json"
 export function PlayerStack({ short_name, overall, player_positions, pace, shooting, passing, dribbling, defending, physic }){
 
     const player = playersData.results.find(player => player.short_name === short_name)
-    const league = leagueData.leagues.find(league => player.league_name === league.name)
-    const club = league?.clubs.find(club => club.name === player.club_name)
-    const nation = nationsData.find(nation => nation.name === player.nationality_name)
+    // const league = leagueData.leagues.find(league => player.league_name === league.name)
+    // const club = league?.clubs.find(club => club.name === player.club_name)
+    // const nation = nationsData.find(nation => nation.name === player.nationality_name)
 
 
     return (
