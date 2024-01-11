@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import playersData from "../data/final.json"
+import playersData from "../data/players.json"
 import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
 
@@ -34,9 +34,9 @@ export function PlayerSearch({ short_name, overall, player_id, club_team_id, nat
     //     setValue(player)
     // }
 
-    const player = playersData.results.find(player => player.short_name === short_name)
+    const player = playersData.find(player => player.short_name === short_name)
     const league = leagueData.leagues.find(league => player.league_name === league.name)
-    const club = league?.clubs.find(club => club.name === player.club_name)
+    const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)
 
     return (

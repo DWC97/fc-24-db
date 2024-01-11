@@ -5,6 +5,7 @@ import { NewPlayerList } from "./legacy/NewPlayerList";
 import { Club } from "./pages/Club"
 import { Nation } from "./pages/Nation"
 import data from "./data/final.json"
+import playersData from "./data/players.json"
 import { Home } from "./pages/Home";
 import { Players } from "./pages/Players";
 import { Player } from "./pages/Player";
@@ -14,7 +15,8 @@ import { Practice } from "./utils/Practice";
 import { League } from "./pages/League";
 import { Nations } from "./pages/Nations";
 
-const players = data.results.filter(player => player.player_positions !== "GK")
+// const players = data.results.filter(player => player.player_positions !== "GK")
+const players = playersData
 console.log(players)
 
 export default function App(){
