@@ -1,9 +1,5 @@
 [
     {
-        "name": "Afghanistan",
-        "code": "AF"
-    },
-    {
         "name": "Albania",
         "code": "AL"
     },
@@ -14,10 +10,6 @@
     {
         "name": "Angola",
         "code": "AO"
-    },
-    {
-        "name": "Antigua and Barbuda",
-        "code": "AG"
     },
     {
         "name": "Argentina",
@@ -36,24 +28,12 @@
         "code": "AT"
     },
     {
-        "name": "Azerbaijan",
-        "code": "AZ"
-    },
-    {
-        "name": "Belarus",
-        "code": "BY"
-    },
-    {
         "name": "Belgium",
         "code": "BE"
     },
     {
         "name": "Benin",
         "code": "BJ"
-    },
-    {
-        "name": "Bermuda",
-        "code": "BM"
     },
     {
         "name": "Bolivia",
@@ -66,10 +46,6 @@
     {
         "name": "Brazil",
         "code": "BR"
-    },
-    {
-        "name": "Bulgaria",
-        "code": "BG"
     },
     {
         "name": "Burkina Faso",
@@ -96,24 +72,12 @@
         "code": "CF"
     },
     {
-        "name": "Chad",
-        "code": "TD"
-    },
-    {
         "name": "Chile",
         "code": "CL"
     },
     {
-        "name": "China PR",
-        "code": "CN"
-    },
-    {
         "name": "Colombia",
         "code": "CO"
-    },
-    {
-        "name": "Comoros",
-        "code": "KM"
     },
     {
         "name": "Congo",
@@ -134,10 +98,6 @@
     {
         "name": "Croatia",
         "code": "HR"
-    },
-    {
-        "name": "Curacao",
-        "code": "CW"
     },
     {
         "name": "Cyprus",
@@ -170,10 +130,6 @@
     {
         "name": "Equatorial Guinea",
         "code": "GQ"
-    },
-    {
-        "name": "Estonia",
-        "code": "EE"
     },
     {
         "name": "Finland",
@@ -244,10 +200,6 @@
         "code": "IR"
     },
     {
-        "name": "Iraq",
-        "code": "IQ"
-    },
-    {
         "name": "Israel",
         "code": "IL"
     },
@@ -268,16 +220,8 @@
         "code": "JO"
     },
     {
-        "name": "Kazakhstan",
-        "code": "KZ"
-    },
-    {
         "name": "Kenya",
         "code": "KE"
-    },
-    {
-        "name": "Korea DPR",
-        "code": "KP"
     },
     {
         "name": "Korea Republic",
@@ -288,32 +232,12 @@
         "code": "XK"
     },
     {
-        "name": "Latvia",
-        "code": "LV"
-    },
-    {
-        "name": "Liberia",
-        "code": "LR"
-    },
-    {
-        "name": "Libya",
-        "code": "LY"
-    },
-    {
-        "name": "Liechtenstein",
-        "code": "LI"
-    },
-    {
         "name": "Lithuania",
         "code": "LT"
     },
     {
         "name": "Luxembourg",
         "code": "LU"
-    },
-    {
-        "name": "Madagascar",
-        "code": "MG"
     },
     {
         "name": "Mali",
@@ -324,28 +248,12 @@
         "code": "MT"
     },
     {
-        "name": "Mauritania",
-        "code": "MR"
-    },
-    {
-        "name": "Mauritius",
-        "code": "MU"
-    },
-    {
         "name": "Mexico",
         "code": "MX"
     },
     {
-        "name": "Moldova",
-        "code": "MD"
-    },
-    {
         "name": "Montenegro",
         "code": "ME"
-    },
-    {
-        "name": "Montserrat",
-        "code": "MS"
     },
     {
         "name": "Morocco",
@@ -360,16 +268,8 @@
         "code": "NL"
     },
     {
-        "name": "New Caledonia",
-        "code": "NC"
-    },
-    {
         "name": "New Zealand",
         "code": "NZ"
-    },
-    {
-        "name": "Niger",
-        "code": "NE"
     },
     {
         "name": "Nigeria",
@@ -388,10 +288,6 @@
         "code": "NO"
     },
     {
-        "name": "Palestine",
-        "code": "PS"
-    },
-    {
         "name": "Panama",
         "code": "PA"
     },
@@ -402,10 +298,6 @@
     {
         "name": "Peru",
         "code": "PE"
-    },
-    {
-        "name": "Philippines",
-        "code": "PH"
     },
     {
         "name": "Poland",
@@ -428,10 +320,6 @@
         "code": "RU"
     },
     {
-        "name": "Saint Kitts and Nevis",
-        "code": "KN"
-    },
-    {
         "name": "Scotland",
         "code": "https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Scotland.svg"
     },
@@ -448,10 +336,6 @@
         "code": "SL"
     },
     {
-        "name": "Singapore",
-        "code": "SG"
-    },
-    {
         "name": "Slovakia",
         "code": "SK"
     },
@@ -464,16 +348,8 @@
         "code": "ZA"
     },
     {
-        "name": "South Sudan",
-        "code": "SS"
-    },
-    {
         "name": "Spain",
         "code": "ES"
-    },
-    {
-        "name": "Sudan",
-        "code": "SD"
     },
     {
         "name": "Suriname",
@@ -488,20 +364,8 @@
         "code": "CH"
     },
     {
-        "name": "Tanzania",
-        "code": "TZ"
-    },
-    {
-        "name": "Thailand",
-        "code": "TH"
-    },
-    {
         "name": "Togo",
         "code": "TG"
-    },
-    {
-        "name": "Trinidad and Tobago",
-        "code": "TT"
     },
     {
         "name": "Tunisia",
@@ -510,10 +374,6 @@
     {
         "name": "Turkey",
         "code": "TR"
-    },
-    {
-        "name": "Uganda",
-        "code": "UG"
     },
     {
         "name": "Ukraine",
