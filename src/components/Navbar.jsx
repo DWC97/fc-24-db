@@ -1,7 +1,6 @@
 import { Link, NavLink, useMatch } from "react-router-dom";
 import { Icon } from '@iconify/react';
-import { useState, useRef, useEffect } from "react";
-import { PlayerSearch } from "./PlayerSearch";
+import { useState } from "react";
 import { NavbarSearch } from "./NavbarSearch";
 import { useClickOutside } from "../hooks/useClickOutside";
 import leagueData from "../data/leagues.json"

@@ -4,7 +4,7 @@ import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
 import { splitId } from "../utils/Utils";
 
-export function PlayerSearch({ short_name, overall, player_id, club_team_id, nation_team_id}){
+export function PlayerSearch({ short_name, overall}){
 
     const player = playersData.find(player => player.short_name === short_name)
     const league = leagueData.leagues.find(league => player.league_name === league.name)

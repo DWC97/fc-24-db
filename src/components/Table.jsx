@@ -69,9 +69,7 @@ export function Table({ players }){
         if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting){
-                console.log("observed")
                 setCurrentPage(prevNumber => prevNumber + 1)
-                console.log(currentPage)
             }
         })
 

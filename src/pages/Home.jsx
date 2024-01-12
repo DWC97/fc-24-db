@@ -1,6 +1,5 @@
 import { NewsModule } from "../components/NewsModule"
-import { useEffect, useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { useState } from "react"
 import { PlayerSearch } from "../components/PlayerSearch"
 import { Icon } from '@iconify/react';
 import { useClickOutside } from "../hooks/useClickOutside";

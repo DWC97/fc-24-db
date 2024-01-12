@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom"
 
 export function NavbarSearch({ short_name, overall, setValue }){
-
-    // function onSearch(player){
-    //     setValue(player)
-    // }
-    
+   
     return (
         <Link to={`/players/${short_name}`}>
             <div 
