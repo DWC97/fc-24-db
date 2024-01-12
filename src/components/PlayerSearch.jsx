@@ -4,15 +4,15 @@ import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
 import { splitId } from "../utils/Utils";
 
-export function PlayerSearch({ short_name, overall}){
+export function PlayerSearch({ short_name, long_name, overall}){
 
-    const player = playersData.find(player => player.short_name === short_name)
+    const player = playersData.find(player => player.long_name === long_name)
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)
 
     return (
-        <Link to={`/players/${short_name}`}>
+        <Link to={`/players/${long_name}`}>
             <div className={`flex flex-row relative bg-gray-50 items-center w-72 justify-between py-1 border-b border-gray-300 text-custom-maroon hover:bg-custom-maroon hover:text-white hover:border-custom-maroon md:w-96`}>
                 <div className="pl-4 flex flex-row items-center justify-center">
                     <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-7"/>

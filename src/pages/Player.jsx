@@ -12,7 +12,7 @@ export function Player({ players }){
 
     const { id } = useParams()
     const player = players.find(item => {
-        return item.short_name === id
+        return item.long_name === id
     })
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
@@ -205,7 +205,7 @@ export function Player({ players }){
                             <ul className="-mt-8 w-full">
                                 {Object.keys(item.stats).map((key, index) => {
                                     return (
-                                        <li className="w-full flex flex-row justify-between px-4 md:text-sm text-xs py-2" key={index}>
+                                        <li className="w-full flex flex-row justify-between px-4 md:text-sm text-xs py-1 lg:py-2" key={index}>
                                             <span className="text-custom-grey">{key}</span> <span className={`${colorGenerator(item.stats[key], 1)} font-semibold`}>{item.stats[key]}</span>
                                         </li>
                                     )
