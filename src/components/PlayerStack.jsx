@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import playersData from "../data/players.json"
 import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
+import { splitId } from "../utils/Utils";
 
 export function PlayerStack({ short_name, overall, player_positions, pace, shooting, passing, dribbling, defending, physic }){
 
@@ -9,12 +10,6 @@ export function PlayerStack({ short_name, overall, player_positions, pace, shoot
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)
-
-    function splitId(id){
-        const firstId = id.toString().slice(0, 3)
-        const secondId = id.toString().slice(3, 6)
-        return `${firstId}/${secondId}`
-    }
 
     return (
         <div className="flex justify-end relative h-10 py-6 items-center border-b border-gray-300">

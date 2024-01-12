@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
-import { formatNumber } from "../utils/Utils";
+import { formatNumber, splitId } from "../utils/Utils";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -108,12 +108,6 @@ export function Player({ players }){
             }
         },
     ]
-
-    function splitId(id){
-        const firstId = id.toString().slice(0, 3)
-        const secondId = id.toString().slice(3, 6)
-        return `${firstId}/${secondId}`
-    }
 
     function colorGenerator(value, number){
         if (number < 1){
