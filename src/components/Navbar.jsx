@@ -4,10 +4,11 @@ import { useState } from "react";
 import { NavbarSearch } from "./NavbarSearch";
 import { useClickOutside } from "../hooks/useClickOutside";
 import leagueData from "../data/leagues.json"
+import { usePlayers } from "../context/PlayersContext";
 
+export function Navbar(){
 
-export function Navbar({ players }){
-
+    const players = usePlayers()
     const [nav, setNav] = useState(false)
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)

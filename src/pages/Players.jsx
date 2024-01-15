@@ -1,6 +1,9 @@
 import { Table } from "../components/Table";
+import { usePlayers } from "../context/PlayersContext";
 
-export function Players({ players }){
+export function Players(){
+
+    const players = usePlayers()
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">

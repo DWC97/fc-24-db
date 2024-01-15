@@ -2,9 +2,11 @@ import { Table } from "../components/Table";
 import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 import nationsData from "../data/nations.json"
+import { usePlayers } from "../context/PlayersContext";
 
-export function Nation({ players }){
+export function Nation(){
 
+    const players = usePlayers()
     const { id } = useParams()
     const nationPlayers = players.filter(player => player.nationality_name === id)
     const nation = nationsData.find(nation => nation.name === id)

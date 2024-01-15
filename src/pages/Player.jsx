@@ -7,9 +7,11 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
+import { usePlayers } from "../context/PlayersContext";
 
-export function Player({ players }){
+export function Player(){
 
+    const players = usePlayers()
     const { id } = useParams()
     const player = players.find(item => {
         return item.long_name === id

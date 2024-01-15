@@ -3,6 +3,7 @@ import { useState } from "react"
 import { PlayerSearch } from "../components/PlayerSearch"
 import { Icon } from '@iconify/react';
 import { useClickOutside } from "../hooks/useClickOutside";
+import { usePlayers } from "../context/PlayersContext";
 
 const newsPosters = [
     {
@@ -25,8 +26,9 @@ const newsPosters = [
     }
 ]
 
-export function Home({ players }){
+export function Home(){
 
+    const players = usePlayers()
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 

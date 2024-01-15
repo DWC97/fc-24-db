@@ -2,9 +2,11 @@ import { Table } from "../components/Table";
 import { useParams } from "react-router-dom"
 import { RouteError } from "../components/RouteError";
 import leagueData from "../data/leagues.json"
+import { usePlayers } from "../context/PlayersContext";
 
-export function Club({ players }){
+export function Club(){
 
+    const players = usePlayers()
     const { id } = useParams()
     const clubPlayers = players.filter(player => player.club_name === id)
     const league = leagueData.leagues.find(league => {

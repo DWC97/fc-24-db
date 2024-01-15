@@ -8,37 +8,38 @@ import { Player } from "./pages/Player";
 import { Navbar } from "./components/Navbar";
 import { League } from "./pages/League";
 import { Nations } from "./pages/Nations";
-
-const players = playersData
+import { PlayersProvider } from "./context/PlayersContext";
 
 export default function App(){
 
+  const players = playersData
+
   return (
-    <>
+    <PlayersProvider value={players}>
       <header>
         <nav>
-          <Navbar players={players}/>
+          <Navbar players={players} />
         </nav>
       </header>
       <main>
         <Routes>
-          <Route index element={<Home players={players}/>} />
+          <Route index element={<Home />} />
           <Route path="players" >
-            <Route index element={<Players players={players}/>}/>
-            <Route path=":id" element={<Player players={players}/>}/>
+            <Route index element={<Players />}/>
+            <Route path=":id" element={<Player />}/>
           </Route>
           <Route path="clubs">
-            <Route path=":id" element={<Club players={players}/>}/>
+            <Route path=":id" element={<Club />}/>
           </Route>
           <Route path="leagues">
             <Route path=":id" element={<League/>}/>
           </Route>
           <Route path="nations">
             <Route index element={<Nations/>}/>
-            <Route path=":id" element={<Nation players={players}/>}/>
+            <Route path=":id" element={<Nation />}/>
           </Route>
         </Routes>
       </main>
-    </>
+    </PlayersProvider>
   )
 }
