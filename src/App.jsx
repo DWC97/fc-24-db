@@ -15,19 +15,28 @@ export default function App(){
 
   return (
     <>
-      <nav>
-        <Navbar players={players}/>
-      </nav>
-      
+      <header>
+        <nav>
+          <Navbar players={players}/>
+        </nav>
+      </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home players={players}/>} />
-          <Route path="/players" element={<Players players={players}/>} />
-          <Route path="/players/:id" element={<Player players={players}/>}/>
-          <Route path="/clubs/:id" element={<Club players={players}/>}/>
-          <Route path="/leagues/:id" element={<League/>}/>
-          <Route path="/nations/:id" element={<Nation players={players}/>}/>
-          <Route path="/nations" element={<Nations/>}/>
+          <Route index element={<Home players={players}/>} />
+          <Route path="players" >
+            <Route index element={<Players players={players}/>}/>
+            <Route path=":id" element={<Player players={players}/>}/>
+          </Route>
+          <Route path="clubs">
+            <Route path=":id" element={<Club players={players}/>}/>
+          </Route>
+          <Route path="leagues">
+            <Route path=":id" element={<League/>}/>
+          </Route>
+          <Route path="nations">
+            <Route index element={<Nations/>}/>
+            <Route path=":id" element={<Nation players={players}/>}/>
+          </Route>
         </Routes>
       </main>
     </>
