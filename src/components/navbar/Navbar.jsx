@@ -2,9 +2,10 @@ import { Link, NavLink, useMatch } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import { useState } from "react";
 import { NavbarSearch } from "./NavbarSearch";
-import { useClickOutside } from "../hooks/useClickOutside";
-import leagueData from "../data/leagues.json"
-import { usePlayers } from "../context/PlayersContext";
+import { useClickOutside } from "../../hooks/useClickOutside";
+import leagueData from "../../data/leagues.json"
+import { usePlayers } from "../../context/PlayersContext";
+import navLogo from "./nav.png"
 
 export function Navbar(){
 
@@ -38,11 +39,11 @@ export function Navbar(){
             <div className="flex">
                 <NavLink to={"/"}>
                     <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
-                        <img src="assets/logos/nav.png" className="w-12"/>
+                        <img src={navLogo} className="w-12"/>
                     </div>
                 </NavLink>
                 <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
-                    <img src="assets/logos/nav.png" className="w-12"/>
+                    <img src={navLogo} className="w-12"/>
                 </div>
                 <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
@@ -94,7 +95,7 @@ export function Navbar(){
             </div>
             <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
                 <div className="mt-32">
-                    <img src="assets/logos/nav.png" className="w-44"/>
+                    <img src={navLogo} className="w-44"/>
                 </div>
                 <ul className="text-white w-full text-left px-12 pt-16">
                     <NavLink to={"/"}>

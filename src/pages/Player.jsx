@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { RouteError } from "../components/RouteError";
 import { formatNumber, splitId } from "../utils/Utils";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
@@ -8,6 +7,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
 import { usePlayers } from "../context/PlayersContext";
+import { NotFound } from "./NotFound";
 
 export function Player(){
 

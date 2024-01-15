@@ -5,10 +5,11 @@ import playersData from "./data/players.json"
 import { Home } from "./pages/Home";
 import { Players } from "./pages/Players";
 import { Player } from "./pages/Player";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/navbar/Navbar";
 import { League } from "./pages/League";
 import { Nations } from "./pages/Nations";
 import { PlayersProvider } from "./context/PlayersContext";
+import { NotFound } from "./pages/NotFound";
 
 export default function App(){
 
@@ -18,12 +19,12 @@ export default function App(){
     <PlayersProvider value={players}>
       <header>
         <nav>
-          <Navbar players={players} />
+          <Navbar />
         </nav>
       </header>
       <main>
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<Home />} /> 
           <Route path="players" >
             <Route index element={<Players />}/>
             <Route path=":id" element={<Player />}/>
@@ -38,6 +39,7 @@ export default function App(){
             <Route index element={<Nations/>}/>
             <Route path=":id" element={<Nation />}/>
           </Route>
+          <Route path="*" element={<NotFound />}/>
         </Routes>
       </main>
     </PlayersProvider>

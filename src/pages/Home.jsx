@@ -32,8 +32,6 @@ export function Home(){
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
 
-    const playerList = players
-
     let domNode = useClickOutside(() => {
         setOpen(false)
     })
@@ -57,7 +55,7 @@ export function Home(){
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>
             <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
-                {open && playerList.filter(item => {
+                {open && players.filter(item => {
                     return value && item.long_name.toLowerCase().includes(value.toLowerCase())
                 }).slice(0,10)
                 .map(item => {
