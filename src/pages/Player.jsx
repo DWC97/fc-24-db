@@ -157,15 +157,15 @@ export function Player(){
                 </div>
                 <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
                     <span className="hidden md:flex md:text-3xl font-medium tracking-widest text-custom-maroon">{player.short_name}</span>
-                    <span className="text-xl flex md:hidden">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
+                    <span className="text-xl flex md:hidden text-custom-maroon">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
                     <div className="flex flex-row justify-between items-center text-xs md:text-base">   
                         <div className="flex flex-row items-center">
                             <Link to={`/clubs/${player.club_name}`}><span>{player.club_name.toUpperCase()}</span></Link>
-                            <img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            <Link to={`/clubs/${player.club_name}`}><img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/></Link>
                         </div>
                         <div className="flex flex-row ml-2 md:ml-8 items-center">
                             <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                            <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/>
+                            <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/></Link>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ export function Navbar(){
     const [isDropdownVisible, setDropdownVisible] = useState(false)
     const [isShrunk, setIsShrunk] = useState(false)
     const isLeaguesActive = useMatch('/leagues/:id');
+    const [leaguesClicked, setLeaguesClicked] = useState(false)
 
     const playerList = players
 
@@ -118,17 +119,26 @@ export function Navbar(){
                         SEARCH
                         </li>
                     </NavLink>
-                    <NavLink to={"/players"}>
+                    <NavLink to={"players"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
                         PLAYERS
                         </li>
                     </NavLink>
-                    <NavLink to={"/"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
-                        LEAGUES
-                        </li>
-                    </NavLink>
-                    <NavLink to={"/"}>
+                    <li className={`pb-2 pt-4 ${leaguesClicked ? "border-none" : "border-b"} border-gray-100 text-lg  cursor-pointer`} onClick={() => {
+                        setLeaguesClicked(!leaguesClicked)
+                    }}>
+                    LEAGUES
+                    </li>
+                    <div className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
+                    {leagueData.leagues.map(league => {
+                        return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative"
+                        onClick={handleNav}>
+                            <img src={league.url} className="h-6"/>
+                            <span className="left-10 absolute">{league.name}</span>
+                        </div></Link>
+                        })}
+                    </div>
+                    <NavLink to={"nations"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
                         NATIONS
                         </li>
