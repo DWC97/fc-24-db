@@ -47,11 +47,12 @@ export function Navbar(){
                 </div>
                 <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
-                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
+                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
                             Players
                         </li>
                     </NavLink>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black" onMouseEnter={handleMouseEnter}
+                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300" 
+                    onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     style={{backgroundColor: isLeaguesActive ? "#950206" : isDropdownVisible && "#1C1E1D"}}
                     >
@@ -83,7 +84,11 @@ export function Navbar(){
                 </div>
                 <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
                     {open && playerList.filter(item => {
-                        return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
+                        const searchWords = value.toLowerCase().split(' ')
+                        return value && searchWords.every(word => (
+                            item.long_name.toLowerCase().includes(word)
+                        ))
+                        // return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                     }).slice(0,100)
                     .map(item => {
                         return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>

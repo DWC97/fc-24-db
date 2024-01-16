@@ -19,6 +19,7 @@ export function Player(){
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)
+    const imageUrl = `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`
 
     const playerDesc = {
         "Full Name": player.long_name,
@@ -129,11 +130,30 @@ export function Player(){
         
     }
 
+    async function validateUrl(url){
+        console.log(url)
+        fetch(url)
+        .then(response => {
+            if (response.ok){
+                console.log(url);
+                return url
+            }
+            else {
+                console.log("not okay")
+                return "https://cdn.sofifa.net/player_0.svg"
+            }
+        })
+        .catch(error => {
+            console.error("Error validating player image url", error)
+        })
+    }
+
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
            <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
                 <div className="bg-gray-200 rounded-full overflow-hidden">
                     <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-24 md:w-32"/>
+                    {/* <img src={validateUrl(imageUrl)} className="w-24 md:w-32"/> */}
                 </div>
                 <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
                     <span className="hidden md:flex md:text-3xl font-medium tracking-widest">{player.short_name}</span>

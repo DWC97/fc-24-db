@@ -86,7 +86,7 @@ export function Table({ players }){
                     }
                 }).length} results</p>
                 <p className="text-custom-maroon hidden md:flex">Filter by position and sort by attributes</p>
-                <button className="bg-custom-maroon text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base" onClick={() => {
+                <button className="hover:bg-custom-maroon text-custom-maroon border-2 border-custom-maroon hover:text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base ease-in-out duration-300" onClick={() => {
                     setPositionFilter("ALL")
                     setSortedBy("overall")
                     setSortOrder('desc')

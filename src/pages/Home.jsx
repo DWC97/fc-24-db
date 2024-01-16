@@ -56,7 +56,10 @@ export function Home(){
                 </div>
             <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
                 {open && players.filter(item => {
-                    return value && item.long_name.toLowerCase().includes(value.toLowerCase())
+                    const searchWords = value.toLowerCase().split(' ')
+                    return value && searchWords.every(word => (
+                        item.long_name.toLowerCase().includes(word)
+                    ))
                 }).slice(0,10)
                 .map(item => {
                     return <PlayerSearch key={item.player_id} {...item}/>

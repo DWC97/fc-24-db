@@ -24,7 +24,7 @@ export function Nations(){
                 })
                 .map((nation, index) => {
                     return (
-                        <div className="odd:bg-slate-50 even:bg-white" key={index}>
+                        <div className="odd:bg-slate-100 even:bg-white" key={index}>
                             <Link to={`/nations/${nation.name}`} >
                                 <div className="flex flex-row relative items-center justify-between px-4  py-2">
                                     <img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-12"/>
