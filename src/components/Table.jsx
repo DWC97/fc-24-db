@@ -79,7 +79,7 @@ export function Table({ players }){
     return (
         <div>
             <div className="flex flex-row justify-between mt-12 font-medium items-center">
-                <p className="text-gray-500 text-xs md:text-base">Showing {players.filter(player => {
+                <p className="text-gray-500 text-xs md:text-base italic font-normal">Showing {players.filter(player => {
                     if (positionFilter === "ALL") return player
                     else {
                         return player.player_positions.includes(positionFilter)
@@ -94,7 +94,7 @@ export function Table({ players }){
             </div>
 
             <div>
-                <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-20 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
+                <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-16 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
                     <span className="absolute text-sm lg:text-base left-2 lg:left-4 text-custom-grey">PLAYER</span>
                     <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
                     <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">CLUB</span>

@@ -14,6 +14,7 @@ export function Navbar(){
     const [value, setValue] = useState("")
     const [open, setOpen] = useState(false)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
+    const [isShrunk, setIsShrunk] = useState(false)
     const isLeaguesActive = useMatch('/leagues/:id');
 
     const playerList = players
@@ -34,12 +35,22 @@ export function Navbar(){
         setDropdownVisible(false)
     }
 
+    function scrollFunction(){
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            setIsShrunk(true)
+        }
+        else {
+            setIsShrunk(false)
+        }
+    }
+    window.onscroll = function() {scrollFunction()};
+
     return (
-        <div className="w-full bg-custom-grey h-20 flex fixed justify-between z-50">
+        <div className={`w-full bg-custom-grey ${isShrunk ? "h-16" : "h-20"} flex fixed justify-between z-50 ease-in-out duration-300`}>
             <div className="flex">
                 <NavLink to={"/"}>
                     <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
-                        <img src={navLogo} className="w-12"/>
+                        <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`}/>
                     </div>
                 </NavLink>
                 <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
@@ -58,7 +69,7 @@ export function Navbar(){
                     >
                         Leagues
                     </li>
-                    <div className="absolute top-20 left-32 w-32" onMouseEnter={handleMouseEnter}
+                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 w-32`} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
                         {isDropdownVisible && leagueData.leagues.map(league => {
                             return <Link to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon"
@@ -88,7 +99,6 @@ export function Navbar(){
                         return value && searchWords.every(word => (
                             item.long_name.toLowerCase().includes(word)
                         ))
-                        // return value && item.long_name.toLowerCase().includes(value.toLowerCase()) && value.toLowerCase() !== item.long_name.toLowerCase()
                     }).slice(0,100)
                     .map(item => {
                         return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>

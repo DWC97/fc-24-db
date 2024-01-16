@@ -150,13 +150,13 @@ export function Player(){
 
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
-           <div className="flex flex-row mt-24 relative justify-between items-center text-custom-maroon">
+           <div className="flex flex-row mt-24 relative justify-between items-center">
                 <div className="bg-gray-200 rounded-full overflow-hidden">
                     <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-24 md:w-32"/>
                     {/* <img src={validateUrl(imageUrl)} className="w-24 md:w-32"/> */}
                 </div>
                 <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
-                    <span className="hidden md:flex md:text-3xl font-medium tracking-widest">{player.short_name}</span>
+                    <span className="hidden md:flex md:text-3xl font-medium tracking-widest text-custom-maroon">{player.short_name}</span>
                     <span className="text-xl flex md:hidden">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
                     <div className="flex flex-row justify-between items-center text-xs md:text-base">   
                         <div className="flex flex-row items-center">
@@ -169,7 +169,7 @@ export function Player(){
                         </div>
                     </div>
                 </div>
-                <div className="hidden md:flex flex-row justify-center items-center">
+                <div className="hidden md:flex flex-row justify-center items-center text-custom-maroon">
                     <span className="text-lg mr-2 md:text-2xl md:mr-6">{player.player_positions.split(",")[0]}</span>
                     <span className="text-4xl md:text-6xl font-semibold">{player.overall}</span>
                 </div>
