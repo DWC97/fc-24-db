@@ -1,21 +1,32 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from '@iconify/react';
 import { PlayerStack } from "../components/PlayerStack";
+import { useSearchParams } from "react-router-dom";
 
 export function Table({ players }){
 
-    const [positionFilter, setPositionFilter] = useState('');
-    const [sortedBy, setSortedBy] = useState('overall');
-    const [sortOrder, setSortOrder] = useState('desc');
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams({ positionFilter: "ALL", sortedBy: "overall", sortOrder: "desc"})
+    const positionFilter = searchParams.get("positionFilter")
+    const sortedBy = searchParams.get("sortedBy")
+    const sortOrder = searchParams.get("sortOrder")
 
-    const toggleSortOrder = (stat) => {
+    function toggleSortOrder(stat){
         if (sortedBy === stat) {
-        setSortOrder(prevOrder => (prevOrder === 'asc' ? 'desc' : 'asc'));
+            setSearchParams(prev => {
+                prev.set("sortOrder", sortOrder === 'asc' ? 'desc' : 'asc')
+                return prev
+            })
         } else {
-        setSortOrder('desc');
+            setSearchParams(prev => {
+                prev.set("sortOrder", "desc")
+                return prev
+            })
         }
-        setSortedBy(stat);
+        setSearchParams(prev => {
+            prev.set("sortedBy", stat)
+            return prev
+        })
     };
 
     const sortedPlayers = players
@@ -60,7 +71,9 @@ export function Table({ players }){
     ]
 
     useEffect(() => {
+
         setCurrentPage(1)
+
     }, [positionFilter, sortOrder, sortedBy])
 
     const observer = useRef()
@@ -87,9 +100,12 @@ export function Table({ players }){
                 }).length} results</p>
                 <p className="text-custom-maroon hidden md:flex">Filter by position and sort by attributes</p>
                 <button className="hover:bg-custom-maroon text-custom-maroon border-2 border-custom-maroon hover:text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base ease-in-out duration-300" onClick={() => {
-                    setPositionFilter("ALL")
-                    setSortedBy("overall")
-                    setSortOrder('desc')
+                    setSearchParams(prev => {
+                        prev.set("positionFilter", "ALL")
+                        prev.set("sortedBy", "overall")
+                        prev.set("sortOrder", "desc")
+                        return prev
+                    })
                 }}>Reset Filters</button>
             </div>
 
@@ -98,7 +114,12 @@ export function Table({ players }){
                     <span className="absolute text-sm lg:text-base left-2 lg:left-4 text-custom-grey">PLAYER</span>
                     <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
                     <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">CLUB</span>
-                    <select className="ml-2 lg:ml-3 w-16 text-sm lg:text-base hidden md:flex" value={positionFilter} onChange={e => setPositionFilter(e.target.value)}>
+                    <select className="ml-2 lg:ml-3 w-16 text-sm lg:text-base hidden md:flex" value={positionFilter} 
+                    onChange={e => setSearchParams(prev => {
+                        prev.set("positionFilter", e.target.value)
+                        return prev
+                    })}
+                    >
                     {playerPositions.map(position => (
                         <option key={position} value={position}>
                         {position}

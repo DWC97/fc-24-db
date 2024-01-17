@@ -151,7 +151,7 @@ export function Player(){
     return (
         <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
            <div className="flex flex-row mt-24 relative justify-between items-center">
-                <div className="bg-gray-200 rounded-full overflow-hidden">
+                <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">
                     <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-24 md:w-32"/>
                     {/* <img src={validateUrl(imageUrl)} className="w-24 md:w-32"/> */}
                 </div>

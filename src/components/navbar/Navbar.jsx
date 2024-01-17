@@ -77,7 +77,9 @@ export function Navbar(){
                         {isDropdownVisible && leagueData.leagues.map(league => {
                             return <Link to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon"
                             onClick={() => handleMouseLeave()}
-                            >{league.name}</div></Link>
+                            >
+                                {league.name}
+                            </div></Link>
                         })}
                     </div>
                     <NavLink to={"/nations"}><li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
