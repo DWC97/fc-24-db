@@ -19,7 +19,7 @@ export function PlayerStack({ short_name, long_name, overall, player_positions, 
                 <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/></Link>       
             </div>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center">
-                <Link to={`/clubs/${player.club_name}`}><img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="w-6"/></Link>
+                <Link to={`/clubs/${player.club_name}`}><img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="h-6"/></Link>
             </div>
             <span className="w-16 md:w-12 lg:w-16 hidden md:flex justify-center font-medium ml-3 mr-3 lg:mr-0">{player_positions.split(",")[0]}</span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center font-medium">

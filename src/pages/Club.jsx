@@ -18,7 +18,7 @@ export function Club(){
             <div className="flex flex-row items-center mt-32 h-16 md:h-24"
             style={{backgroundColor: `${club.color}`}}
             >
-                <img src={club.url} className="w-10 md:w-16 mx-4 md:mx-8"/>
+                <img src={club.url} className="h-12 md:h-16 mx-4 md:mx-8"/>
                 <h1 className="text-white text-sm md:text-3xl font-medium tracking-widest">CLUB - {id.toUpperCase()}</h1>
             </div>
             <Table players={clubPlayers}/>
