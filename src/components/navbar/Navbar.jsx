@@ -116,12 +116,12 @@ export function Navbar(){
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div>
             <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
-                <div className="mt-32">
-                    <img src={navLogo} className="w-44"/>
+                <div className="mt-24">
+                    <img src={navLogo} className="w-32"/>
                 </div>
-                <ul className="text-white w-full text-left px-12 pt-16">
+                <ul className="text-white w-full text-left px-12 pt-4">
                     <NavLink to={"/"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
                             handleNav()
                             toggle()
                         }}>
@@ -129,21 +129,21 @@ export function Navbar(){
                         </li>
                     </NavLink>
                     <NavLink to={"players"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
                             handleNav()
                             toggle()
                         }}>
                         PLAYERS
                         </li>
                     </NavLink>
-                    <li className={`pb-2 pt-4 ${leaguesClicked ? "border-none" : "border-b"} border-gray-100 text-lg  cursor-pointer`} onClick={() => {
+                    <li className={`pb-2 pt-4 ${leaguesClicked ? "border-none" : "border-b"} border-gray-100 text-md  cursor-pointer`} onClick={() => {
                         setLeaguesClicked(!leaguesClicked)
                     }}>
                     LEAGUES
                     </li>
                     <div className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
                     {leagueData.leagues.map(league => {
-                        return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative"
+                        return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
                         onClick={() => {
                             handleNav()
                             setLeaguesClicked(false)
@@ -155,7 +155,7 @@ export function Navbar(){
                         })}
                     </div>
                     <NavLink to={"nations"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
                             handleNav()
                             toggle()
                         }}>
