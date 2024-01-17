@@ -6,6 +6,7 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 import leagueData from "../../data/leagues.json"
 import { usePlayers } from "../../context/PlayersContext";
 import navLogo from "./nav.png"
+import useBodyLockScroll from "../../hooks/useBodyLockScroll";
 
 export function Navbar(){
 
@@ -17,6 +18,7 @@ export function Navbar(){
     const [isShrunk, setIsShrunk] = useState(false)
     const isLeaguesActive = useMatch('/leagues/:id');
     const [leaguesClicked, setLeaguesClicked] = useState(false)
+    const [locked, toggle] = useBodyLockScroll()
 
     const playerList = players
 
@@ -106,7 +108,11 @@ export function Navbar(){
                     })}
                 </div>
             </div> 
-            <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={handleNav}>
+            <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={() => {
+                setLeaguesClicked()
+                handleNav()
+                toggle()
+            }}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div>
             <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
@@ -115,12 +121,18 @@ export function Navbar(){
                 </div>
                 <ul className="text-white w-full text-left px-12 pt-16">
                     <NavLink to={"/"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                            handleNav()
+                            toggle()
+                        }}>
                         SEARCH
                         </li>
                     </NavLink>
                     <NavLink to={"players"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                            handleNav()
+                            toggle()
+                        }}>
                         PLAYERS
                         </li>
                     </NavLink>
@@ -132,14 +144,21 @@ export function Navbar(){
                     <div className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
                     {leagueData.leagues.map(league => {
                         return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative"
-                        onClick={handleNav}>
+                        onClick={() => {
+                            handleNav()
+                            setLeaguesClicked(false)
+                            toggle()
+                        }}>
                             <img src={league.url} className="h-6"/>
                             <span className="left-10 absolute">{league.name}</span>
                         </div></Link>
                         })}
                     </div>
                     <NavLink to={"nations"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={handleNav}>
+                        <li className="pb-4 pt-4 border-b border-gray-100 text-lg" onClick={() => {
+                            handleNav()
+                            toggle()
+                        }}>
                         NATIONS
                         </li>
                     </NavLink>
