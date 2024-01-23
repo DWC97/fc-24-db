@@ -10,6 +10,7 @@ import { League } from "./pages/League";
 import { Nations } from "./pages/Nations";
 import { PlayersProvider } from "./context/PlayersContext";
 import { NotFound } from "./pages/NotFound";
+import { Practice } from "./pages/Practice";
 
 export default function App(){
 
@@ -40,6 +41,7 @@ export default function App(){
             <Route path=":id" element={<Nation />}/>
           </Route>
           <Route path="*" element={<NotFound />}/>
+          <Route path="practice" element={<Practice />}/>
         </Routes>
       </main>
     </PlayersProvider>
