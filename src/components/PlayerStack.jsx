@@ -3,6 +3,7 @@ import playersData from "../data/players.json"
 import leagueData from "../data/leagues.json"
 import nationsData from "../data/nations.json"
 import { splitId } from "../utils/Utils";
+import { useEffect, useState } from "react";
 
 export function PlayerStack({ short_name, long_name, overall, player_positions, pace, shooting, passing, dribbling, defending, physic }){
 
@@ -10,10 +11,24 @@ export function PlayerStack({ short_name, long_name, overall, player_positions, 
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)
+    const imageUrl = `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`
+    const [playerImage, setPlayerImage] = useState("https://cdn.sofifa.net/player_0.svg")
+
+    useEffect(() => {
+
+        fetch(`/proxy?url=${encodeURIComponent(imageUrl)}`)
+        .then(async () => {
+            setPlayerImage(imageUrl);
+        })
+        .catch((error) => {
+            console.error("Error fetching image:", error);
+        });
+
+    }, [])
 
     return (
         <div className="flex justify-end relative h-10 py-6 items-center border-b border-gray-300">
-            <img src={`https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`} className="w-8 absolute left-0"/>
+            <img src={playerImage} className="w-8 absolute left-0" onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}/>
             <span className="absolute text-xs md:text-sm lg:text-base left-8 md:left-12 text-black tracking-wider "><Link to={`/players/${long_name}`}>{short_name}</Link></span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center">
                 <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/></Link>       
