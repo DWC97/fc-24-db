@@ -56,9 +56,9 @@ export function Navbar(){
                         <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`}/>
                     </div>
                 </NavLink>
-                <div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
+                <NavLink to={"/"}><div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
                     <img src={navLogo} className="w-12"/>
-                </div>
+                </div></NavLink>
                 <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
                         <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
