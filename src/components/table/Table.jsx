@@ -1,16 +1,27 @@
+// hooks
 import { useCallback, useEffect, useRef, useState } from "react"
-import { Icon } from '@iconify/react'
+
+// components
 import { PlayerStack } from "./PlayerStack"
+
+// routing
 import { useSearchParams } from "react-router-dom"
 
+// assets
+import { Icon } from '@iconify/react'
+
+
+// table of players with filters and sorting functionality
 export function Table({ players }){
 
-    const [currentPage, setCurrentPage] = useState(1)
-    const [searchParams, setSearchParams] = useSearchParams({ positionFilter: "ALL", sortedBy: "overall", sortOrder: "desc"})
-    const positionFilter = searchParams.get("positionFilter")
+    const [currentPage, setCurrentPage] = useState(1) // page of player results to be displayed in table
+    const [searchParams, setSearchParams] = useSearchParams({ positionFilter: "ALL", sortedBy: "overall", sortOrder: "desc"}) 
+    // search params to keep track of filters and persist them across routes
+    const positionFilter = searchParams.get("positionFilter") 
     const sortedBy = searchParams.get("sortedBy")
     const sortOrder = searchParams.get("sortOrder")
 
+    // toggle order of players
     function toggleSortOrder(stat){
         if (sortedBy === stat) {
             setSearchParams(prev => {
@@ -29,6 +40,7 @@ export function Table({ players }){
         })
     }
 
+    // player list with filters and sorting applied
     const sortedPlayers = players
         .filter(player => !positionFilter || positionFilter === 'ALL' || player.player_positions.includes(positionFilter))
         .sort((a, b) => {
@@ -36,8 +48,10 @@ export function Table({ players }){
         return (a[sortedBy] - b[sortedBy]) * orderFactor
         })
         .slice(0, 40 * currentPage)
-
+    
+    // array of player positions for position filter dropdown
     const playerPositions = ["ALL", "ST", "CF", "LW", "LM", "RW", "RM", "CAM", "CM", "CDM", "LWB", "LB", "RWB", "RB", "CB"]
+    // array of objects containing info on each player attribute 
     const playerStats = [
         {
             "name": "overall",
@@ -70,27 +84,34 @@ export function Table({ players }){
         }
     ]
 
+    // reset the current page to 1 if any of the filters change
     useEffect(() => {
 
         setCurrentPage(1)
 
     }, [positionFilter, sortOrder, sortedBy])
 
+    // reference for scroll position in relation to last player in rendered list
     const observer = useRef()
     const lastPlayerElementRef = useCallback(node => {
   
+        // disconnect observer from previous element
         if (observer.current) observer.current.disconnect()
+        // set new observer = intersection function
         observer.current = new IntersectionObserver(entries => {
+            // if observer intersects with last rendered player, increase the current page number
             if (entries[0].isIntersecting){
                 setCurrentPage(prevNumber => prevNumber + 1)
             }
         })
 
+        // observer the last element
         if (node) observer.current.observe(node)
     }, [])
 
     return (
         <div>
+            {/* text content */}
             <div className="flex flex-row justify-between mt-12 font-medium items-center">
                 <p className="text-gray-500 text-xs md:text-base italic font-normal">Showing {players.filter(player => {
                     if (positionFilter === "ALL") return player
@@ -110,6 +131,7 @@ export function Table({ players }){
             </div>
 
             <div>
+                {/* column headings */}
                 <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-16 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
                     <span className="absolute text-sm lg:text-base left-2 lg:left-4 text-custom-grey">PLAYER</span>
                     <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
@@ -143,8 +165,10 @@ export function Table({ players }){
                 </div>
 
                 <div>
+                    {/* rendered player list */}
                     {sortedPlayers.map((player, index) => {
                         if (sortedPlayers.length === index + 1){
+                            // Get a reference to the last player in the rendered list
                             return (
                                 <div ref={lastPlayerElementRef} key={player.player_id} className="odd:bg-slate-50 even:bg-white">
                                     <PlayerStack {...player} />

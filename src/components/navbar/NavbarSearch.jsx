@@ -1,6 +1,7 @@
 // routing 
 import { Link } from "react-router-dom"
 
+
 // player stack in navbar search dropdown
 export function NavbarSearch({ setValue, ...player }){
    

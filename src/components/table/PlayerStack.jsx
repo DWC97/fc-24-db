@@ -5,27 +5,27 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 // data
-import playersData from "../../data/players.json"
 import leagueData from "../../data/leagues.json"
 import nationsData from "../../data/nations.json"
 
 // utilities
 import { splitId } from "../../utilities/Utils"
 
-// player stack in filtered table
-export function PlayerStack({ long_name }){
 
-    const player = playersData.find(player => player.long_name === long_name) // find player using long
-    const league = leagueData.leagues.find(league => player.league_name === league.name)
-    const club = league.clubs.find(club => club.name === player.club_name)
-    const nation = nationsData.find(nation => nation.name === player.nationality_name)
-    const imageUrl = `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png`
-    const [playerImage, setPlayerImage] = useState("https://cdn.sofifa.net/player_0.svg")
+// player stack in filtered table
+export function PlayerStack({ ...player }){
+
+    const league = leagueData.leagues.find(league => player.league_name === league.name) // find league using player data
+    const club = league.clubs.find(club => club.name === player.club_name) // find club using player data
+    const nation = nationsData.find(nation => nation.name === player.nationality_name) // find nation using player data
+    const imageUrl = `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png` // player image scraped from sofifa's online database
+    const [playerImage, setPlayerImage] = useState("https://cdn.sofifa.net/player_0.svg") // placeholder image
 
     useEffect(() => {
 
         fetch(`/proxy?url=${encodeURIComponent(imageUrl)}`)
         .then(async () => {
+            // if fetch attempt is successful, set the player image as the valid url
             setPlayerImage(imageUrl)
         })
         .catch((error) => {
@@ -36,7 +36,10 @@ export function PlayerStack({ long_name }){
 
     return (
         <div className="flex justify-end relative h-10 py-6 items-center border-b border-gray-300">
-            <img src={playerImage} className="w-8 absolute left-0" onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}/>
+            <img src={playerImage} className="w-8 absolute left-0" 
+            // revert to placeholder if error displying image
+            onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")} 
+            />
             <span className="absolute text-xs md:text-sm lg:text-base left-8 md:left-12 text-black tracking-wider "><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center">
                 <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/></Link>       

@@ -19,6 +19,7 @@ import { usePlayers } from "../../context/PlayersContext"
 import { Icon } from '@iconify/react'
 import navLogo from "./nav.png"
 
+
 export function Navbar(){
 
     const players = usePlayers() // import player list
