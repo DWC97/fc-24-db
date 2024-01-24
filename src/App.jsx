@@ -1,19 +1,30 @@
-import { Route, Routes } from "react-router-dom";
+// pages
 import { Club } from "./pages/Club"
 import { NationDetails } from "./pages/NationDetails"
+import { Home } from "./pages/home/Home"
+import { PlayerSearch } from "./pages/PlayerSearch"
+import { PlayerDetails } from "./pages/PlayerDetails"
+import { NotFound } from "./pages/NotFound"
+import { League } from "./pages/League"
+import { NationSearch } from "./pages/NationSearch"
+
+// components
+import { Navbar } from "./components/navbar/Navbar"
+
+// data
 import playersData from "./data/players.json"
-import { Home } from "./pages/home/Home";
-import { PlayerSearch } from "./pages/PlayerSearch";
-import { PlayerDetails } from "./pages/PlayerDetails";
-import { Navbar } from "./components/navbar/Navbar";
-import { League } from "./pages/League";
-import { NationSearch } from "./pages/NationSearch";
-import { PlayersProvider } from "./context/PlayersContext";
-import { NotFound } from "./pages/NotFound";
+
+// context
+import { PlayersProvider } from "./context/PlayersContext"
+
+// routing
+import { Route, Routes } from "react-router-dom"
+
 
 export default function App(){
 
   const players = playersData
+  // player data list wraps entire app
 
   return (
     <PlayersProvider value={players}>

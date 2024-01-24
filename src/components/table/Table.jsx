@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Icon } from '@iconify/react';
-import { PlayerStack } from "./PlayerStack";
-import { useSearchParams } from "react-router-dom";
+import { useCallback, useEffect, useRef, useState } from "react"
+import { Icon } from '@iconify/react'
+import { PlayerStack } from "./PlayerStack"
+import { useSearchParams } from "react-router-dom"
 
 export function Table({ players }){
 
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1)
     const [searchParams, setSearchParams] = useSearchParams({ positionFilter: "ALL", sortedBy: "overall", sortOrder: "desc"})
     const positionFilter = searchParams.get("positionFilter")
     const sortedBy = searchParams.get("sortedBy")
@@ -27,15 +27,15 @@ export function Table({ players }){
             prev.set("sortedBy", stat)
             return prev
         })
-    };
+    }
 
     const sortedPlayers = players
         .filter(player => !positionFilter || positionFilter === 'ALL' || player.player_positions.includes(positionFilter))
         .sort((a, b) => {
-        const orderFactor = sortOrder === 'asc' ? 1 : -1;
-        return (a[sortedBy] - b[sortedBy]) * orderFactor;
+        const orderFactor = sortOrder === 'asc' ? 1 : -1
+        return (a[sortedBy] - b[sortedBy]) * orderFactor
         })
-        .slice(0, 40 * currentPage);
+        .slice(0, 40 * currentPage)
 
     const playerPositions = ["ALL", "ST", "CF", "LW", "LM", "RW", "RM", "CAM", "CM", "CDM", "LWB", "LB", "RWB", "RB", "CB"]
     const playerStats = [

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
 import leagueData from "../data/leagues.json"
 import { Link } from "react-router-dom"
-import { Icon } from '@iconify/react';
-import { useState } from "react";
+import { Icon } from '@iconify/react'
+import { useState } from "react"
 
 export function League(){
 

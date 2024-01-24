@@ -1,5 +1,5 @@
-import { Table } from "../components/table/Table";
-import { usePlayers } from "../context/PlayersContext";
+import { Table } from "../components/table/Table"
+import { usePlayers } from "../context/PlayersContext"
 
 export function PlayerSearch(){
 

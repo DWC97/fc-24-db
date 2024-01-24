@@ -1,6 +1,6 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext } from 'react'
 
-const PlayersContext = createContext();
+const PlayersContext = createContext()
 
 export function PlayersProvider({ children, value }){
     return (
@@ -10,7 +10,9 @@ export function PlayersProvider({ children, value }){
     )
 }
 
+
+// hook to access player context within components
 export function usePlayers(){
-    const context = useContext(PlayersContext);
+    const context = useContext(PlayersContext)
     return context
 }

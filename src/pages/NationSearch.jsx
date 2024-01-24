@@ -1,7 +1,7 @@
 import { useState } from "react"
 import nationsData from "../data/nations.json"
 import { Link } from "react-router-dom"
-import { Icon } from '@iconify/react';
+import { Icon } from '@iconify/react'
 
 export function NationSearch(){
 

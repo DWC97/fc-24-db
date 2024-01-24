@@ -1,9 +1,9 @@
 import { NewsModule } from "./NewsModule"
 import { useState } from "react"
 import { HomeSearch } from "./HomeSearch"
-import { Icon } from '@iconify/react';
-import { useClickOutside } from "../../hooks/useClickOutside";
-import { usePlayers } from "../../context/PlayersContext";
+import { Icon } from '@iconify/react'
+import { useClickOutside } from "../../hooks/useClickOutside"
+import { usePlayers } from "../../context/PlayersContext"
 
 const newsPosters = [
     {

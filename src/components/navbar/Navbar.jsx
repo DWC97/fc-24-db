@@ -1,12 +1,12 @@
-import { Link, NavLink, useMatch } from "react-router-dom";
-import { Icon } from '@iconify/react';
-import { useState } from "react";
-import { NavbarSearch } from "./NavbarSearch";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import { Link, NavLink, useMatch } from "react-router-dom"
+import { Icon } from '@iconify/react'
+import { useState } from "react"
+import { NavbarSearch } from "./NavbarSearch"
+import { useClickOutside } from "../../hooks/useClickOutside"
 import leagueData from "../../data/leagues.json"
-import { usePlayers } from "../../context/PlayersContext";
+import { usePlayers } from "../../context/PlayersContext"
 import navLogo from "./nav.png"
-import useBodyLockScroll from "../../hooks/useBodyLockScroll";
+import useBodyLockScroll from "../../hooks/useBodyLockScroll"
 
 export function Navbar(){
 
@@ -16,7 +16,7 @@ export function Navbar(){
     const [open, setOpen] = useState(false)
     const [isDropdownVisible, setDropdownVisible] = useState(false)
     const [isShrunk, setIsShrunk] = useState(false)
-    const isLeaguesActive = useMatch('/leagues/:id');
+    const isLeaguesActive = useMatch('/leagues/:id')
     const [leaguesClicked, setLeaguesClicked] = useState(false)
     const [locked, toggle] = useBodyLockScroll()
 
@@ -46,7 +46,7 @@ export function Navbar(){
             setIsShrunk(false)
         }
     }
-    window.onscroll = function() {scrollFunction()};
+    window.onscroll = function() {scrollFunction()}
 
     return (
         <div className={`w-full bg-custom-grey ${isShrunk ? "h-16" : "h-20"} flex fixed justify-between z-50 ease-in-out duration-300`}>

@@ -9,7 +9,7 @@ export function splitId(id){
 }
 
 function compareByName(a, b) {
-    return a.team_name.localeCompare(b.team_name);
+    return a.team_name.localeCompare(b.team_name)
 }
 
 function removeDuplicates(data, key){
