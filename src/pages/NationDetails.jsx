@@ -1,9 +1,9 @@
-import { Table } from "../components/Table";
+import { Table } from "../components/table/Table";
 import { useParams } from "react-router-dom"
 import nationsData from "../data/nations.json"
 import { usePlayers } from "../context/PlayersContext";
 
-export function Nation(){
+export function NationDetails(){
 
     const players = usePlayers()
     const { id } = useParams()

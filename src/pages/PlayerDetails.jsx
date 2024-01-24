@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { formatNumber, splitId } from "../utils/Utils";
+import { formatNumber, splitId } from "../utilities/Utils";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -10,7 +10,7 @@ import { usePlayers } from "../context/PlayersContext";
 import { NotFound } from "./NotFound";
 import { useEffect, useState } from "react";
 
-export function Player(){
+export function PlayerDetails(){
 
     const players = usePlayers()
     const { id } = useParams()

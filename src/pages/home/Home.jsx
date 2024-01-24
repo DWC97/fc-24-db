@@ -1,9 +1,9 @@
-import { NewsModule } from "../components/NewsModule"
+import { NewsModule } from "./NewsModule"
 import { useState } from "react"
-import { PlayerSearch } from "../components/PlayerSearch"
+import { HomeSearch } from "./HomeSearch"
 import { Icon } from '@iconify/react';
-import { useClickOutside } from "../hooks/useClickOutside";
-import { usePlayers } from "../context/PlayersContext";
+import { useClickOutside } from "../../hooks/useClickOutside";
+import { usePlayers } from "../../context/PlayersContext";
 
 const newsPosters = [
     {
@@ -62,7 +62,7 @@ export function Home(){
                     ))
                 }).slice(0,10)
                 .map(item => {
-                    return <PlayerSearch key={item.player_id} {...item}/>
+                    return <HomeSearch key={item.player_id} {...item}/>
                 })}
             </div>
             </div>

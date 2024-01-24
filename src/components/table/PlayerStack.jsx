@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import playersData from "../data/players.json"
-import leagueData from "../data/leagues.json"
-import nationsData from "../data/nations.json"
-import { splitId } from "../utils/Utils";
+import playersData from "../../data/players.json"
+import leagueData from "../../data/leagues.json"
+import nationsData from "../../data/nations.json"
+import { splitId } from "../../utilities/Utils";
 import { useEffect, useState } from "react";
 
 export function PlayerStack({ short_name, long_name, overall, player_positions, pace, shooting, passing, dribbling, defending, physic }){

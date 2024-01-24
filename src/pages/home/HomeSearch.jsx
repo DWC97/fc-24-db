@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import playersData from "../data/players.json"
-import leagueData from "../data/leagues.json"
-import nationsData from "../data/nations.json"
-import { splitId } from "../utils/Utils";
+import playersData from "../../data/players.json"
+import leagueData from "../../data/leagues.json"
+import nationsData from "../../data/nations.json"
+import { splitId } from "../../utilities/Utils";
 import { useEffect, useState } from "react";
 
-export function PlayerSearch({ short_name, long_name, overall}){
+export function HomeSearch({ short_name, long_name, overall}){
 
     const player = playersData.find(player => player.long_name === long_name)
     const league = leagueData.leagues.find(league => player.league_name === league.name)

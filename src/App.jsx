@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { Club } from "./pages/Club"
-import { Nation } from "./pages/Nation"
+import { NationDetails } from "./pages/NationDetails"
 import playersData from "./data/players.json"
-import { Home } from "./pages/Home";
-import { Players } from "./pages/Players";
-import { Player } from "./pages/Player";
+import { Home } from "./pages/home/Home";
+import { PlayerSearch } from "./pages/PlayerSearch";
+import { PlayerDetails } from "./pages/PlayerDetails";
 import { Navbar } from "./components/navbar/Navbar";
 import { League } from "./pages/League";
-import { Nations } from "./pages/Nations";
+import { NationSearch } from "./pages/NationSearch";
 import { PlayersProvider } from "./context/PlayersContext";
 import { NotFound } from "./pages/NotFound";
-import { Practice } from "./pages/Practice";
 
 export default function App(){
 
@@ -27,8 +26,8 @@ export default function App(){
         <Routes>
           <Route index element={<Home />} /> 
           <Route path="players" >
-            <Route index element={<Players />}/>
-            <Route path=":id" element={<Player />}/>
+            <Route index element={<PlayerSearch />}/>
+            <Route path=":id" element={<PlayerDetails />}/>
           </Route>
           <Route path="clubs">
             <Route path=":id" element={<Club />}/>
@@ -37,11 +36,10 @@ export default function App(){
             <Route path=":id" element={<League/>}/>
           </Route>
           <Route path="nations">
-            <Route index element={<Nations/>}/>
-            <Route path=":id" element={<Nation />}/>
+            <Route index element={<NationSearch/>}/>
+            <Route path=":id" element={<NationDetails />}/>
           </Route>
           <Route path="*" element={<NotFound />}/>
-          <Route path="practice" element={<Practice />}/>
         </Routes>
       </main>
     </PlayersProvider>

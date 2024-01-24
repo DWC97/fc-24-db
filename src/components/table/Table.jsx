@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from '@iconify/react';
-import { PlayerStack } from "../components/PlayerStack";
+import { PlayerStack } from "./PlayerStack";
 import { useSearchParams } from "react-router-dom";
 
 export function Table({ players }){

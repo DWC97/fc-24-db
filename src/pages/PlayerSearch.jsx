@@ -1,7 +1,7 @@
-import { Table } from "../components/Table";
+import { Table } from "../components/table/Table";
 import { usePlayers } from "../context/PlayersContext";
 
-export function Players(){
+export function PlayerSearch(){
 
     const players = usePlayers()
 

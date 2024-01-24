@@ -3,7 +3,7 @@ import nationsData from "../data/nations.json"
 import { Link } from "react-router-dom"
 import { Icon } from '@iconify/react';
 
-export function Nations(){
+export function NationSearch(){
 
     const [value, setValue] = useState("")
 

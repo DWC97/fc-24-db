@@ -1,4 +1,4 @@
-import { Table } from "../components/Table";
+import { Table } from "../components/table/Table";
 import { useParams } from "react-router-dom"
 import leagueData from "../data/leagues.json"
 import { usePlayers } from "../context/PlayersContext";
