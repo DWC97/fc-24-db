@@ -59,12 +59,15 @@ export function Navbar(){
 
     return (
         <div className={`w-full bg-custom-grey ${isShrunk ? "h-16" : "h-20"} flex fixed justify-between z-50 ease-in-out duration-300`}>
+
+            {/* navbar tabs */}
             <div className="flex">
                 <NavLink to={"/"}>
                     <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
                         <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`}/>
                     </div>
                 </NavLink>
+                {/* mobile icon */}
                 <NavLink to={"/"}><div className="w-32 flex items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black md:hidden">
                     <img src={navLogo} className="w-12"/>
                 </div></NavLink>
@@ -97,9 +100,11 @@ export function Navbar(){
                 </ul>
             </div>
             
+            {/* navbar search */}
             <div className="w-48 mr-8 hidden md:flex items-center justify-center relative" onClick={() => {
                 setOpen(true)
             }}>
+                {/* input bar */}
                 <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded font-medium outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-1">
@@ -107,6 +112,8 @@ export function Navbar(){
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
+
+                {/* players dropdown */}
                 <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
                     {open && players.filter(item => {
                         const searchWords = value.toLowerCase().split(' ')
@@ -118,7 +125,10 @@ export function Navbar(){
                         return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>
                     })}
                 </div>
-            </div> 
+
+            </div>
+
+            {/* mobile navbar icon */} 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={() => {
                 setLeaguesClicked()
                 setNav(!nav)
@@ -126,6 +136,8 @@ export function Navbar(){
             }}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
             </div>
+
+            {/* mobile menu */}
             <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
                 <div className="mt-24">
                     <img src={navLogo} className="w-32"/>
@@ -175,6 +187,7 @@ export function Navbar(){
                     </NavLink>
                 </ul>
             </div>
+            
         </div>
     )
 }
