@@ -1,35 +1,43 @@
-import { Link, NavLink, useMatch } from "react-router-dom"
-import { Icon } from '@iconify/react'
+// hooks
 import { useState } from "react"
-import { NavbarSearch } from "./NavbarSearch"
 import { useClickOutside } from "../../hooks/useClickOutside"
-import leagueData from "../../data/leagues.json"
-import { usePlayers } from "../../context/PlayersContext"
-import navLogo from "./nav.png"
 import useBodyLockScroll from "../../hooks/useBodyLockScroll"
+
+// components
+import { NavbarSearch } from "./NavbarSearch"
+
+// data
+import leagueData from "../../data/leagues.json"
+
+// routing 
+import { Link, NavLink, useMatch } from "react-router-dom"
+
+// context
+import { usePlayers } from "../../context/PlayersContext"
+
+// assets 
+import { Icon } from '@iconify/react'
+import navLogo from "./nav.png"
+
 
 export function Navbar(){
 
-    const players = usePlayers()
-    const [nav, setNav] = useState(false)
-    const [value, setValue] = useState("")
-    const [open, setOpen] = useState(false)
-    const [isDropdownVisible, setDropdownVisible] = useState(false)
-    const [isShrunk, setIsShrunk] = useState(false)
-    const isLeaguesActive = useMatch('/leagues/:id')
-    const [leaguesClicked, setLeaguesClicked] = useState(false)
-    const [locked, toggle] = useBodyLockScroll()
+    const players = usePlayers() // import player list
+    const [nav, setNav] = useState(false) // set mobile nav menu
+    const [value, setValue] = useState("") // set search input
+    const [open, setOpen] = useState(false)  // set search list visibility
+    const [isDropdownVisible, setDropdownVisible] = useState(false) // set league dropdown menu visibility
+    const [isShrunk, setIsShrunk] = useState(false) // set height of navbar based on scroll distance from top
+    const isLeaguesActive = useMatch('/leagues/:id') // setting active nav link
+    const [leaguesClicked, setLeaguesClicked] = useState(false) // set mobile menu league dropdown visibility
+    const [toggle] = useBodyLockScroll() // toggle scroll lock 
 
-    const playerList = players
-
+    // close search dropdown when user clicks outside of it
     let domNode = useClickOutside(() => {
         setOpen(false)
     })
-    
-    function handleNav(){
-        setNav(!nav)
-    }
 
+    // managing league dropdown menu visibility
     function handleMouseEnter(){
         setDropdownVisible(true)
     }
@@ -37,7 +45,8 @@ export function Navbar(){
     function handleMouseLeave(){
         setDropdownVisible(false)
     }
-
+    
+    // managing navbar height based on scroll position
     function scrollFunction(){
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
             setIsShrunk(true)
@@ -99,7 +108,7 @@ export function Navbar(){
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
                 <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
-                    {open && playerList.filter(item => {
+                    {open && players.filter(item => {
                         const searchWords = value.toLowerCase().split(' ')
                         return value && searchWords.every(word => (
                             item.long_name.toLowerCase().includes(word)
@@ -112,7 +121,7 @@ export function Navbar(){
             </div> 
             <div className="w-32 flex md:hidden items-center justify-center mr-0 cursor-pointer z-50" onClick={() => {
                 setLeaguesClicked()
-                handleNav()
+                setNav(!nav)
                 toggle()
             }}>
                 {nav ? <Icon icon="ph:x-bold" color="white" width="30" /> : <Icon icon="pajamas:hamburger" color="white" width="25" />}
@@ -124,7 +133,7 @@ export function Navbar(){
                 <ul className="text-white w-full text-left px-12 pt-4">
                     <NavLink to={"/"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            handleNav()
+                            setNav(!nav)
                             toggle()
                         }}>
                         SEARCH
@@ -132,7 +141,7 @@ export function Navbar(){
                     </NavLink>
                     <NavLink to={"players"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            handleNav()
+                            setNav(!nav)
                             toggle()
                         }}>
                         PLAYERS
@@ -147,7 +156,7 @@ export function Navbar(){
                     {leagueData.leagues.map(league => {
                         return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
                         onClick={() => {
-                            handleNav()
+                            setNav(!nav)
                             setLeaguesClicked(false)
                             toggle()
                         }}>
@@ -158,7 +167,7 @@ export function Navbar(){
                     </div>
                     <NavLink to={"nations"}>
                         <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            handleNav()
+                            setNav(!nav)
                             toggle()
                         }}>
                         NATIONS

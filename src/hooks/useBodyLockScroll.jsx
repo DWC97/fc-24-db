@@ -18,7 +18,7 @@ function useBodyLockScroll() {
         setLocked(!locked)
     }
 
-    return [locked, toggle]
+    return [toggle]
 }
 
 export default useBodyLockScroll
