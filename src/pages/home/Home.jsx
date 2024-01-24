@@ -1,10 +1,16 @@
-import { NewsModule } from "./NewsModule"
+// hooks
 import { useState } from "react"
-import { HomeSearch } from "./HomeSearch"
-import { Icon } from '@iconify/react'
 import { useClickOutside } from "../../hooks/useClickOutside"
 import { usePlayers } from "../../context/PlayersContext"
 
+// components
+import { NewsModule } from "./NewsModule"
+import { HomeSearch } from "./HomeSearch"
+
+// assets
+import { Icon } from '@iconify/react'
+
+// content for posters
 const newsPosters = [
     {
         "id": 1,
@@ -26,27 +32,34 @@ const newsPosters = [
     }
 ]
 
+
 export function Home(){
 
-    const players = usePlayers()
-    const [value, setValue] = useState("")
-    const [open, setOpen] = useState(false)
+    const players = usePlayers() // import player list
+    const [value, setValue] = useState("") // set search input
+    const [open, setOpen] = useState(false) // set search list visibility
 
+    // close search dropdown when user clicks outside of it
     let domNode = useClickOutside(() => {
         setOpen(false)
     })
 
     return (
         <div className="w-full h-screen relative flex flex-col justify-center items-center overflow-hidden">
+            
+            {/* content */}
             <div className="mt-28">
                 <img src="assets/logos/main.png" className="w-72"/>
             </div>
             <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE
             </div>
+
+            {/* searchbar */}
             <div className="pb-12 relative" onClick={() => {
                 setOpen(true)
             }}>
+                {/* search input */}
                 <input type="text" placeholder="Search player name..." className="border-b-2 border-custom-grey py-2  text-center font-medium text-custom-grey w-72 md:w-96 outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-2 top-2">
@@ -54,23 +67,30 @@ export function Home(){
                         setValue("")
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>
-            <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
-                {open && players.filter(item => {
-                    const searchWords = value.toLowerCase().split(' ')
-                    return value && searchWords.every(word => (
-                        item.long_name.toLowerCase().includes(word)
-                    ))
-                }).slice(0,10)
-                .map(item => {
-                    return <HomeSearch key={item.player_id} {...item}/>
-                })}
+                
+                {/* players dropdown */}
+                <div className="absolute z-10 h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-100 overflow-x-hidden" ref={domNode} >
+                    {open && players.filter(item => {
+                        const searchWords = value.toLowerCase().split(' ')
+                        return value && searchWords.every(word => (
+                            item.long_name.toLowerCase().includes(word)
+                        ))
+                    }).slice(0,10)
+                    .map(item => {
+                        return <HomeSearch key={item.player_id} {...item}/>
+                    })}
+                </div>
+
             </div>
-            </div>
+
+            {/* bulletin board */}
             <div className="hidden md:flex flex-row pb-8">
                {newsPosters.map(item => {
                 return <NewsModule key={item.id} {...item} setValue={setValue}/>
                })}
             </div>
+
+            {/* disclaimer */}
             <div className="text-xs text-custom-grey px-8 text-center">
                 Please note this is not a commercial product and is only hosted as part of a web development portfolio.
             </div>

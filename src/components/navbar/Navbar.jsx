@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useClickOutside } from "../../hooks/useClickOutside"
 import useBodyLockScroll from "../../hooks/useBodyLockScroll"
+import { usePlayers } from "../../context/PlayersContext"
 
 // components
 import { NavbarSearch } from "./NavbarSearch"
@@ -11,9 +12,6 @@ import leagueData from "../../data/leagues.json"
 
 // routing 
 import { Link, NavLink, useMatch } from "react-router-dom"
-
-// context
-import { usePlayers } from "../../context/PlayersContext"
 
 // assets 
 import { Icon } from '@iconify/react'

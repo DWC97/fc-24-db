@@ -1,5 +1,7 @@
+// hooks
 import { useEffect, useState } from 'react'
 
+// toggle scroll lock to stop user from scrolling
 function useBodyLockScroll() {
 
     const [locked, setLocked] = useState(false)
