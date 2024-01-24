@@ -19,7 +19,6 @@ import { usePlayers } from "../../context/PlayersContext"
 import { Icon } from '@iconify/react'
 import navLogo from "./nav.png"
 
-
 export function Navbar(){
 
     const players = usePlayers() // import player list
@@ -121,8 +120,8 @@ export function Navbar(){
                             item.long_name.toLowerCase().includes(word)
                         ))
                     }).slice(0,100)
-                    .map(item => {
-                        return <NavbarSearch setValue={setValue}  key={item.player_id} {...item}/>
+                    .map(player => {
+                        return <NavbarSearch setValue={setValue}  key={player.player_id} {...player}/>
                     })}
                 </div>
 

@@ -24,10 +24,10 @@ import { Route, Routes } from "react-router-dom"
 export default function App(){
 
   const players = playersData
-  // player data list wraps entire app
+  // player data list
 
   return (
-    <PlayersProvider value={players}>
+    <PlayersProvider value={players}> {/* player data passed into context provider as value */}
       <header>
         <nav>
           <Navbar />

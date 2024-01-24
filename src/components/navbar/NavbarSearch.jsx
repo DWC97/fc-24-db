@@ -2,17 +2,18 @@
 import { Link } from "react-router-dom"
 
 // player stack in navbar search dropdown
-export function NavbarSearch({ short_name, long_name, overall, setValue }){
+export function NavbarSearch({ setValue, ...player }){
    
     return (
-        <Link to={`/players/${long_name}`}>
+        <Link to={`/players/${player.long_name}`}>
             <div 
             onClick={() => {
-            setValue("")
+                // reset search input and remove dropdown
+                setValue("")
             }} 
             className={`hidden md:flex md:flex-row relative bg-custom-black items-center w-48 md:justify-between py-1 border-b border-custom-grey text-white hover:bg-custom-maroon hover:text-white hover:border-custom-maroon opacity-95`}>
-                <span className="text-xs font-normal pl-4">{short_name}</span>
-                <span className="font-semibold pr-6">{overall}</span>
+                <span className="text-xs font-normal pl-4">{player.short_name}</span>
+                <span className="font-semibold pr-6">{player.overall}</span>
             </div>
         </Link>
     )

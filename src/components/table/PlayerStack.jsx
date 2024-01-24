@@ -1,13 +1,21 @@
+// hooks
+import { useEffect, useState } from "react"
+
+// routing 
 import { Link } from "react-router-dom"
+
+// data
 import playersData from "../../data/players.json"
 import leagueData from "../../data/leagues.json"
 import nationsData from "../../data/nations.json"
-import { splitId } from "../../utilities/Utils"
-import { useEffect, useState } from "react"
 
+// utilities
+import { splitId } from "../../utilities/Utils"
+
+// player stack in filtered table
 export function PlayerStack({ long_name }){
 
-    const player = playersData.find(player => player.long_name === long_name)
+    const player = playersData.find(player => player.long_name === long_name) // find player using long
     const league = leagueData.leagues.find(league => player.league_name === league.name)
     const club = league.clubs.find(club => club.name === player.club_name)
     const nation = nationsData.find(nation => nation.name === player.nationality_name)

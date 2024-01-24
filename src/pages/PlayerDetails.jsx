@@ -126,7 +126,7 @@ export function PlayerDetails(){
             })
         }
 
-    }, [])
+    }, [id])
     
     function colorGenerator(value, number){
         if (number < 1){
