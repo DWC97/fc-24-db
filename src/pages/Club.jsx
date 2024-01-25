@@ -12,8 +12,8 @@ import leagueData from "../data/leagues.json"
 export function Club(){
 
     const players = usePlayers() // import player list
-    const { id } = useParams() // access search param
-    const clubPlayers = players.filter(player => player.club_name === id) // find club players using search param
+    const { id } = useParams() // access search param (eg. Arsenal)
+    const clubPlayers = players.filter(player => player.club_name === id) // find club players in players data using search param
     const league = leagueData.leagues.find(league => {
         return league.clubs.find(club => club.name === id)
     }) // find league in leagues data using search param

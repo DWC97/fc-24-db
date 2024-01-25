@@ -1,11 +1,19 @@
+// hooks
 import { useState } from "react"
-import nationsData from "../data/nations.json"
+
+// routing
 import { Link } from "react-router-dom"
+
+// data
+import nationsData from "../data/nations.json"
+
+// assets
 import { Icon } from '@iconify/react'
+
 
 export function NationSearch(){
 
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("") // state to store search input
 
     return (
         <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
@@ -15,6 +23,7 @@ export function NationSearch(){
                 setValue(e.target.value)}}/>
             </div>
             <div className="my-8">
+                {/* filter the data to include only nations that match search input and then map over the results to output a div element for each */}
                 {nationsData
                 .filter(nation => {
                     if (value === "") return nation
