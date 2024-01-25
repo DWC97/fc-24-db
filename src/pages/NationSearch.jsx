@@ -23,7 +23,7 @@ export function NationSearch(){
                 setValue(e.target.value)}}/>
             </div>
             <div className="my-8">
-                {/* filter the data to include only nations that match search input and then map over the results to output a div element for each */}
+                {/* filter the data to include only nations that match search input and then map over the results to render each nation card to the DOM */}
                 {nationsData
                 .filter(nation => {
                     if (value === "") return nation

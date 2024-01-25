@@ -1,28 +1,41 @@
+// hooks
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { usePlayers } from "../context/PlayersContext"
+
+// components
+import { NotFound } from "./NotFound"
+
+// routing
 import { Link } from "react-router-dom"
+
+// data 
+import leagueData from "../data/leagues.json"
+import nationsData from "../data/nations.json"
+
+// utilities
 import { formatNumber, splitId } from "../utilities/Utils"
+
+// assets
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
-import leagueData from "../data/leagues.json"
-import nationsData from "../data/nations.json"
-import { usePlayers } from "../context/PlayersContext"
-import { NotFound } from "./NotFound"
-import { useEffect, useState } from "react"
+
 
 export function PlayerDetails(){
 
-    const players = usePlayers()
-    const { id } = useParams()
+    const players = usePlayers() // import player list
+    const { id } = useParams() // access search param (eg. Martin Ødegaard)
+    // find the player in players data based off search param
     const player = players.find(item => {
         return item.long_name === id
     })
-    const league = (player ? leagueData.leagues.find(league => player.league_name === league.name) : null)
-    const club = (player ? league.clubs.find(club => club.name === player.club_name) : null)
-    const nation = (player ? nationsData.find(nation => nation.name === player.nationality_name) : null)
-    const imageUrl = (player ? `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png` : null)
-    const [playerImage, setPlayerImage] = useState("https://cdn.sofifa.net/player_0.svg")
-
+    const league = (player ? leagueData.leagues.find(league => player.league_name === league.name) : null) // find league in leagues data if player exists
+    const club = (player ? league.clubs.find(club => club.name === player.club_name) : null) // find club in leagues data if player exists
+    const nation = (player ? nationsData.find(nation => nation.name === player.nationality_name) : null) // find nations in nations data if player exists
+    const imageUrl = (player ? `https://cdn.sofifa.net/players/${splitId(player.player_id)}/24_120.png` : null) // player image scraped from sofifa's online database if player exists
+    const [playerImage, setPlayerImage] = useState("https://cdn.sofifa.net/player_0.svg") // placeholder image
+    // pbject with player description
     const playerDesc = (player ? {
         "Full Name": player.long_name,
         "Age": player.age,
@@ -36,7 +49,7 @@ export function PlayerDetails(){
         "Estimated Market Value": `€${formatNumber(player.value_eur)}`,
         "Wages (Weekly)": `€${formatNumber(player.wage_eur)}`
     } : [])
-
+    // player attributes formatted to match radar chart data specs
     const chartData = (player ? [
         { name: "PAC", x: player.pace },
         { name: "SHO", x: player.shooting },
@@ -45,7 +58,7 @@ export function PlayerDetails(){
         { name: "DEF", x: player.defending },
         { name: "PHY", x: player.physic },
     ] : [])
-
+    // player attributes
     const attributeData = (player ? [
         {
             "name": "pace",
@@ -119,6 +132,7 @@ export function PlayerDetails(){
         if (player){       
             fetch(`/proxy?url=${encodeURIComponent(imageUrl)}`)
             .then(async () => {
+                // if fetch attempt is successful, set the player image as the valid url
                 setPlayerImage(imageUrl)
             })
             .catch((error) => {
@@ -128,6 +142,7 @@ export function PlayerDetails(){
 
     }, [id])
     
+    // function to take in value for attribute and return associated color code in tailwind accepted format
     function colorGenerator(value, number){
         if (number < 1){
             if (value < 55) return '#fa5d54'
@@ -150,9 +165,12 @@ export function PlayerDetails(){
         <div>
             {player ? 
             <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
+                {/* header content */}
                <div className="flex flex-row mt-24 relative justify-between items-center">
                     <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">
-                        <img src={playerImage} className="w-24 md:w-32" onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}/>
+                        <img src={playerImage} className="w-24 md:w-32" 
+                        // revert to placeholder if error displying image
+                        onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}/>
                     </div>
                     <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
                         <span className="hidden md:flex md:text-3xl font-medium tracking-widest text-custom-maroon">{player.short_name}</span>
@@ -173,8 +191,10 @@ export function PlayerDetails(){
                         <span className="text-4xl md:text-6xl font-semibold">{player.overall}</span>
                     </div>
                </div>
-    
+                
+                {/* middle content */}
                <div className="flex flex-wrap justify-between items-center mt-4 md:-mt-8">
+                    {/* player description table */}
                     <div className="w-full md:w-2/4">
                         <ul className="w-full ">
                             {Object.entries(playerDesc).map(([key, val], i) => (
@@ -185,6 +205,7 @@ export function PlayerDetails(){
                             ))}
                         </ul>
                     </div>
+                    {/* radar chart */}
                     <div className="w-full md:w-2/5 h-96 flex justify-center items-center">
                         <RadarChart height={350} width={350} 
                         outerRadius="80%" data={chartData}>
@@ -196,7 +217,8 @@ export function PlayerDetails(){
                         </RadarChart>
                     </div>
                </div>
-    
+                
+                {/* progress bars and attribute values */}
                <div className="flex flex-wrap justify-around w-full ">
                     {attributeData.map((item, index) => {
                         return (
@@ -238,7 +260,7 @@ export function PlayerDetails(){
                </div>
             </div>
             : 
-            <NotFound />
+            <NotFound /> // if the search param doesn't match a valid player in the dataset, return the 404 page
             }
         </div>
     )

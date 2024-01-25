@@ -23,8 +23,7 @@ import { Route, Routes } from "react-router-dom"
 
 export default function App(){
 
-  const players = playersData
-  // player data list
+  const players = playersData // player data list
 
   return (
     <PlayersProvider value={players}> {/* player data passed into context provider as value */}
