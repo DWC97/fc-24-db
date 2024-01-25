@@ -1,4 +1,5 @@
-// pages
+// components
+import { Navbar } from "./components/navbar/Navbar"
 import { Club } from "./pages/Club"
 import { NationDetails } from "./pages/NationDetails"
 import { Home } from "./pages/home/Home"
@@ -8,17 +9,14 @@ import { NotFound } from "./pages/NotFound"
 import { League } from "./pages/League"
 import { NationSearch } from "./pages/NationSearch"
 
-// components
-import { Navbar } from "./components/navbar/Navbar"
+// routing
+import { Route, Routes } from "react-router-dom"
 
 // data
 import playersData from "./data/players.json"
 
 // context
 import { PlayersProvider } from "./context/PlayersContext"
-
-// routing
-import { Route, Routes } from "react-router-dom"
 
 
 export default function App(){

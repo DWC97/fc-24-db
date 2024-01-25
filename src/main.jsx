@@ -1,9 +1,19 @@
+// library
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+
+// components
 import App from './App.jsx'
-import "./index.css"
+
+// routing
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+
+// styling
+import "./index.css"
+
+// utilities
 import { ScrollToTop } from './utilities/ScrollToTop.jsx'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
