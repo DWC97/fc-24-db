@@ -40,14 +40,14 @@ export function PlayerStack({ ...player }){
             // revert to placeholder if error displying image
             onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")} 
             />
-            <span className="absolute text-xs md:text-sm lg:text-base left-8 md:left-12 text-black tracking-wider "><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
-            <div className="w-16 md:w-12 lg:w-16 flex justify-center">
+            <span className="absolute text-xs md:text-sm lg:text-base left-10 md:left-12 text-black tracking-wider "><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
+            <div className="w-12 md:w-12 lg:w-16 flex justify-center">
                 <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/></Link>       
             </div>
-            <div className="w-16 md:w-12 lg:w-16 flex justify-center">
+            <div className="w-12 md:w-12 lg:w-16 flex justify-center">
                 <Link to={`/clubs/${player.club_name}`}><img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="h-6"/></Link>
             </div>
-            <span className="w-16 md:w-12 lg:w-16 hidden md:flex justify-center font-medium ml-3 mr-3 lg:mr-0">{player.player_positions.split(",")[0]}</span>
+            <span className="w-12 md:w-12 lg:w-16 hidden md:flex justify-center font-medium ml-3 mr-3 lg:mr-0">{player.player_positions.split(",")[0]}</span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center font-medium">
                 <span className="bg-gray-300 py-1 px-2">{player.overall}</span>
             </div>

@@ -134,8 +134,8 @@ export function Table({ players }){
                 {/* column headings */}
                 <div className="flex flex-row py-2 items-center justify-end mt-4 sticky top-16 font-bold bg-white border-b border-gray-300 text-custom-maroon z-10">
                     <span className="absolute text-sm lg:text-base left-2 lg:left-4 text-custom-grey">PLAYER</span>
-                    <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
-                    <span className="w-16 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">CLUB</span>
+                    <span className="w-12 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">NAT</span>
+                    <span className="w-12 md:w-12 lg:w-16 text-sm lg:text-base flex justify-center">CLUB</span>
                     <select className="ml-2 lg:ml-3 w-16 text-sm lg:text-base hidden md:flex" value={positionFilter} 
                     onChange={e => setSearchParams(prev => {
                         prev.set("positionFilter", e.target.value)
@@ -157,7 +157,6 @@ export function Table({ players }){
                             {sortedBy === stat.name && <div className="absolute -right-1 lg:right-0 top-1">
                                 <Icon icon={`ph:arrow-${sortOrder === "desc" ? `down` : `up`}-bold`} color="#950206" />
                             </div>}
-                            
                         </div>
                         )
                     })}
