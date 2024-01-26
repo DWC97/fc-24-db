@@ -136,7 +136,7 @@ export function Navbar(){
             </div>
 
             {/* mobile menu */}
-            <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
+            <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%] hidden"}>
                 <div className="mt-24">
                     <img src={navLogo} className="w-32"/>
                 </div>
