@@ -61,7 +61,7 @@ export function Navbar(){
             {/* navbar tabs */}
             <div className="flex">
                 <NavLink to={"/"}>
-                    <div className="hidden md:flex w-32 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
+                    <div className="hidden md:flex w-32 xl:w-48 2xl:w-64 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
                         <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`}/>
                     </div>
                 </NavLink>
@@ -71,18 +71,18 @@ export function Navbar(){
                 </div></NavLink>
                 <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
-                        <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
+                        <li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
                             Players
                         </li>
                     </NavLink>
-                    <li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300" 
+                    <li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300" 
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     style={{backgroundColor: isLeaguesActive ? "#950206" : isDropdownVisible && "#1C1E1D"}}
                     >
                         Leagues
                     </li>
-                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 w-32`} onMouseEnter={handleMouseEnter}
+                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 xl:left-48 2xl:left-64 w-32 xl:w-48 2xl:w-64`} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
                         {isDropdownVisible && leagueData.leagues.map(league => {
                             return <Link to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon"
@@ -92,18 +92,18 @@ export function Navbar(){
                             </div></Link>
                         })}
                     </div>
-                    <NavLink to={"/nations"}><li className="text-white w-32 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
+                    <NavLink to={"/nations"}><li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Nations
                     </li></NavLink>
                 </ul>
             </div>
             
             {/* navbar search */}
-            <div className="w-48 mr-8 hidden md:flex items-center justify-center relative" onClick={() => {
+            <div className="w-48 xl:w-64 2xl:w-80 mr-8 hidden md:flex items-center justify-center relative" onClick={() => {
                 setOpen(true)
             }}>
                 {/* input bar */}
-                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 text-white rounded font-medium outline-none" value={value} onChange={(e) => {
+                <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 xl:w-64 2xl:w-80 text-white rounded font-medium outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-1">
                     {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer" onClick={() => {
@@ -112,7 +112,7 @@ export function Navbar(){
                 </div>
 
                 {/* players dropdown */}
-                <div ref={domNode} className="absolute w-48 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
+                <div ref={domNode} className="absolute w-48 xl:w-64 2xl:w-80 z-100 h-44 overflow-y-auto top-16 overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-900">
                     {open && players.filter(item => {
                         const searchWords = value.toLowerCase().split(' ')
                         return value && searchWords.every(word => (

@@ -164,7 +164,7 @@ export function PlayerDetails(){
     return (
         <div>
             {player ? 
-            <div className="flex flex-col w-full px-5 md:px-10 lg:px-20">
+            <div className="flex flex-col w-full px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-60">
                 {/* header content */}
                <div className="flex flex-row mt-24 relative justify-between items-center">
                     <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">

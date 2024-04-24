@@ -25,7 +25,7 @@ export function League(){
     return (
         <div>
             {league ? 
-            <div className="w-full flex flex-col px-5 md:px-10 lg:px-20">
+            <div className="w-full flex flex-col px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-60">
                 <div className={`flex flex-row items-center mt-32  h-16 md:h-24`}
                 style={{backgroundColor: `${league.color}`}}>
                     <img src={league.url} className="h-12 md:h-16 mx-4 md:mx-8"/>
