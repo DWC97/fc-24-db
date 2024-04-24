@@ -151,7 +151,7 @@ export function Table({ players }){
                     <span className="w-16 text-sm md:text-base flex justify-center md:hidden">OVE</span>
                     {playerStats.map(stat => {
                         return (
-                        <div key={stat.name} className="w-12 lg:w-16 text-sm lg:text-base hidden md:flex justify-center relative"
+                        <div key={stat.name} className="w-12 lg:w-16 text-sm lg:text-base hidden md:flex justify-center relative cursor-pointer"
                         onClick={() => toggleSortOrder(stat.name)}>
                             <span>{stat.abbreviation}</span>
                             {sortedBy === stat.name && <div className="absolute -right-1 lg:right-0 top-1">

@@ -40,7 +40,7 @@ export function PlayerStack({ ...player }){
             // revert to placeholder if error displying image
             onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")} 
             />
-            <span className="absolute text-xs md:text-sm lg:text-base left-10 md:left-12 text-black tracking-wider "><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
+            <span className="absolute text-xs md:text-sm lg:text-base left-10 md:left-12 text-black tracking-wider hover:opacity-80 ease-in-out duration-300 cursor-pointer"><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
             <div className="w-12 md:w-12 lg:w-16 flex justify-center">
                 <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6"/></Link>       
             </div>

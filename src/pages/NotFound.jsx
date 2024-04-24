@@ -8,7 +8,7 @@ export function NotFound(){
                 404
             </span>
             <span className="mt-2 mb-8 text-custom-maroon font-medium text-lg md:text-2xl px-8 text-center">
-                The page you were looking for doesn't exist...
+                The page you were looking for doesn&apos;t exist...
             </span>
             <NavLink to={"/"}><span className="hover:bg-custom-maroon text-custom-maroon border-2 border-custom-maroon hover:text-white flex px-4 py-2 rounded-md cursor-pointer text-base ease-in-out duration-300" >
                 Return to home

@@ -63,7 +63,7 @@ export function Home(){
                 <input type="text" placeholder="Search player name..." className="border-b-2 border-custom-grey py-2  text-center font-medium text-custom-grey w-72 md:w-96 outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-2 top-2">
-                    {value === "" ? <Icon icon="material-symbols:search" color="#2c2e2d" width="25"/> : <div className="cursor-pointer" onClick={() => {
+                    {value === "" ? <Icon icon="material-symbols:search" color="#2c2e2d" width="25"/> : <div className="cursor-pointer hover:opacity-80 ease-in-out duration-300" onClick={() => {
                         setValue("")
                     }}><Icon icon="ph:x-bold" color="#2c2e2d" width="25" /></div>}
                 </div>

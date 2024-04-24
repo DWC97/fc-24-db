@@ -106,7 +106,7 @@ export function Navbar(){
                 <input type="text" placeholder="Search player name..." className="bg-custom-black px-4 py-3 text-xs text-left w-48 xl:w-64 2xl:w-80 text-white rounded font-medium outline-none" value={value} onChange={(e) => {
                 setValue(e.target.value)}}/>
                 <div className="absolute right-1">
-                    {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer" onClick={() => {
+                    {value === "" ? <Icon icon="material-symbols-light:search" color="white" width="25"/> : <div className="cursor-pointer hover:opacity-80 ease-in-out duration-300" onClick={() => {
                         setValue("")
                     }}><Icon icon="ph:x-thin" color="white" width="25" /></div>}
                 </div>
