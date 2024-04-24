@@ -61,7 +61,7 @@ export function Navbar(){
             {/* navbar tabs */}
             <div className="flex">
                 <NavLink to={"/"}>
-                    <div className="hidden md:flex w-32 xl:w-48 2xl:w-64 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
+                    <div className="hidden md:flex w-32 xl:w-48 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black">
                         <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`}/>
                     </div>
                 </NavLink>
@@ -71,18 +71,18 @@ export function Navbar(){
                 </div></NavLink>
                 <ul className="hidden md:flex flex-row relative">
                     <NavLink to={"/players"}>
-                        <li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
+                        <li className="text-white w-32 xl:w-48 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 active:bg-custom-maroon hover:bg-custom-black">
                             Players
                         </li>
                     </NavLink>
-                    <li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300" 
+                    <li className="text-white w-32 xl:w-48 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300" 
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     style={{backgroundColor: isLeaguesActive ? "#950206" : isDropdownVisible && "#1C1E1D"}}
                     >
                         Leagues
                     </li>
-                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 xl:left-48 2xl:left-64 w-32 xl:w-48 2xl:w-64`} onMouseEnter={handleMouseEnter}
+                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 xl:left-48  w-32 xl:w-48 `} onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}>
                         {isDropdownVisible && leagueData.leagues.map(league => {
                             return <Link to={`/leagues/${league.name}`} key={league.name}><div className="bg-custom-black text-white text-xs text-center py-2 opacity-95 hover:bg-custom-maroon hover:text-white border-b border-custom-grey hover:border-custom-maroon"
@@ -92,7 +92,7 @@ export function Navbar(){
                             </div></Link>
                         })}
                     </div>
-                    <NavLink to={"/nations"}><li className="text-white w-32 xl:w-48 2xl:w-64 h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
+                    <NavLink to={"/nations"}><li className="text-white w-32 xl:w-48  h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         Nations
                     </li></NavLink>
                 </ul>

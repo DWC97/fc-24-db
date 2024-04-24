@@ -10,7 +10,7 @@ import { HomeSearch } from "./HomeSearch"
 // assets
 import { Icon } from '@iconify/react'
 
-// content for posters
+// example content for posters
 const newsPosters = [
     {
         "id": 1,
@@ -49,11 +49,11 @@ export function Home(){
             
             {/* content */}
             <div className="mt-28">
-                <img src="assets/logos/main.png" className="w-72"/>
+                <img src="assets/logos/main.png" className="w-72 2xl:w-96"/>
             </div>
-            <div className="text-custom-maroon text-2xl font-semibold tracking-widest py-8 px-8 text-center">
+            <h1 className="text-custom-maroon text-2xl 2xl:text-4xl font-semibold tracking-widest py-8 2xl:py-12 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE
-            </div>
+            </h1>
 
             {/* searchbar */}
             <div className="pb-12 relative" onClick={() => {
