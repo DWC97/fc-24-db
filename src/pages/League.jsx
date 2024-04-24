@@ -35,7 +35,7 @@ export function League(){
                     {/* rendering out each club for the respective league */}
                     {league.clubs.map((club, index) => {
                         return (
-                        <Link to={`/clubs/${club.name}`} key={index}>
+                        <Link to={`/clubs/${club.name}`} key={index} className="focus:outline-none focus:scale-105 ease-in-out duration-300" onFocus={() => setHoveredClub(index)}>
                             <div className={`flex flex-col justify-between border-b-4 border-custom-grey rounded-3xl text-custom-grey hover:text-white h-36 md:h-44 hover:scale-105 ease-in-out duration-300`}     
                             // style changes upon hover using an inline style because tailwind can't handle dynamic vars
                             style={{

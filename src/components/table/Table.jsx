@@ -120,7 +120,7 @@ export function Table({ players }){
                     }
                 }).length} results</p>
                 <p className="text-custom-maroon hidden md:flex">Filter by position and sort by attributes</p>
-                <button className="hover:bg-custom-maroon text-custom-maroon border-2 border-custom-maroon hover:text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base ease-in-out duration-300" onClick={() => {
+                <button className="hover:bg-custom-maroon text-custom-maroon border-2 border-custom-maroon hover:text-white hidden md:flex p-2 md:px-4 md:py-2 rounded-md cursor-pointer text-xs md:text-base ease-in-out duration-300 focus:bg-custom-maroon focus:text-white" onClick={() => {
                     setSearchParams(prev => {
                         prev.set("positionFilter", "ALL")
                         prev.set("sortedBy", "overall")
@@ -152,7 +152,14 @@ export function Table({ players }){
                     {playerStats.map(stat => {
                         return (
                         <div key={stat.name} className="w-12 lg:w-16 text-sm lg:text-base hidden md:flex justify-center relative cursor-pointer"
-                        onClick={() => toggleSortOrder(stat.name)}>
+                        onClick={() => toggleSortOrder(stat.name)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter"){
+                                toggleSortOrder(stat.name)
+                            }
+                        }}
+                        tabIndex={0}
+                        >
                             <span>{stat.abbreviation}</span>
                             {sortedBy === stat.name && <div className="absolute -right-1 lg:right-0 top-1">
                                 <Icon icon={`ph:arrow-${sortOrder === "desc" ? `down` : `up`}-bold`} color="#950206" />
