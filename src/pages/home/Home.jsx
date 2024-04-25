@@ -49,7 +49,7 @@ export function Home() {
 
             {/* content */}
             <div className="mt-28">
-                <img src="assets/logos/main.png" className="w-72 2xl:w-96" />
+                <img src="assets/logos/main.png" alt="big logo" className="w-72 2xl:w-96" />
             </div>
             <h1 className="text-custom-maroon text-2xl 2xl:text-4xl font-semibold tracking-widest py-8 2xl:py-12 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE

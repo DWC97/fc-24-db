@@ -168,7 +168,7 @@ export function PlayerDetails() {
                     {/* header content */}
                     <div className="flex flex-row mt-24 relative justify-between items-center">
                         <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">
-                            <img src={playerImage} className="w-24 md:w-32"
+                            <img src={playerImage} alt="player headshot" className="w-24 md:w-32"
                                 // revert to placeholder if error displying image
                                 onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")} />
                         </div>
@@ -178,11 +178,11 @@ export function PlayerDetails() {
                             <div className="flex flex-row justify-between items-center text-xs md:text-base">
                                 <div className="flex flex-row items-center hover:text-custom-maroon ease-in-out duration-300">
                                     <Link to={`/clubs/${player.club_name}`} ><span>{player.club_name.toUpperCase()}</span></Link>
-                                    <Link to={`/clubs/${player.club_name}`} tabIndex={-1}><img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
+                                    <Link to={`/clubs/${player.club_name}`} tabIndex={-1}><img alt="club logo" src={club.url} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
                                 </div>
                                 <div className="flex flex-row ml-2 md:ml-8 items-center hover:text-custom-maroon ease-in-out duration-300">
                                     <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                                    <Link to={`/nations/${player.nationality_name}`} tabIndex={-1}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
+                                    <Link to={`/nations/${player.nationality_name}`} tabIndex={-1}><img alt="nation flag" src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
                                 </div>
                             </div>
                         </div>

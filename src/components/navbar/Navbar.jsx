@@ -73,8 +73,8 @@ export function Navbar() {
             <div className="flex">
 
                 <div className="flex w-32 xl:w-48 items-center justify-center h-full ease-in-out duration-300 hover:bg-custom-black  active:bg-custom-maroon">
-                    <NavLink to={"/"} className="h-full w-full flex justify-center items-center">
-                        <img src={navLogo} className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`} />
+                    <NavLink to={"/"} className="h-full w-full flex justify-center items-center" aria-label="home logo">
+                        <img src={navLogo} alt="logo" className={`${isShrunk ? "w-10" : "w-12"} ease-in-out duration-300`} />
                     </NavLink>
                 </div>
                 <ul className="hidden md:flex flex-row relative">
@@ -91,7 +91,7 @@ export function Navbar() {
                     >
                         Leagues
                     </li>
-                    <div className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 xl:left-48  w-32 xl:w-48 `} onMouseEnter={handleMouseEnter}
+                    <li className={`absolute ${isShrunk ? "top-16" : "top-20"} left-32 xl:left-48  w-32 xl:w-48 `} onMouseEnter={handleMouseEnter}
                         onFocus={handleMouseEnter}
                         onBlur={handleMouseLeave}
                         onMouseLeave={handleMouseLeave}
@@ -103,7 +103,7 @@ export function Navbar() {
                                 {league.name}
                             </div></Link>
                         })}
-                    </div>
+                    </li>
                     <li className="text-white w-32 xl:w-48  h-full flex items-center justify-center font-medium text-sm ease-in-out duration-300 hover:bg-custom-black">
                         <NavLink to={"/nations"} className="h-full w-full flex justify-center items-center">
                             Nations
@@ -153,8 +153,8 @@ export function Navbar() {
             {/* mobile menu */}
             <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
                 <div className="mt-24">
-                    <NavLink to={"/"}>
-                        <img src={navLogo} className="w-28" onClick={() => {
+                    <NavLink to={"/"} aria-label="home logo">
+                        <img src={navLogo} alt="logo" className="w-28" onClick={() => {
                             setNav(!nav)
                             toggle()
                         }} />
@@ -191,7 +191,7 @@ export function Navbar() {
                                         setLeaguesClicked(false)
                                         toggle()
                                     }}>
-                                    <img src={league.url} className="h-6" />
+                                    <img src={league.url} alt="league logo" className="h-6" />
                                     <span className="left-10 absolute">{league.name}</span>
                                 </div></Link>
                             )

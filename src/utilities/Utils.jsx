@@ -10,14 +10,14 @@ export function splitId(id) {
 }
 
 // unused in final code
-function compareByName(a, b) {
-    return a.team_name.localeCompare(b.team_name)
-}
+// function compareByName(a, b) {
+//     return a.team_name.localeCompare(b.team_name)
+// }
 
-function removeDuplicates(data, key) {
-    return [
-        ...new Map(
-            data.map(item => [key(item), item])
-        ).values()
-    ]
-}
+// function removeDuplicates(data, key) {
+//     return [
+//         ...new Map(
+//             data.map(item => [key(item), item])
+//         ).values()
+//     ]
+// }

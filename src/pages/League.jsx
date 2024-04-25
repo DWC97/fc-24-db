@@ -28,7 +28,7 @@ export function League() {
                 <div className="w-full flex flex-col px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-60">
                     <div className={`flex flex-row items-center mt-32  h-16 md:h-24`}
                         style={{ backgroundColor: `${league.color}` }}>
-                        <img src={league.url} className="h-12 md:h-16 mx-4 md:mx-8" />
+                        <img src={league.url} alt="league logo" className="h-12 md:h-16 mx-4 md:mx-8" />
                         <h1 className="text-white text-sm md:text-3xl font-medium tracking-widest">{league.name.toUpperCase()}</h1>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 mb-4">
@@ -45,7 +45,7 @@ export function League() {
                                         onMouseOver={() => setHoveredClub(index)}
                                         onMouseLeave={() => setHoveredClub(null)}
                                     >
-                                        <img src={club.url} className="w-20 md:w-28 pt-3 pl-3" />
+                                        <img src={club.url} alt="club logo" className="w-20 md:w-28 pt-3 pl-3" />
                                         <div className="flex flex-row pb-2 items-center justify-between relative">
                                             <span className={`pl-6 tracking-widest font-semibold text-xs md:text-sm mr-12`}
                                                 style={{ color: hoveredClub === index ? "white" : `${club.color}` }}

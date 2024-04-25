@@ -36,16 +36,16 @@ export function PlayerStack({ ...player }) {
 
     return (
         <div className="flex justify-end relative h-10 py-6 items-center border-b border-gray-300">
-            <img src={playerImage} className="w-8 absolute left-0"
+            <img src={playerImage} alt="player headshot" className="w-8 absolute left-0"
                 // revert to placeholder if error displying image
                 onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}
             />
             <span className="absolute text-xs md:text-sm lg:text-base left-10 md:left-12 text-black tracking-wider hover:opacity-80 ease-in-out duration-300 cursor-pointer"><Link to={`/players/${player.long_name}`}>{player.short_name}</Link></span>
             <div className="w-12 md:w-12 lg:w-16 flex justify-center">
-                <Link to={`/nations/${player.nationality_name}`}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6" /></Link>
+                <Link to={`/nations/${player.nationality_name}`}><img alt="nation flag" src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-6" /></Link>
             </div>
             <div className="w-12 md:w-12 lg:w-16 flex justify-center">
-                <Link to={`/clubs/${player.club_name}`}><img src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="h-6" /></Link>
+                <Link to={`/clubs/${player.club_name}`}><img alt="club logo" src={club ? club.url : "https://cdn.sofifa.net/meta/team/9/120.png"} className="h-6" /></Link>
             </div>
             <span className="w-12 md:w-12 lg:w-16 hidden md:flex justify-center font-medium ml-3 mr-3 lg:mr-0">{player.player_positions.split(",")[0]}</span>
             <div className="w-16 md:w-12 lg:w-16 flex justify-center font-medium">
