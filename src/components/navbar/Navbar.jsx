@@ -16,7 +16,7 @@ import { Link, NavLink, useMatch } from "react-router-dom"
 
 // assets 
 import { Icon } from '@iconify/react'
-import navLogo from "./nav.png"
+import navLogo from "./nav.webp"
 
 
 export function Navbar() {

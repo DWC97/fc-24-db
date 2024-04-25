@@ -14,19 +14,19 @@ import { Icon } from '@iconify/react'
 const newsPosters = [
     {
         "id": 1,
-        "imageSrc": "assets/images/rice.jpeg",
+        "imageSrc": "assets/images/rice.avif",
         "desc": "GUNNERS' NEW SUPERMAN",
         "url": "https://www.youtube.com/watch?v=2fqgT6sF3Jw"
     },
     {
         "id": 2,
-        "imageSrc": "assets/images/haaland.jpg",
+        "imageSrc": "assets/images/haaland.avif",
         "desc": "HAALAND LEFT FURIOUS",
         "url": "https://www.telegraph.co.uk/football/2023/12/04/erling-haaland-fa-investigation-referee-abuse-man-city/"
     },
     {
         "id": 3,
-        "imageSrc": "assets/images/champions.jpg",
+        "imageSrc": "assets/images/champions.avif",
         "desc": "MATCHDAY 5 RESULTS",
         "url": "https://en.as.com/resultados/futbol/champions/2021_2022/jornada/grupos_a_5/"
     }
@@ -49,7 +49,7 @@ export function Home() {
 
             {/* content */}
             <div className="mt-28">
-                <img src="assets/logos/main.png" alt="big logo" className="w-72 2xl:w-96" />
+                <img src="assets/logos/main.webp" alt="big logo" className="w-72 2xl:w-96" />
             </div>
             <h1 className="text-custom-maroon text-2xl 2xl:text-4xl font-semibold tracking-widest py-8 2xl:py-12 px-8 text-center">
                 THE ULTIMATE PLAYER DATABASE
