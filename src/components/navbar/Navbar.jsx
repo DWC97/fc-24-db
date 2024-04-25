@@ -1,8 +1,9 @@
 // hooks
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useClickOutside } from "../../hooks/useClickOutside"
 import useBodyLockScroll from "../../hooks/useBodyLockScroll"
 import { usePlayers } from "../../context/PlayersContext"
+import useMobileView from "../../hooks/useMobileView"
 
 // components
 import { NavbarSearch } from "./NavbarSearch"
@@ -29,6 +30,16 @@ export function Navbar() {
     const isLeaguesActive = useMatch('/leagues/:id') // setting active nav link
     const [leaguesClicked, setLeaguesClicked] = useState(false) // set mobile menu league dropdown visibility
     const [toggle] = useBodyLockScroll() // toggle scroll lock 
+    const isMobileView = useMobileView();
+
+    // set mobile menu to false when viewport is large
+    useEffect(() => {
+        if (!nav) return
+        if (!isMobileView){
+            setNav(!nav)
+            toggle()
+        }
+    }, [isMobileView])
 
     // close search dropdown when user clicks outside of it
     let domNode = useClickOutside(() => {
