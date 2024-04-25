@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom"
 
 // assets
 import { Icon } from '@iconify/react'
+import useMobileView from "../../hooks/useMobileView"
 
 
 // table of players with filters and sorting functionality
@@ -20,6 +21,9 @@ export function Table({ players }) {
     const positionFilter = searchParams.get("positionFilter")
     const sortedBy = searchParams.get("sortedBy")
     const sortOrder = searchParams.get("sortOrder")
+    // check if viewport is small and render number of players based on true/false
+    const isMobileView = useMobileView();
+    const renderQuantity = isMobileView ? 20 : 40
 
     // toggle order of players
     function toggleSortOrder(stat) {
@@ -47,7 +51,7 @@ export function Table({ players }) {
             const orderFactor = sortOrder === 'asc' ? 1 : -1
             return (a[sortedBy] - b[sortedBy]) * orderFactor
         })
-        .slice(0, 40 * currentPage)
+        .slice(0, renderQuantity * currentPage)
 
     // array of player positions for position filter dropdown
     const playerPositions = ["ALL", "ST", "CF", "LW", "LM", "RW", "RM", "CAM", "CM", "CDM", "LWB", "LB", "RWB", "RB", "CB"]
