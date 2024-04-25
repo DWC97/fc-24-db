@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /players
+Allow: /leagues
+Allow: /nations
