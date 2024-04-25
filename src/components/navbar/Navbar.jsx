@@ -140,35 +140,41 @@ export function Navbar() {
             </div>
 
             {/* mobile menu */}
-            <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%] hidden"}>
+            <div className={nav ? "fixed left-0 top-0 w-full h-full bg-custom-grey flex flex-col items-center ease-in-out duration-500" : "fixed top-[-100%]"}>
                 <div className="mt-24">
-                    <img src={navLogo} className="w-32" />
+                    <NavLink to={"/"}>
+                        <img src={navLogo} className="w-28" onClick={() => {
+                            setNav(!nav)
+                            toggle()
+                        }} />
+                    </NavLink>
                 </div>
                 <ul className="text-white w-full text-left px-12 pt-4">
-                    <NavLink to={"/"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            setNav(!nav)
-                            toggle()
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
+                        <Link to={"/"}  onClick={() => {
+                        setNav(!nav)
+                        toggle()
                         }}>
                             SEARCH
-                        </li>
-                    </NavLink>
-                    <NavLink to={"players"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            setNav(!nav)
-                            toggle()
+                        </Link>
+                    </li>
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
+                        <Link to={"players"} onClick={() => {
+                        setNav(!nav)
+                        toggle()
                         }}>
                             PLAYERS
-                        </li>
-                    </NavLink>
-                    <li className={`pb-2 pt-4 ${leaguesClicked ? "border-none" : "border-b"} border-gray-100 text-md  cursor-pointer`} onClick={() => {
-                        setLeaguesClicked(!leaguesClicked)
-                    }}>
-                        LEAGUES
+                        </Link>
                     </li>
-                    <div className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
+                    <li className={`pb-2 pt-4 ${leaguesClicked ? "border-none" : "border-b"} border-gray-100 text-md  `} >
+                        <span className="cursor-pointer" onClick={() => {
+                            setLeaguesClicked(!leaguesClicked)
+                        }}>LEAGUES</span>
+                    </li>
+                    <li className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
                         {leagueData.leagues.map(league => {
-                            return <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
+                            return (
+                            <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
                                 onClick={() => {
                                     setNav(!nav)
                                     setLeaguesClicked(false)
@@ -177,16 +183,17 @@ export function Navbar() {
                                 <img src={league.url} className="h-6" />
                                 <span className="left-10 absolute">{league.name}</span>
                             </div></Link>
+                            )
                         })}
-                    </div>
-                    <NavLink to={"nations"}>
-                        <li className="pb-4 pt-4 border-b border-gray-100 text-md" onClick={() => {
-                            setNav(!nav)
-                            toggle()
+                    </li>
+                    <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
+                        <Link to={"nations"} onClick={() => {
+                        setNav(!nav)
+                        toggle()
                         }}>
                             NATIONS
-                        </li>
-                    </NavLink>
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
