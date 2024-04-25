@@ -8,7 +8,7 @@ function useBodyLockScroll() {
     const bodyStyle = document.body.style
 
     useEffect(() => {
-        if (locked){
+        if (locked) {
             bodyStyle.overflowY = "hidden"
         }
         else {
@@ -16,7 +16,7 @@ function useBodyLockScroll() {
         }
     }, [locked])
 
-    function toggle(){
+    function toggle() {
         setLocked(!locked)
     }
 

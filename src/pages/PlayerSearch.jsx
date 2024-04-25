@@ -5,7 +5,7 @@ import { usePlayers } from "../context/PlayersContext"
 import { Table } from "../components/table/Table"
 
 
-export function PlayerSearch(){
+export function PlayerSearch() {
 
     const players = usePlayers() // import player list
 
@@ -16,7 +16,7 @@ export function PlayerSearch(){
                 <p className="text-custom-grey">Ratings & statistics for male players in Europe&apos;s top five leagues. </p>
             </div>
             {/* pass players to table component as prop */}
-            <Table players={players}/>
+            <Table players={players} />
         </div>
     )
 }

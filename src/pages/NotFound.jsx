@@ -1,7 +1,7 @@
 // routing
 import { NavLink } from "react-router-dom"
 
-export function NotFound(){
+export function NotFound() {
     return (
         <div className="flex justify-center items-center w-full flex-col">
             <span className="mt-56 text-custom-maroon font-semibold tracking-wider text-7xl font-mono">

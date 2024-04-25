@@ -22,7 +22,7 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
 
-export function PlayerDetails(){
+export function PlayerDetails() {
 
     const players = usePlayers() // import player list
     const { id } = useParams() // access search param (eg. Martin Ødegaard)
@@ -129,22 +129,22 @@ export function PlayerDetails(){
 
     useEffect(() => {
 
-        if (player){       
+        if (player) {
             fetch(`/proxy?url=${encodeURIComponent(imageUrl)}`)
-            .then(async () => {
-                // if fetch attempt is successful, set the player image as the valid url
-                setPlayerImage(imageUrl)
-            })
-            .catch((error) => {
-                console.error("Error fetching image:", error)
-            })
+                .then(async () => {
+                    // if fetch attempt is successful, set the player image as the valid url
+                    setPlayerImage(imageUrl)
+                })
+                .catch((error) => {
+                    console.error("Error fetching image:", error)
+                })
         }
 
     }, [id])
-    
+
     // function to take in value for attribute and return associated color code in tailwind accepted format
-    function colorGenerator(value, number){
-        if (number < 1){
+    function colorGenerator(value, number) {
+        if (number < 1) {
             if (value < 55) return '#fa5d54'
             else if (value >= 55 && value < 70) return '#f8aa3d'
             else if (value >= 70 && value < 80) return '#f3cc57'
@@ -158,109 +158,109 @@ export function PlayerDetails(){
             else if (value >= 80 && value < 90) return 'text-[#78ca68]'
             else if (value >= 90) return 'text-[#44924a]'
         }
-        
+
     }
 
     return (
         <div>
-            {player ? 
-            <div className="flex flex-col w-full px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-60">
-                {/* header content */}
-               <div className="flex flex-row mt-24 relative justify-between items-center">
-                    <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">
-                        <img src={playerImage} className="w-24 md:w-32" 
-                        // revert to placeholder if error displying image
-                        onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")}/>
-                    </div>
-                    <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
-                        <span className="hidden md:flex md:text-3xl font-medium tracking-widest text-custom-maroon">{player.short_name}</span>
-                        <span className="text-xl flex md:hidden text-custom-maroon">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
-                        <div className="flex flex-row justify-between items-center text-xs md:text-base">   
-                            <div className="flex flex-row items-center hover:text-custom-maroon ease-in-out duration-300">
-                                <Link to={`/clubs/${player.club_name}`} ><span>{player.club_name.toUpperCase()}</span></Link>
-                                <Link to={`/clubs/${player.club_name}`} tabIndex={-1}><img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3"/></Link>
-                            </div>
-                            <div className="flex flex-row ml-2 md:ml-8 items-center hover:text-custom-maroon ease-in-out duration-300">
-                                <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
-                                <Link to={`/nations/${player.nationality_name}`} tabIndex={-1}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3"/></Link>
+            {player ?
+                <div className="flex flex-col w-full px-5 md:px-10 lg:px-20 xl:px-32 2xl:px-60">
+                    {/* header content */}
+                    <div className="flex flex-row mt-24 relative justify-between items-center">
+                        <div className="bg-gray-200 rounded-full overflow-hidden border border-gray-300">
+                            <img src={playerImage} className="w-24 md:w-32"
+                                // revert to placeholder if error displying image
+                                onError={() => setPlayerImage("https://cdn.sofifa.net/player_0.svg")} />
+                        </div>
+                        <div className="absolute flex flex-col justify-around h-full ml-28 md:ml-40 py-4">
+                            <span className="hidden md:flex md:text-3xl font-medium tracking-widest text-custom-maroon">{player.short_name}</span>
+                            <span className="text-xl flex md:hidden text-custom-maroon">{player.short_name}  <span className="font-semibold ml-3">{player.overall}</span></span>
+                            <div className="flex flex-row justify-between items-center text-xs md:text-base">
+                                <div className="flex flex-row items-center hover:text-custom-maroon ease-in-out duration-300">
+                                    <Link to={`/clubs/${player.club_name}`} ><span>{player.club_name.toUpperCase()}</span></Link>
+                                    <Link to={`/clubs/${player.club_name}`} tabIndex={-1}><img src={club.url} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
+                                </div>
+                                <div className="flex flex-row ml-2 md:ml-8 items-center hover:text-custom-maroon ease-in-out duration-300">
+                                    <Link to={`/nations/${player.nationality_name}`}><span>{player.nationality_name.toUpperCase()}</span></Link>
+                                    <Link to={`/nations/${player.nationality_name}`} tabIndex={-1}><img src={nation.code.length > 2 ? nation.code : `https://flagsapi.com/${nation.code}/flat/64.png`} className="w-4 ml-1 md:w-7 md:ml-3" /></Link>
+                                </div>
                             </div>
                         </div>
+                        <div className="hidden md:flex flex-row justify-center items-center text-custom-maroon">
+                            <span className="text-lg mr-2 md:text-2xl md:mr-6">{player.player_positions.split(",")[0]}</span>
+                            <span className="text-4xl md:text-6xl font-semibold">{player.overall}</span>
+                        </div>
                     </div>
-                    <div className="hidden md:flex flex-row justify-center items-center text-custom-maroon">
-                        <span className="text-lg mr-2 md:text-2xl md:mr-6">{player.player_positions.split(",")[0]}</span>
-                        <span className="text-4xl md:text-6xl font-semibold">{player.overall}</span>
+
+                    {/* middle content */}
+                    <div className="flex flex-wrap justify-between items-center mt-4 md:-mt-8">
+                        {/* player description table */}
+                        <div className="w-full md:w-2/4">
+                            <ul className="w-full ">
+                                {Object.entries(playerDesc).map(([key, val], i) => (
+                                    <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2  text-sm lg:text-base">
+                                        <span className="text-gray-700">{key}</span>
+                                        <span className="text-custom-grey font-medium">{val}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        {/* radar chart */}
+                        <div className="w-full md:w-2/5 h-96 flex justify-center items-center">
+                            <RadarChart height={350} width={350}
+                                outerRadius="80%" data={chartData}>
+                                <PolarGrid />
+                                <PolarAngleAxis dataKey="name" />
+                                <PolarRadiusAxis />
+                                <Radar dataKey="x" stroke={colorGenerator(player.overall, 0)}
+                                    fill={colorGenerator(player.overall, 0)} fillOpacity={0.5} />
+                            </RadarChart>
+                        </div>
                     </div>
-               </div>
-                
-                {/* middle content */}
-               <div className="flex flex-wrap justify-between items-center mt-4 md:-mt-8">
-                    {/* player description table */}
-                    <div className="w-full md:w-2/4">
-                        <ul className="w-full ">
-                            {Object.entries(playerDesc).map(([key, val], i) => (
-                                <li key={i} className="w-full flex flex-row justify-between odd:bg-gray-100 even:bg-white px-2  text-sm lg:text-base">
-                                    <span className="text-gray-700">{key}</span>
-                                    <span className="text-custom-grey font-medium">{val}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    {/* radar chart */}
-                    <div className="w-full md:w-2/5 h-96 flex justify-center items-center">
-                        <RadarChart height={350} width={350} 
-                        outerRadius="80%" data={chartData}>
-                            <PolarGrid />
-                            <PolarAngleAxis dataKey="name" />
-                            <PolarRadiusAxis />
-                            <Radar dataKey="x" stroke={colorGenerator(player.overall, 0)}
-                            fill={colorGenerator(player.overall, 0)} fillOpacity={0.5} />
-                        </RadarChart>
-                    </div>
-               </div>
-                
-                {/* progress bars and attribute values */}
-               <div className="flex flex-wrap justify-around w-full ">
-                    {attributeData.map((item, index) => {
-                        return (
-                            <div key={index} className="flex flex-col  items-center w-40 mb-8 sm:w-48 m-w-72">
-                                <span className="font-semibold text-custom-grey mb-4">{item.name.toUpperCase()}</span>
-                                <div className="w-28">
-                                    <CircularProgressbarWithChildren
-                                        value={item.value * 100 / 100}
-                                        circleRatio={0.5}
-                                        strokeWidth={7}
-                                        styles={{
-                                        root: {
-                                            transform: "rotate(0.75turn)"
-                                        },
-                                        path: { stroke: colorGenerator(item.value, 0), strokeLinecap: "butt" },
-                                        trail: { stroke: "#e5e5e5", strokeLinecap: "butt" },
-                                        trailColor: "grey",
-                                        backgroundColor: "red"
-                                        }}
-                                    >
-                                        <span className={`mb-5 text-xl font-semibold 
+
+                    {/* progress bars and attribute values */}
+                    <div className="flex flex-wrap justify-around w-full ">
+                        {attributeData.map((item, index) => {
+                            return (
+                                <div key={index} className="flex flex-col  items-center w-40 mb-8 sm:w-48 m-w-72">
+                                    <span className="font-semibold text-custom-grey mb-4">{item.name.toUpperCase()}</span>
+                                    <div className="w-28">
+                                        <CircularProgressbarWithChildren
+                                            value={item.value * 100 / 100}
+                                            circleRatio={0.5}
+                                            strokeWidth={7}
+                                            styles={{
+                                                root: {
+                                                    transform: "rotate(0.75turn)"
+                                                },
+                                                path: { stroke: colorGenerator(item.value, 0), strokeLinecap: "butt" },
+                                                trail: { stroke: "#e5e5e5", strokeLinecap: "butt" },
+                                                trailColor: "grey",
+                                                backgroundColor: "red"
+                                            }}
+                                        >
+                                            <span className={`mb-5 text-xl font-semibold 
                                         ${colorGenerator(item.value, 1)}
                                         `}>{item.value}</span>
-                                    </CircularProgressbarWithChildren>
+                                        </CircularProgressbarWithChildren>
+                                    </div>
+
+                                    <ul className="-mt-8 w-full">
+                                        {Object.keys(item.stats).map((key, index) => {
+                                            return (
+                                                <li className="w-full flex flex-row justify-between px-4 md:text-sm text-xs py-1 lg:py-2" key={index}>
+                                                    <span className="text-custom-grey">{key}</span> <span className={`${colorGenerator(item.stats[key], 1)} font-semibold`}>{item.stats[key]}</span>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
                                 </div>
-                                
-                                <ul className="-mt-8 w-full">
-                                    {Object.keys(item.stats).map((key, index) => {
-                                        return (
-                                            <li className="w-full flex flex-row justify-between px-4 md:text-sm text-xs py-1 lg:py-2" key={index}>
-                                                <span className="text-custom-grey">{key}</span> <span className={`${colorGenerator(item.stats[key], 1)} font-semibold`}>{item.stats[key]}</span>
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
-                            </div>
-                        )
-                    })}
-               </div>
-            </div>
-            : 
-            <NotFound /> // if the search param doesn't match a valid player in the dataset, return the 404 page
+                            )
+                        })}
+                    </div>
+                </div>
+                :
+                <NotFound /> // if the search param doesn't match a valid player in the dataset, return the 404 page
             }
         </div>
     )

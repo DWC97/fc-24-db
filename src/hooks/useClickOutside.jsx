@@ -2,16 +2,16 @@
 import { useEffect, useRef } from "react"
 
 // listens for when a user clicks outside of a given area
-export function useClickOutside(handler){
+export function useClickOutside(handler) {
 
     let domNode = useRef()
-    
+
     useEffect(() => {
 
-        function maybeHandler(e){
-            if (!domNode.current?.contains(e.target)){
+        function maybeHandler(e) {
+            if (!domNode.current?.contains(e.target)) {
                 handler()
-            }    
+            }
         }
 
         document.addEventListener("mousedown", maybeHandler)

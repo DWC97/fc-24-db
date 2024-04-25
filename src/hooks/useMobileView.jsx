@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // check for mobile viewport width
-function useMobileView(){
+function useMobileView() {
     const [mobileView, setMobileView] = useState(false); // State to keep track of mobile view
 
     useEffect(() => {

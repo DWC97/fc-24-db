@@ -35,7 +35,7 @@ export function Navbar() {
     // set mobile menu to false when viewport is large
     useEffect(() => {
         if (!nav) return
-        if (!isMobileView){
+        if (!isMobileView) {
             setNav(!nav)
             toggle()
         }
@@ -162,17 +162,17 @@ export function Navbar() {
                 </div>
                 <ul className="text-white w-full text-left px-12 pt-4">
                     <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
-                        <Link to={"/"}  onClick={() => {
-                        setNav(!nav)
-                        toggle()
+                        <Link to={"/"} onClick={() => {
+                            setNav(!nav)
+                            toggle()
                         }}>
                             SEARCH
                         </Link>
                     </li>
                     <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
                         <Link to={"players"} onClick={() => {
-                        setNav(!nav)
-                        toggle()
+                            setNav(!nav)
+                            toggle()
                         }}>
                             PLAYERS
                         </Link>
@@ -185,22 +185,22 @@ export function Navbar() {
                     <li className={`${leaguesClicked ? "flex flex-col" : "hidden"} border-b border-gray-100 pb-4`}>
                         {leagueData.leagues.map(league => {
                             return (
-                            <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
-                                onClick={() => {
-                                    setNav(!nav)
-                                    setLeaguesClicked(false)
-                                    toggle()
-                                }}>
-                                <img src={league.url} className="h-6" />
-                                <span className="left-10 absolute">{league.name}</span>
-                            </div></Link>
+                                <Link to={`/leagues/${league.name}`} key={league.name}><div className="py-2 font-light flex flex-row items-center relative text-sm"
+                                    onClick={() => {
+                                        setNav(!nav)
+                                        setLeaguesClicked(false)
+                                        toggle()
+                                    }}>
+                                    <img src={league.url} className="h-6" />
+                                    <span className="left-10 absolute">{league.name}</span>
+                                </div></Link>
                             )
                         })}
                     </li>
                     <li className="pb-4 pt-4 border-b border-gray-100 text-md" >
                         <Link to={"nations"} onClick={() => {
-                        setNav(!nav)
-                        toggle()
+                            setNav(!nav)
+                            toggle()
                         }}>
                             NATIONS
                         </Link>
